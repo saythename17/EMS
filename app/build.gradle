@@ -42,6 +42,5 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    implementation 'com.pm10:indicator:1.0.2'
     implementation 'com.github.juyao:WaterDropIndicatorDemo:v1.0.2'
 }
