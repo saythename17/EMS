@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:elevation="@dimen/cardview_compat_inset_shadow"
+    android:background="@drawable/semple_bg_launch"
+    android:backgroundTint="#5FFF"
+    android:backgroundTintMode="src_over"
+    tools:context=".LaunchActivity">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/launch_bg"
+        android:scaleType="centerCrop"/>
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/heartandbrain_black"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.3"/>
+
+    <TextView
+        android:id="@+id/launch_tv"
+        android:layout_width="wrap_content"
+        android:paddingHorizontal="32dp"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/hand"
+        android:text="“One day, in retrospect, the years of struggle will strike you as the most beautiful.”"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <TextView
+        android:id="@+id/launch_tv2"
+        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:paddingHorizontal="40dp"
+        android:gravity="right"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/launch_tv"
+        android:fontFamily="@font/spartwell"
+        android:text="― Sigmund Freud"
+        android:textSize="24sp"
+        android:textColor="@color/colorPrimary"/>
+<!--    serif-monospace-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

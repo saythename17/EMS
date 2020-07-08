@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IntroActivity">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/introVP"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <top.dodeman.waterdropindicator.WaterDropIndicator
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:selectColor="#FFF"
+        app:defaultColor="#00BCD4"
+        app:itemSpace="60dp"
+        app:bigRadius="15dp"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="16dp"/>
+
+</RelativeLayout>
