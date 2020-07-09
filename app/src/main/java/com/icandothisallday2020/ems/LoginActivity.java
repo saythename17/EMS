@@ -1,8 +1,12 @@
 package com.icandothisallday2020.ems;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
@@ -33,9 +37,25 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        String key=getKeyHash(this);
-        Log.i("key", getKeyHash(this));
-    //    Session.getCurrentSession().addCallback(sessionCallback);
+        //Dialog telling users that the email consent is required
+        AlertDialog.Builder builder=new AlertDialog.Builder(this,android.R.style.Theme_Material_Dialog);
+        builder.setTitle("You must agree to the email collection.");//When you log in, you must check the consent of the email collection items.
+        builder.setMessage("\nOtherwise, any information you write will not be saved.\n");//"EMS identifies users by email \nand stores the data in the DB.\n"
+        //└
+        builder.setIcon(android.R.drawable.ic_dialog_alert);
+        builder.setPositiveButton("Check", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        AlertDialog dialog=builder.create();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
+
+
+//        String key=getKeyHash(this);
+//        Log.i("key", getKeyHash(this));
+        Session.getCurrentSession().addCallback(sessionCallback);
     }
 
 
@@ -43,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
     ISessionCallback sessionCallback = new ISessionCallback() {
         @Override
         public void onSessionOpened() {
-            Toast.makeText(LoginActivity.this, "Success to connect Login Session", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, "Success to Login", Toast.LENGTH_SHORT).show();
 
             //receive information of user
             requestUserInfo();
@@ -69,9 +89,15 @@ public class LoginActivity extends AppCompatActivity {
                 UserAccount account = result.getKakaoAccount();
                 if (account == null) return;
 
-                G.userName = account.getProfile().getNickname();
-                G.userEmail = account.getEmail();
-                G.userThumbnail = account.getProfile().getThumbnailImageUrl();
+                SharedPreferences preferences=getSharedPreferences("Data",MODE_PRIVATE);
+                SharedPreferences.Editor editor=preferences.edit();
+                editor.putBoolean("Login",true);
+                editor.putString("Name",account.getProfile().getNickname());
+                editor.putString("Email",account.getEmail());
+                editor.putString("ProfileUrl",account.getProfile().getProfileImageUrl());
+                editor.commit();
+                Intent intent=new Intent(LoginActivity.this,MainActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -86,21 +112,21 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-    public static String getKeyHash(final Context context) {
-        PackageInfo packageInfo = getPackageInfo(context, PackageManager.GET_SIGNATURES);
-        if (packageInfo == null)
-            return null;
-
-        for (Signature signature : packageInfo.signatures) {
-            try {
-                MessageDigest md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                return Base64.encodeToString(md.digest(), Base64.NO_WRAP);
-            } catch (NoSuchAlgorithmException e) {
-                Log.w("TAG", "Unable to get MessageDigest. signature=" + signature, e);
-            }
-        }
-        return null;
-    }
+//    public static String getKeyHash(final Context context) {
+//        PackageInfo packageInfo = getPackageInfo(context, PackageManager.GET_SIGNATURES);
+//        if (packageInfo == null)
+//            return null;
+//
+//        for (Signature signature : packageInfo.signatures) {
+//            try {
+//                MessageDigest md = MessageDigest.getInstance("SHA");
+//                md.update(signature.toByteArray());
+//                return Base64.encodeToString(md.digest(), Base64.NO_WRAP);
+//            } catch (NoSuchAlgorithmException e) {
+//                Log.w("TAG", "Unable to get MessageDigest. signature=" + signature, e);
+//            }
+//        }
+//        return null;
+//    }
 }
 

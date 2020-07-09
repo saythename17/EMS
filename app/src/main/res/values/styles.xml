@@ -16,4 +16,12 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+
+    <!--    Toolbar Style-->
+    <style name="AppTheme.Toolbar">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="titleTextColor">#FFFF</item>
+        <!--     set toolbar's menu items's color -->
+        <item name="colorControlNormal">#FFF</item>
+    </style>
 </resources>
