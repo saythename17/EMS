@@ -43,4 +43,9 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.github.juyao:WaterDropIndicatorDemo:v1.0.2'
+
+    //원하는 카카오 제품선택, // 카카오 로그인
+    implementation group: 'com.kakao.sdk', name: 'usermgmt', version: '1.29.0'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
 }

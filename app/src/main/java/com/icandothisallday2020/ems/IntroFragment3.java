@@ -20,7 +20,8 @@ public class IntroFragment3 extends Fragment {
         introX.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent();
+                Intent intent=new Intent(getContext(),LoginActivity.class);
+                startActivity(intent);
             }
         });
 

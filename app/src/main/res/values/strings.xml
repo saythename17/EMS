@@ -3,4 +3,9 @@
     <string name="introED">Introduce of Emotion Diary \n\n It is ....</string>
     <string name="introOJ">Introduce of Observation Journal \n\n It is....</string>
     <string name="introBP">Introduce of Bliss Plan \n\n  Bliss means what you feel meaningful.\n Follow your bliss. \n Make your life meaningful with EMS\'s Bliss Plan.</string>
+    <string-array name="launchText">
+        <item>"If you can concentrate always on the present, you'll be a happy man." - Paulo Cuelho</item>
+        <item>"Men are wise in proportion, not to their experience, but to their capacity for experience." - James Boswell</item>
+        <item>"True life is lived when tiny changes occur." - Leo Tolstoy</item>
+    </string-array>
 </resources>

@@ -14,7 +14,7 @@ public class LaunchActivity extends AppCompatActivity {
 
     }
 
-    boolean isFirst=true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,9 +23,9 @@ public class LaunchActivity extends AppCompatActivity {
 
 
 
-        if(isFirst) {
+        if(G.isFirst) {
             firstTimeHandler.sendEmptyMessageDelayed(0,4000);
-            isFirst=false;
+            G.isFirst=false;
         }
         else{
             mainHandler.sendEmptyMessageDelayed(0,4000);
