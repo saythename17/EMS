@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout drawer;
     ViewPager pager;
     MainAdapter adapter;
-    ImageView btnFeed, btnED, btnWrite, btnOJ, btnBP, btnMenu;
+    ImageView feed, ed, write, oj, bp, menu, menu2;
 
     NavigationView nv;
 
@@ -29,36 +29,31 @@ public class MainActivity extends AppCompatActivity {
         nv=findViewById(R.id.nv);
 
 
-        btnMenu=findViewById(R.id.menu);
-        Animation animation=AnimationUtils.loadAnimation(this,R.anim.nv_ani);
-        btnMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btnMenu.startAnimation(animation);
-                drawer.openDrawer(nv);
-            }
-        });
+        menu =findViewById(R.id.menu);
+        menu.setOnClickListener(menuListener);
+        menu2=findViewById(R.id.menu2);
+        menu2.setVisibility(View.GONE);
+        menu2.setOnClickListener(menuListener);
 
 
 
 
 
 
+        feed =findViewById(R.id.feed);
+        feed.setOnClickListener(btnClick);
 
-        btnFeed=findViewById(R.id.feed);
-        btnFeed.setOnClickListener(btnClick);
+        ed =findViewById(R.id.ed);
+        ed.setOnClickListener(btnClick);
 
-        btnED=findViewById(R.id.ed);
-        btnED.setOnClickListener(btnClick);
+        write =findViewById(R.id.write);
+        write.setOnClickListener(btnClick);
 
-        btnWrite=findViewById(R.id.write);
-        btnWrite.setOnClickListener(btnClick);
+        oj =findViewById(R.id.oj);
+        oj.setOnClickListener(btnClick);
 
-        btnOJ=findViewById(R.id.oj);
-        btnOJ.setOnClickListener(btnClick);
-
-        btnBP=findViewById(R.id.bp);
-        btnBP.setOnClickListener(btnClick);
+        bp =findViewById(R.id.bp);
+        bp.setOnClickListener(btnClick);
 
 
 
@@ -78,44 +73,66 @@ public class MainActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
                 switch (position){
                     case 0:
-                        btnFeed.setImageResource(R.drawable.ic_feed_color);
-                        btnED.setImageResource(R.drawable.ic_ed_white);
-                        btnWrite.setImageResource(R.drawable.ic_write_white);
-                        btnWrite.setBackgroundResource(R.drawable.menu_write_outline);
-                        btnOJ.setImageResource(R.drawable.ic_oj_white);
-                        btnBP.setImageResource(R.drawable.ic_bp_white);
+                        menu2.setVisibility(View.GONE);
+
+
+
+                        feed.setImageResource(R.drawable.ic_feed_color);
+                        ed.setImageResource(R.drawable.ic_ed_white);
+                        write.setImageResource(R.drawable.ic_write_white);
+                        write.setBackgroundResource(R.drawable.menu_write_outline);
+                        oj.setImageResource(R.drawable.ic_oj_white);
+                        bp.setImageResource(R.drawable.ic_bp_white);
                         break;
                     case 1:
-                        btnFeed.setImageResource(R.drawable.ic_feed_white);
-                        btnED.setImageResource(R.drawable.ic_ed_color);
-                        btnWrite.setImageResource(R.drawable.ic_write_white);
-                        btnWrite.setBackgroundResource(R.drawable.menu_write_outline);
-                        btnOJ.setImageResource(R.drawable.ic_oj_white);
-                        btnBP.setImageResource(R.drawable.ic_bp_white);
+                        menu2.setVisibility(View.VISIBLE);
+                        menu2.setImageResource(R.drawable.ic_graph);
+
+
+
+                        feed.setImageResource(R.drawable.ic_feed_white);
+                        ed.setImageResource(R.drawable.ic_ed_color);
+                        write.setImageResource(R.drawable.ic_write_white);
+                        write.setBackgroundResource(R.drawable.menu_write_outline);
+                        oj.setImageResource(R.drawable.ic_oj_white);
+                        bp.setImageResource(R.drawable.ic_bp_white);
                         break;
                     case 2:
-                        btnFeed.setImageResource(R.drawable.ic_feed_white);
-                        btnED.setImageResource(R.drawable.ic_ed_white);
-                        btnWrite.setImageResource(R.drawable.ic_write_color);
-                        btnWrite.setBackgroundResource(R.drawable.menu_write_colorline);
-                        btnOJ.setImageResource(R.drawable.ic_oj_white);
-                        btnBP.setImageResource(R.drawable.ic_bp_white);
+                        menu2.setVisibility(View.GONE);
+
+
+
+                        feed.setImageResource(R.drawable.ic_feed_white);
+                        ed.setImageResource(R.drawable.ic_ed_white);
+                        write.setImageResource(R.drawable.ic_write_color);
+                        write.setBackgroundResource(R.drawable.menu_write_colorline);
+                        oj.setImageResource(R.drawable.ic_oj_white);
+                        bp.setImageResource(R.drawable.ic_bp_white);
                         break;
                     case 3:
-                        btnFeed.setImageResource(R.drawable.ic_feed_white);
-                        btnED.setImageResource(R.drawable.ic_ed_white);
-                        btnWrite.setImageResource(R.drawable.ic_write_white);
-                        btnWrite.setBackgroundResource(R.drawable.menu_write_outline);
-                        btnOJ.setImageResource(R.drawable.ic_oj_color);
-                        btnBP.setImageResource(R.drawable.ic_bp_white);
+                        menu2.setVisibility(View.VISIBLE);
+                        menu2.setImageResource(R.drawable.ic_calender);
+
+
+
+                        feed.setImageResource(R.drawable.ic_feed_white);
+                        ed.setImageResource(R.drawable.ic_ed_white);
+                        write.setImageResource(R.drawable.ic_write_white);
+                        write.setBackgroundResource(R.drawable.menu_write_outline);
+                        oj.setImageResource(R.drawable.ic_oj_color);
+                        bp.setImageResource(R.drawable.ic_bp_white);
                         break;
                     case 4:
-                        btnFeed.setImageResource(R.drawable.ic_feed_white);
-                        btnED.setImageResource(R.drawable.ic_ed_white);
-                        btnWrite.setImageResource(R.drawable.ic_write_white);
-                        btnWrite.setBackgroundResource(R.drawable.menu_write_outline);
-                        btnOJ.setImageResource(R.drawable.ic_oj_white);
-                        btnBP.setImageResource(R.drawable.ic_bp_color);
+                        menu2.setVisibility(View.GONE);
+
+
+
+                        feed.setImageResource(R.drawable.ic_feed_white);
+                        ed.setImageResource(R.drawable.ic_ed_white);
+                        write.setImageResource(R.drawable.ic_write_white);
+                        write.setBackgroundResource(R.drawable.menu_write_outline);
+                        oj.setImageResource(R.drawable.ic_oj_white);
+                        bp.setImageResource(R.drawable.ic_bp_color);
                         break;
                 }
             }
@@ -130,6 +147,29 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    View.OnClickListener menuListener= new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.menu:
+                    Animation animation=AnimationUtils.loadAnimation(MainActivity.this,R.anim.nv_ani);
+                    menu.startAnimation(animation);
+                    drawer.openDrawer(nv);
+                    break;
+                case R.id.menu2:
+                    animation=AnimationUtils.loadAnimation(MainActivity.this,R.anim.menu2_ani);
+                    menu2.startAnimation(animation);
+                    if(pager.getCurrentItem()==1){
+
+                    }else if(pager.getCurrentItem()==3){
+
+                    }
+                    break;
+
+            }
+        }
+    };
 
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
@@ -147,59 +187,59 @@ public class MainActivity extends AppCompatActivity {
 
 
                     Animation animation= AnimationUtils.loadAnimation(MainActivity.this,R.anim.menu_ani);
-                    btnFeed.startAnimation(animation);
+                    feed.startAnimation(animation);
 
-                    btnFeed.setImageResource(R.drawable.ic_feed_color);
-                    btnED.setImageResource(R.drawable.ic_ed_white);
-                    btnWrite.setImageResource(R.drawable.ic_write_white);
-                    btnWrite.setBackgroundResource(R.drawable.menu_write_outline);
-                    btnOJ.setImageResource(R.drawable.ic_oj_white);
-                    btnBP.setImageResource(R.drawable.ic_bp_white);
+                    feed.setImageResource(R.drawable.ic_feed_color);
+                    ed.setImageResource(R.drawable.ic_ed_white);
+                    write.setImageResource(R.drawable.ic_write_white);
+                    write.setBackgroundResource(R.drawable.menu_write_outline);
+                    oj.setImageResource(R.drawable.ic_oj_white);
+                    bp.setImageResource(R.drawable.ic_bp_white);
                     pager.setCurrentItem(0);
                     break;
                 case R.id.ed:
 
 
                     animation= AnimationUtils.loadAnimation(MainActivity.this,R.anim.menu_ani);
-                    btnED.startAnimation(animation);
+                    ed.startAnimation(animation);
 
 
 
-                    btnFeed.setImageResource(R.drawable.ic_feed_white);
-                    btnED.setImageResource(R.drawable.ic_ed_color);
-                    btnWrite.setImageResource(R.drawable.ic_write_white);
-                    btnWrite.setBackgroundResource(R.drawable.menu_write_outline);
-                    btnOJ.setImageResource(R.drawable.ic_oj_white);
-                    btnBP.setImageResource(R.drawable.ic_bp_white);
+                    feed.setImageResource(R.drawable.ic_feed_white);
+                    ed.setImageResource(R.drawable.ic_ed_color);
+                    write.setImageResource(R.drawable.ic_write_white);
+                    write.setBackgroundResource(R.drawable.menu_write_outline);
+                    oj.setImageResource(R.drawable.ic_oj_white);
+                    bp.setImageResource(R.drawable.ic_bp_white);
                     pager.setCurrentItem(1);
                     break;
                 case R.id.write:
 
 
                     animation= AnimationUtils.loadAnimation(MainActivity.this,R.anim.write_ani);
-                    btnWrite.startAnimation(animation);
+                    write.startAnimation(animation);
 
-                    btnFeed.setImageResource(R.drawable.ic_feed_white);
-                    btnED.setImageResource(R.drawable.ic_ed_white);
-                    btnWrite.setImageResource(R.drawable.ic_write_color);
-                    btnWrite.setBackgroundResource(R.drawable.menu_write_colorline);
-                    btnOJ.setImageResource(R.drawable.ic_oj_white);
-                    btnBP.setImageResource(R.drawable.ic_bp_white);
+                    feed.setImageResource(R.drawable.ic_feed_white);
+                    ed.setImageResource(R.drawable.ic_ed_white);
+                    write.setImageResource(R.drawable.ic_write_color);
+                    write.setBackgroundResource(R.drawable.menu_write_colorline);
+                    oj.setImageResource(R.drawable.ic_oj_white);
+                    bp.setImageResource(R.drawable.ic_bp_white);
                     pager.setCurrentItem(2);
                     break;
                 case R.id.oj:
 
 
                     animation= AnimationUtils.loadAnimation(MainActivity.this,R.anim.menu_ani);
-                    btnOJ.startAnimation(animation);
+                    oj.startAnimation(animation);
 
 
-                    btnFeed.setImageResource(R.drawable.ic_feed_white);
-                    btnED.setImageResource(R.drawable.ic_ed_white);
-                    btnWrite.setImageResource(R.drawable.ic_write_white);
-                    btnWrite.setBackgroundResource(R.drawable.menu_write_outline);
-                    btnOJ.setImageResource(R.drawable.ic_oj_color);
-                    btnBP.setImageResource(R.drawable.ic_bp_white);
+                    feed.setImageResource(R.drawable.ic_feed_white);
+                    ed.setImageResource(R.drawable.ic_ed_white);
+                    write.setImageResource(R.drawable.ic_write_white);
+                    write.setBackgroundResource(R.drawable.menu_write_outline);
+                    oj.setImageResource(R.drawable.ic_oj_color);
+                    bp.setImageResource(R.drawable.ic_bp_white);
                     pager.setCurrentItem(3);
                     break;
                 case R.id.bp:
@@ -208,15 +248,15 @@ public class MainActivity extends AppCompatActivity {
 
 
                     animation= AnimationUtils.loadAnimation(MainActivity.this,R.anim.menu_ani);
-                    btnBP.startAnimation(animation);
+                    bp.startAnimation(animation);
 
 
-                    btnFeed.setImageResource(R.drawable.ic_feed_white);
-                    btnED.setImageResource(R.drawable.ic_ed_white);
-                    btnWrite.setImageResource(R.drawable.ic_write_white);
-                    btnWrite.setBackgroundResource(R.drawable.menu_write_outline);
-                    btnOJ.setImageResource(R.drawable.ic_oj_white);
-                    btnBP.setImageResource(R.drawable.ic_bp_color);
+                    feed.setImageResource(R.drawable.ic_feed_white);
+                    ed.setImageResource(R.drawable.ic_ed_white);
+                    write.setImageResource(R.drawable.ic_write_white);
+                    write.setBackgroundResource(R.drawable.menu_write_outline);
+                    oj.setImageResource(R.drawable.ic_oj_white);
+                    bp.setImageResource(R.drawable.ic_bp_color);
                     pager.setCurrentItem(4);
                     break;
             }

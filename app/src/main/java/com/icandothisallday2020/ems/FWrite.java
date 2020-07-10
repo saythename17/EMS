@@ -41,17 +41,35 @@ public class FWrite extends Fragment {
             switch (v.getId()){
                 case R.id.writeED:
                     Intent  intent=new Intent(getContext(), FWriteEDActivity.class);
-                    startActivity(intent);
+                    startActivityForResult(intent,1);
                     break;
                 case R.id.writeOJ:
                     intent=new Intent(getContext(), FWriteOJActivity.class);
-                    startActivity(intent);
+                    startActivityForResult(intent,2);
                     break;
                 case R.id.writeBP:
                     intent=new Intent(getContext(), FWriteBPActivity.class);
-                    startActivity(intent);
+                    startActivityForResult(intent,3);
                     break;
             }
         }
     };
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        MainActivity mainActivity=(MainActivity) getActivity();
+        switch (requestCode){
+            case 1:
+                mainActivity.pager.setCurrentItem(1);
+                break;
+            case 2:
+                mainActivity.pager.setCurrentItem(3);
+                break;
+            case 3:
+                mainActivity.pager.setCurrentItem(4);
+                break;
+
+        }
+    }
 }

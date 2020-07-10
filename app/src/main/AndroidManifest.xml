@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".FWriteBPActivity"></activity>
+        <activity android:name=".FOJDetailActivity"></activity>
+        <activity android:name=".FWriteBPActivity" />
         <activity android:name=".FWriteOJActivity" />
         <activity android:name=".FWriteEDActivity" />
         <activity android:name=".LoginActivity" />

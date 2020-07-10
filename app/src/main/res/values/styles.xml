@@ -18,10 +18,16 @@
 
 
     <!--    Toolbar Style-->
-    <style name="AppTheme.Toolbar">
-        <item name="android:background">@color/colorPrimary</item>
-        <item name="titleTextColor">#FFFF</item>
-        <!--     set toolbar's menu items's color -->
-        <item name="colorControlNormal">#FFF</item>
+<!--    <style name="AppTheme.Toolbar">-->
+<!--        <item name="android:background">@color/colorPrimary</item>-->
+<!--        <item name="titleTextColor">#FFFF</item>-->
+<!--        &lt;!&ndash;     set toolbar's menu items's color &ndash;&gt;-->
+<!--        <item name="colorControlNormal">#FFF</item>-->
+<!--    </style>-->
+
+    <style name="MyDialog" parent="Theme.AppCompat.Dialog">
+        <item name="colorAccent">#A137F8</item>
+        <item name="android:background">#4E4E4E</item>
+        <item name="android:gravity">center</item>
     </style>
 </resources>

@@ -1,9 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context=".FWriteOJActivity">
+    <ImageView
+        android:id="@+id/fwoj_back"
+        android:layout_margin="8dp"
+        android:src="@drawable/ic_back_white"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:clickable="true"
+        android:onClick="back"/>
+    <ImageView
+        android:id="@+id/fwoj_guide"
+        android:src="@drawable/ic_key_white"
+        android:layout_margin="8dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_toLeftOf="@id/fwoj_complete"
+        android:autofillHints="Show Guide"
+        android:clickable="true"
+        android:onClick="guide"/>
+    <ImageView
+        android:id="@+id/fwoj_complete"
+        android:layout_marginRight="12dp"
+        android:layout_marginVertical="8dp"
+        android:src="@drawable/ic_check_white"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentRight="true"
+        android:clickable="true"
+        android:onClick="complete"/>
+    <TextView
+        android:id="@+id/ojQ"
+        android:layout_marginHorizontal="32dp"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fwoj_complete"
+        android:layout_centerHorizontal="true"
+        android:text="What do you want to get through writing this journal?"
+        android:fontFamily="serif-monospace"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#FFF"/>
+    <TextView
+        android:id="@+id/o"
+        android:layout_marginTop="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ojQ"
+        android:layout_centerHorizontal="true"
+        android:text="●"
+        android:textSize="8sp"
+        android:textColor="#FFF"/>
+    <ImageView
+        android:id="@+id/line"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/o"
+        android:layout_centerHorizontal="true"
+        android:background="#FFF"/>
+    <ImageView
+        android:id="@+id/fwoj_write"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/line"
+        android:src="@drawable/ic_write_white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:clickable="true"/>
+    <EditText
+        android:id="@+id/user_writeOJ"
+        android:padding="24dp"
+        android:gravity="start"
+        android:layout_below="@id/line"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="20dp"
+        android:textColor="#FFF"
+        android:fontFamily="serif-monospace"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</RelativeLayout>
