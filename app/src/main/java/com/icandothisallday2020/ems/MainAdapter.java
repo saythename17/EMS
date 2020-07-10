@@ -1,7 +1,5 @@
 package com.icandothisallday2020.ems;
 
-import android.widget.Toolbar;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -12,11 +10,11 @@ public class MainAdapter extends FragmentPagerAdapter {
 
     public MainAdapter(@NonNull FragmentManager fm) {
         super(fm);
-        fragments[0]=new FragmentFeed();
-        fragments[1]=new FragmentED();
-        fragments[2]=new FragmentWrite();
-        fragments[3]=new FragmentOJ();
-        fragments[4]=new FragmentBP();
+        fragments[0]=new FFeed();
+        fragments[1]=new FED();
+        fragments[2]=new FWrite();
+        fragments[3]=new FOJ();
+        fragments[4]=new FBP();
     }
 
     @NonNull

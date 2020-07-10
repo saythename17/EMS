@@ -1,14 +1,10 @@
 package com.icandothisallday2020.ems;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -34,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         btnMenu=findViewById(R.id.menu);
-        Animation animation=AnimationUtils.loadAnimation(this,R.anim.mainmenu_action);
+        Animation animation=AnimationUtils.loadAnimation(this,R.anim.nv_ani);
         btnMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -150,8 +146,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-//                    Animation animation= AnimationUtils.loadAnimation(MainActivity.this,R.anim.mainmenu_action);
-//                    btnFeed.startAnimation(animation);
+                    Animation animation= AnimationUtils.loadAnimation(MainActivity.this,R.anim.menu_ani);
+                    btnFeed.startAnimation(animation);
 
                     btnFeed.setImageResource(R.drawable.ic_feed_color);
                     btnED.setImageResource(R.drawable.ic_ed_white);
@@ -164,6 +160,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.ed:
 
 
+                    animation= AnimationUtils.loadAnimation(MainActivity.this,R.anim.menu_ani);
+                    btnED.startAnimation(animation);
 
 
 
@@ -178,7 +176,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.write:
 
 
-
+                    animation= AnimationUtils.loadAnimation(MainActivity.this,R.anim.write_ani);
+                    btnWrite.startAnimation(animation);
 
                     btnFeed.setImageResource(R.drawable.ic_feed_white);
                     btnED.setImageResource(R.drawable.ic_ed_white);
@@ -190,6 +189,9 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.oj:
 
+
+                    animation= AnimationUtils.loadAnimation(MainActivity.this,R.anim.menu_ani);
+                    btnOJ.startAnimation(animation);
 
 
                     btnFeed.setImageResource(R.drawable.ic_feed_white);
@@ -203,6 +205,10 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.bp:
 
 
+
+
+                    animation= AnimationUtils.loadAnimation(MainActivity.this,R.anim.menu_ani);
+                    btnBP.startAnimation(animation);
 
 
                     btnFeed.setImageResource(R.drawable.ic_feed_white);
