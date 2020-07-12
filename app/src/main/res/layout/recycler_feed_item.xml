@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    android:layout_marginBottom="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="40dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/feedImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#C000"
+            android:backgroundTintMode="src_over"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/blue_purple_bg"/>
+        <TextView
+            android:id="@+id/feedTitle"
+            android:layout_marginHorizontal="32dp"
+            android:paddingVertical="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="How to write the Emotion Diary?"
+            android:layout_centerInParent="true"
+            android:fontFamily="serif-monospace"
+            android:textSize="16sp"
+            android:textColor="@color/colorText"
+            android:background="#000"
+            android:gravity="center"
+            app:layout_constraintBottom_toTopOf="@id/feedText"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintVertical_bias="0.7"
+            android:elevation="8dp"/>
+        <TextView
+            android:id="@+id/feedText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="How to write the Emotion Diary?"
+            android:layout_centerInParent="true"
+            android:fontFamily="serif-monospace"
+            android:textSize="16sp"
+            android:textColor="@color/colorText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:paddingHorizontal="16dp"
+            android:gravity="center"
+            android:layout_margin="16dp"
+            android:maxLines="3"
+            android:ellipsize="end"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

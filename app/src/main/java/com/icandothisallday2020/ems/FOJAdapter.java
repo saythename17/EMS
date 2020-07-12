@@ -16,11 +16,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class OJAdapter extends RecyclerView.Adapter {
+public class FOJAdapter extends RecyclerView.Adapter {
     Context context;
-    ArrayList<OJItem> items;
+    ArrayList<FOJItem> items;
 
-    public OJAdapter(Context context, ArrayList<OJItem> items) {
+    public FOJAdapter(Context context, ArrayList<FOJItem> items) {
         this.context = context;
         this.items = items;
     }
@@ -37,7 +37,7 @@ public class OJAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         VH vh=(VH)holder;
-        OJItem ojItem=items.get(position);
+        FOJItem ojItem=items.get(position);
         vh.date.setText(ojItem.date);
         vh.q.setText(ojItem.q);
     }
@@ -58,7 +58,7 @@ public class OJAdapter extends RecyclerView.Adapter {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    OJItem ojItem=items.get(getLayoutPosition());
+                    FOJItem ojItem=items.get(getLayoutPosition());
                     //Reference item data--now position
                     Intent intent=new Intent(context,FOJDetailActivity.class);
                     intent.putExtra("Position",getLayoutPosition());

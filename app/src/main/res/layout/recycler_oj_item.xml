@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:contentPadding="10dp"
     android:paddingHorizontal="16dp"
-    android:elevation="16dp"
+    android:paddingVertical="8dp"
     android:background="#2FFF"
     android:layout_marginTop="4dp">
         <TextView

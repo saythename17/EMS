@@ -1,10 +1,15 @@
 package com.icandothisallday2020.ems;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.SuppressLint;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -20,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     NavigationView nv;
 
+    @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,15 +34,30 @@ public class MainActivity extends AppCompatActivity {
         pager=findViewById(R.id.mainPager);
         nv=findViewById(R.id.nv);
 
+        nv.setItemTextColor(ColorStateList.valueOf(R.color.colorDarkGray));
+        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+                    case R.id.alarm:
+                        break;
+                    case R.id.scrap:
+                        break;
+                    case R.id.my:
+                        break;
+                    case R.id.privacyPolicy:
+                        break;
+                }
+                drawer.closeDrawer(nv);
+                return false;
+            }
+        });
 
         menu =findViewById(R.id.menu);
         menu.setOnClickListener(menuListener);
         menu2=findViewById(R.id.menu2);
         menu2.setVisibility(View.GONE);
         menu2.setOnClickListener(menuListener);
-
-
-
 
 
 
@@ -147,6 +168,16 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    //nv Drawer -------------------------------
+    public void changeProfile(View view){
+
+    }
+
+    public void changeName(View view){
+
+    }
+    //-----------------------------------------
 
     View.OnClickListener menuListener= new View.OnClickListener() {
         @Override
