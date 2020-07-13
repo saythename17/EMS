@@ -7,15 +7,22 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.CalendarView;
+import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawer;
@@ -194,7 +201,18 @@ public class MainActivity extends AppCompatActivity {
                     if(pager.getCurrentItem()==1){
 
                     }else if(pager.getCurrentItem()==3){
+                        Calendar c=Calendar.getInstance();
+                        int year=c.get(Calendar.YEAR);
+                        int month=c.get(Calendar.MONTH);
+                        int day=c.get(Calendar.DAY_OF_MONTH);
 
+                        DatePickerDialog datePickerDialog=new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                                Toast.makeText(MainActivity.this, year+"/"+"/"+month+"/"+dayOfMonth, Toast.LENGTH_SHORT).show();
+                            }
+                        },year,month,day);
+                        datePickerDialog.show();
                     }
                     break;
 

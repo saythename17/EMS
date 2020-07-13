@@ -76,7 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
-                android:textColor="#727CB3"
+                android:textColor="@color/colorSky"
                 android:fontFamily="serif-monospace"
                 android:text="2020-07-10 3:15PM"
                 android:gravity="center_horizontal"/>

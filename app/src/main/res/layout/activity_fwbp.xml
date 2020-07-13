@@ -1,9 +1,264 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".FWriteBPActivity">
+    <ImageView
+        android:id="@+id/fwbp_back"
+        android:src="@drawable/ic_back_white"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:clickable="true"
+        android:onClick="back"/>
+    <ImageView
+        android:id="@+id/fwbp_guide"
+        android:src="@drawable/ic_key_white"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginRight="8dp"
+        android:layout_toLeftOf="@id/fwbp_complete"
+        android:autofillHints="Show Guide"
+        android:clickable="true"
+        android:onClick="guide"/>
+    <ImageView
+        android:id="@+id/fwbp_complete"
+        android:layout_marginRight="12dp"
+        android:src="@drawable/ic_check_white"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentRight="true"
+        android:clickable="true"
+        android:onClick="complete"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+        android:layout_below="@id/fwbp_back"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/bpQ1"
+                android:layout_marginHorizontal="10dp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="What is your BLISS?\n(What is the most important value?)"
+                android:fontFamily="serif-monospace"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#FFF"/>
+            <TextView
+                android:id="@+id/o"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bpQ1"
+                android:layout_centerHorizontal="true"
+                android:text="●"
+                android:textSize="4sp"
+                android:textColor="#FFF"/>
+            <EditText
+                android:id="@+id/bpet1"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/o"
+                android:layout_marginTop="8dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/menu_write_outline"
+                android:textColor="@color/colorText"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:fontFamily="serif-monospace"
+                android:hint="What do you feel meaningful?"
+                android:textColorHint="#8FFF"
+                android:gravity="center"
+                android:maxLines="2"
+                android:padding="8dp"/>
+
+
+
+
+            <TextView
+                android:id="@+id/bpQ2"
+                android:layout_marginTop="56dp"
+                android:paddingHorizontal="18dp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bpet1"
+                android:layout_centerHorizontal="true"
+                android:text="Why do you value it?"
+                android:fontFamily="serif-monospace"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#FFF"/>
+            <TextView
+                android:id="@+id/line"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@id/bpQ2"
+                android:layout_centerHorizontal="true"
+                android:background="#FFF"/>
+            <EditText
+                android:id="@+id/bpet2"
+                android:layout_below="@id/line"
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="16dp"
+                android:background="#4FFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorText"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:fontFamily="serif-monospace"
+                android:hint="Input text.."
+                android:textColorHint="#8FFF"
+                android:gravity="top"/>
+            <TextView
+                android:id="@+id/line2"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@id/bpet2"
+                android:layout_centerHorizontal="true"
+                android:background="#FFF"/>
+
+
+
+
+
+
+            <TextView
+                android:id="@+id/bpQ3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line2"
+                android:layout_marginTop="54dp"
+                android:fontFamily="serif-monospace"
+                android:gravity="center"
+                android:text="What is your appearance \nwhen you realize your values 100%?"
+                android:textColor="#FFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/line3"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@id/bpQ3"
+                android:layout_centerHorizontal="true"
+                android:background="#FFF"/>
+            <EditText
+                android:id="@+id/bpet3"
+                android:layout_below="@id/line3"
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="16dp"
+                android:background="#4FFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorText"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:fontFamily="serif-monospace"
+                android:hint="Input text.."
+                android:textColorHint="#8FFF"
+                android:gravity="top"/>
+            <TextView
+                android:id="@+id/line4"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@id/bpet3"
+                android:layout_centerHorizontal="true"
+                android:background="#FFF"/>
+
+
+
+
+
+
+
+
+
+
+
+
+            <TextView
+                android:id="@+id/bpQ4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line4"
+                android:layout_marginTop="54dp"
+                android:fontFamily="serif-monospace"
+                android:gravity="center"
+                android:text="How much do you live \nup to your values now?"
+                android:textColor="#FFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/line5"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@id/bpQ4"
+                android:layout_centerHorizontal="true"
+                android:background="#FFF"/>
+            <EditText
+                android:id="@+id/bpet4"
+                android:layout_below="@id/line5"
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="16dp"
+                android:background="#4FFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorText"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:fontFamily="serif-monospace"
+                android:hint="How do you think of yourself now?"
+                android:textColorHint="#8FFF"
+                android:gravity="top"/>
+            <TextView
+                android:id="@+id/line6"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@id/bpet4"
+                android:layout_centerHorizontal="true"
+                android:background="#FFF"/>
+
+
+
+
+            <TextView
+                android:id="@+id/bp"
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:padding="8dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line6"
+                android:layout_marginTop="54dp"
+                android:fontFamily="serif-monospace"
+                android:gravity="center"
+                android:text="Detailed plan to realize bliss"
+                android:background="@drawable/menu_write_outline"
+                android:backgroundTint="#BFFF"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

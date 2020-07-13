@@ -1,6 +1,11 @@
 package com.icandothisallday2020.ems;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,6 +64,19 @@ public class FFeedAdapter extends RecyclerView.Adapter {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    FFeedItem item=items.get(getLayoutPosition());
+                    Intent intent=new Intent(context,FFeedDetailActivity.class);
+                    intent.putExtra("Title",item.title);
+                    intent.putExtra("Text",item.text);
+                    intent.putExtra("Image",item.imageURL);
+
+                    if(Build.VERSION.SDK_INT<21) context.startActivity(intent);
+                    else{
+                        ActivityOptions options=ActivityOptions.makeSceneTransitionAnimation(
+                                (Activity)context,new Pair<View,String>(v,"Feed"));
+                        context.startActivity(intent,options.toBundle());
+                    }
+
 
                 }
             });

@@ -6,4 +6,5 @@
     <color name="colorText">#FFFF</color>
     <color name="colorDarkGray">#282828</color>
     <color name="colorDarkSky">#2C3563</color>
+    <color name="colorSky">#727CB3</color>
 </resources>
