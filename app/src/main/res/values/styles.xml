@@ -30,4 +30,12 @@
         <item name="android:background">#4E4E4E</item>
         <item name="android:gravity">center</item>
     </style>
+
+    <style name="EmoDialog" parent="Theme.AppCompat.Dialog">
+        <item name="colorAccent">#FFF</item>
+        <item name="android:background">#4E4E4E</item>
+        <item name="android:gravity">center</item>
+        <item name="android:windowMinWidthMajor">95%</item>
+        <item name="android:windowMinWidthMinor">95%</item>
+    </style>
 </resources>

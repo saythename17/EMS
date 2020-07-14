@@ -4,4 +4,19 @@
         <item>Recommended</item>
         <item>New</item>
     </string-array>
+
+
+    <string-array name="Love">
+        <item>Lovely</item>
+        <item>Fondly</item>
+        <item>Favourable</item>
+        <item>intimate</item>
+        <item>Passionate</item>
+        <item>desirous</item>
+        <item>beguiling</item>
+        <item>Tender</item>
+        <item>charmed</item>
+        <item>pitapat</item>
+        <item>breathless</item>
+    </string-array>
 </resources>
