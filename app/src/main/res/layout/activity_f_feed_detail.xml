@@ -79,7 +79,7 @@
                 android:text="0"
                 android:textSize="16dp"
                 android:textColor="@color/colorText"
-                android:drawableTop="@drawable/ic_like_white"
+                android:drawableTop="@drawable/ic_like"
                 android:clickable="true"
                 android:onClick="like"/>
             <ImageView

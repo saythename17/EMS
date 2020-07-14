@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="8dp"
+    android:backgroundTint="#0000"
+    android:layout_marginVertical="4dp"
+    android:layout_marginHorizontal="8dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/blue_purple_bg"
+        android:padding="8dp">
+        <ImageView
+            android:layout_centerVertical="true"
+            android:id="@+id/ed_emo"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/e_love"/>
+        <TextView
+            android:id="@+id/ed_itemD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/ed_emo"
+            android:text="2020-07-14"
+            android:layout_marginLeft="8dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorText"
+            android:textSize="16dp"
+            android:fontFamily="casual"/>
+        <TextView
+            android:id="@+id/ed_itemT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11:28AM"
+            android:textColor="@android:color/darker_gray"
+            android:layout_alignBaseline="@id/ed_itemD"
+            android:layout_marginTop="-6dp"
+            android:layout_toRightOf="@id/ed_itemD"
+            android:layout_marginLeft="16dp"
+            android:fontFamily="casual"
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/ed_itemE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="8dp"
+            android:text="lovely, happy, joy, confidence,powerful, shiny"
+            android:layout_marginTop="8dp"
+            android:layout_below="@id/ed_itemD"
+            android:fontFamily="casual"
+            android:textColor="@color/colorText"
+            android:layout_toRightOf="@id/ed_emo"/>
+        <ImageView
+            android:id="@+id/ed_itemM"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_more"
+            android:tint="@color/colorText"
+            android:layout_alignParentRight="true"
+            android:clickable="true"/>
+    </RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>

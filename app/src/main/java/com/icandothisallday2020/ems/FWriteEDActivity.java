@@ -7,12 +7,22 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 
+import java.util.ArrayList;
+
 public class FWriteEDActivity extends AppCompatActivity {
+    ArrayList<ArrayList> emotions=new ArrayList<ArrayList>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fwed);
+
+        ArrayList love=new ArrayList();
+        love.add("Lovely"); love.add("Fondly"); love.add("Favourable");
+        love.add("Passionate");
+        emotions.add(love);
+
+
     }
 
     public void back(View view) {
@@ -59,5 +69,10 @@ public class FWriteEDActivity extends AppCompatActivity {
     }
 
     public void selectEmotion(View view) {
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setTitle("Choose Your Emotion");
+        builder.setIcon(R.drawable.ic_ed_color);
+
+
     }
 }
