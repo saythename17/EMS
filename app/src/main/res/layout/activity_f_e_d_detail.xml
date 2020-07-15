@@ -113,7 +113,7 @@
                 android:textColor="#FFF"
                 android:fontFamily="serif-monospace"
                 android:text="What di you do yesterday? I'm "
-                android:drawableLeft="@drawable/e_want"
+                android:drawableLeft="@drawable/e15_want"
                 android:gravity="center_horizontal"/>
             <com.github.mikephil.charting.charts.PieChart
                 android:id="@+id/pieChart"

@@ -7,16 +7,13 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.nex3z.flowlayout.FlowLayout;
-
-import java.util.ArrayList;
 
 public class FWriteEDActivity extends AppCompatActivity {
 
@@ -83,10 +80,64 @@ public class FWriteEDActivity extends AppCompatActivity {
         builder.setTitle("Choose Your Emotion");
         builder.setIcon(R.drawable.ic_ed_color);
 
-        String[] emos=getResources().getStringArray(R.array.Love);
+        String imageTag=view.getTag().toString();
+        int num=Integer.parseInt(imageTag);
+        String[] emos= getResources().getStringArray(R.array.Love);
+        switch (num){
+            case 0:
+                emos=getResources().getStringArray(R.array.Love);
+                break;
+            case 1:
+                emos=getResources().getStringArray(R.array.Exciting);
+                break;
+            case 2:
+                emos=getResources().getStringArray(R.array.Joy);
+                break;
+            case 3:
+                emos=getResources().getStringArray(R.array.Bored);
+                break;
+            case 4:
+                emos=getResources().getStringArray(R.array.Smile);
+                break;
+            case 5:
+                emos=getResources().getStringArray(R.array.Confused);
+                break;
+            case 6:
+                emos=getResources().getStringArray(R.array.Angry);
+                break;
+            case 7:
+                emos=getResources().getStringArray(R.array.Sad);
+                break;
+            case 8:
+                emos=getResources().getStringArray(R.array.Embarrassed);
+                break;
+            case 9:
+                emos=getResources().getStringArray(R.array.Disappointed);
+                break;
+            case 10:
+                emos=getResources().getStringArray(R.array.Sardonic);
+                break;
+            case 11:
+                emos=getResources().getStringArray(R.array.Cloudy);
+                break;
+            case 12:
+                emos=getResources().getStringArray(R.array.Vomited);
+                break;
+            case 13:
+                emos=getResources().getStringArray(R.array.Shock);
+                break;
+            case 14:
+                emos=getResources().getStringArray(R.array.WTF);
+                break;
+
+
+        }
+
 
         View dv=getLayoutInflater().inflate(R.layout.dialog_fedw,null);
         ImageView emo=dv.findViewById(R.id.dialog_iv);
+
+        emo.setImageResource(R.drawable.e00_love +num);
         final TextView tv=dv.findViewById(R.id.dialog_tv);
         SeekBar seekBar=dv.findViewById(R.id.dialog_sb);
         FlowLayout flowLayout=dv.findViewById(R.id.flow);
@@ -139,7 +190,7 @@ public class FWriteEDActivity extends AppCompatActivity {
         builder.setPositiveButton("submit", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                Toast.makeText(FWriteEDActivity.this, "-Saved-", Toast.LENGTH_SHORT).show();
             }
         });
 

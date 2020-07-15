@@ -17,6 +17,219 @@
         <item>Tender</item>
         <item>charmed</item>
         <item>pitapat</item>
-        <item>breathless</item>
+        <item>Sweet</item>
+    </string-array>
+
+    <string-array name="Exciting">
+        <item>Exciting</item>
+        <item>interesting</item>
+        <item>Funny</item>
+        <item>Wonderful</item>
+        <item>Awesome</item>
+        <item>Piquant</item>
+        <item>Cheerful</item>
+        <item>Lively</item>
+        <item>Thrilled</item>
+        <item>Merry</item>
+        <item>Exalted</item>
+        <item>Fantastic</item>
+        <item>Fresh</item>
+        <item>Stirring</item>
+    </string-array>
+
+    <string-array name="Joy">
+        <item>Joy</item>
+        <item>Happy</item>
+        <item>Cool</item>
+        <item>Satisfied</item>
+        <item>Spirited</item>
+        <item>Light</item>
+        <item>Good</item>
+        <item>Relaxed</item>
+        <item>Relief</item>
+        <item>Comfortable</item>
+        <item>Leisurely</item>
+        <item>Pleased</item>
+        <item>Delighted</item>
+        <item>Confident</item>
+        <item>Proud</item>
+    </string-array>
+
+    <string-array name="Bored">
+        <item>Empty</item>
+        <item>Futilely</item>
+        <item>Dejected</item>
+        <item>Regret</item>
+        <item>Fatigue</item>
+        <item>Ennui</item>
+        <item>Weary</item>
+        <item>Lethargic</item>
+        <item>Tired</item>
+        <item>Limp</item>
+        <item>Numb</item>
+        <item>Exhausted</item>
+        <item>Despair</item>
+        <item>Hopeless</item>
+        <item>Forlorn</item>
+    </string-array>
+
+    <string-array name="Smile">
+        <item>Moving</item>
+        <item>Touching</item>
+        <item>Hopeful</item>
+        <item>Impressed</item>
+        <item>Honorable</item>
+        <item>Admirable</item>
+        <item>Peaceful</item>
+        <item>Thankful</item>
+        <item>Languor</item>
+        <item>Warm</item>
+        <item>Mild</item>
+        <item>Pleased</item>
+        <item>Overflowing</item>
+        <item>Expectant</item>
+    </string-array>
+
+    <string-array name="Confused">
+        <item>Awkward</item>
+        <item>Uncomfortable</item>
+        <item>Embarrassed</item>
+        <item>Disconcerted</item>
+        <item>Ashamed</item>
+        <item>Puzzled</item>
+        <item>Uneasy</item>
+        <item>Strange</item>
+        <item>Burden</item>
+        <item>Unfamiliar</item>
+    </string-array>
+    
+    <string-array name="Angry">
+        <item>Angry</item>
+        <item>Upset</item>
+        <item>Fury</item>
+        <item>Terrible</item>
+        <item>Resentful</item>
+        <item>Unfair</item>
+        <item>Wrath</item>
+        <item>Burning</item>
+        <item>Boiling</item>
+        <item>Provoked</item>
+        <item>Butthurt</item>
+        <item>Cross</item>
+        <item>Annoyed</item>
+        <item>Irritated</item>
+        <item>Blame</item>
+        <item>Damned</item>
+        <item>Discontent</item>
+        <item>Frustrating</item>
+    </string-array>
+
+    <string-array name="Sad">
+        <item>Sad</item>
+        <item>Miss</item>
+        <item>Sorrow</item>
+        <item>Blue</item>
+        <item>Painful</item>
+        <item>Lamentful</item>
+        <item>Mournful</item>
+        <item>Miserable</item>
+    </string-array>
+
+
+    <string-array name="Embarrassed">
+        <item>Shy</item>
+        <item>Want</item>
+        <item>Hope</item>
+        <item>Desire</item>
+        <item>Desperate</item>
+        <item>Anxious</item>
+        <item>Worry</item>
+        <item>Nervous</item>
+        <item>Uneasy</item>
+        <item>Envious</item>
+        <item>Pathetic</item>
+        <item>Dither</item>
+    </string-array>
+
+    <string-array name="Disappointed">
+        <item>Gloomy</item>
+        <item>Disappointed</item>
+        <item>Dismay</item>
+        <item>Dump</item>
+        <item>Pitiful</item>
+        <item>Brooding</item>
+        <item>Sulky</item>
+        <item>Sullen</item>
+        <item>Sorry</item>
+        <item>Depressed</item>
+        <item>Regret</item>
+        <item>Guilt</item>
+        <item>Distressed</item>
+        <item>Bitter</item>
+        <item>Miserable</item>
+    </string-array>
+
+
+    <string-array name="Sardonic">
+        <item>Banal</item>
+        <item>Dull</item>
+        <item>Boring</item>
+        <item>Dislike</item>
+        <item>Disgust</item>
+        <item>Aversion</item>
+        <item>Bad</item>
+        <item>Hate</item>
+    </string-array>
+
+    <string-array name="Cloudy">
+        <item>Jealous</item>
+        <item>Scorn</item>
+        <item>Despise</item>
+        <item>Contempt</item>
+        <item>Offensive</item>
+        <item>Mind</item>
+        <item>Sour</item>
+        <item>Heavy</item>
+        <item>Complex</item>
+        <item>Sympathy</item>
+        <item>Pitiful</item>
+        <item>Begrudge</item>
+        <item>Tangled</item>
+        <item>Inferiority Complex</item>
+    </string-array>
+
+    <string-array name="Vomited">
+        <item>Bother</item>
+        <item>Horrible</item>
+        <item>Terrible</item>
+        <item>Awful</item>
+        <item>Keck</item>
+        <item>Vomit</item>
+        <item>Nausea</item>
+        <item>Icky</item>
+    </string-array>
+
+    <string-array name="Shock">
+        <item>Shock</item>
+        <item>Surprising</item>
+        <item>Amazing</item>
+        <item>Scary</item>
+        <item>Fearful</item>
+        <item>Afraid</item>
+        <item>Dizzy</item>
+        <item>Chill</item>
+        <item>Creepy</item>
+        <item>Aghast</item>
+        <item>Frightened</item>
+        <item>Breathless</item>
+    </string-array>
+
+    <string-array name="WTF">
+        <item>Ridiculous</item>
+        <item>Ludicrous</item>
+        <item>Absurd</item>
+        <item>Curious</item>
+        <item>Perplexed</item>
+        <item>What The F...</item>
     </string-array>
 </resources>
