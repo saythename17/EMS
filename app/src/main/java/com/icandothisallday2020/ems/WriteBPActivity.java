@@ -4,40 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TabWidget;
-import android.widget.TextView;
-import android.widget.Toast;
 
-public class FWriteOJActivity extends AppCompatActivity {
-    ImageView guide, complete, write;
-    TextView q;
-    EditText userOJ;
+public class WriteBPActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fwoj);
-        guide=findViewById(R.id.fwoj_guide);
-        complete=findViewById(R.id.fwoj_complete);
-        write=findViewById(R.id.fwoj_write);
-        q=findViewById(R.id.ojQ);
-        userOJ=findViewById(R.id.user_writeOJ);
-
-        userOJ.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
-                    write.setVisibility(View.GONE);
-                }/*else{
-                    if(!userOJ.getText().equals(""))  write.setVisibility(View.VISIBLE);
-                }*/
-            }
-        });
+        setContentView(R.layout.activity_bp_write);
     }
 
     public void back(View view) {
@@ -82,5 +57,4 @@ public class FWriteOJActivity extends AppCompatActivity {
         AlertDialog alertDialog=builder.create();
         alertDialog.show();
     }
-
 }

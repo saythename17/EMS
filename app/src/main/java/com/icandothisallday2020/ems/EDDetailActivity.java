@@ -8,15 +8,32 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class FOJDetailActivity extends AppCompatActivity {
+public class EDDetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_oj_detail);
-        Toolbar toolbar = findViewById(R.id.ojItemToolbar);
+        setContentView(R.layout.activity_f_ed_detail);
+        Toolbar toolbar = findViewById(R.id.edItemToolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
+
+//        PieChart chart=(PieChart) findViewById(R.id.pieChart);
+//        ArrayList no=new ArrayList();
+//
+//        no.add(new Entry(945f,0));
+//        no.add(new Entry(1040f,1));
+//        no.add(new Entry(1133f,3));
+//        PieDataSet dataSet=new PieDataSet(no,"Emotion");
+//
+//        ArrayList emo=new ArrayList();
+//        emo.add("Angry");
+//        emo.add("sad");
+//        emo.add("Happy");
+//        PieData data=new PieData(emo,dataSet);
+//        chart.setData(data);
+//        dataSet.setColor(R.color.colorAccent);
+//        chart.animateXY(2000,2000);
     }
 
     @Override

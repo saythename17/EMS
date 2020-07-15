@@ -15,12 +15,12 @@ import android.widget.ToggleButton;
 
 import com.nex3z.flowlayout.FlowLayout;
 
-public class FWriteEDActivity extends AppCompatActivity {
+public class WriteEDActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fwed);
+        setContentView(R.layout.activity_ed_write);
 
 //        initRecyclerDialog();
 
@@ -134,7 +134,7 @@ public class FWriteEDActivity extends AppCompatActivity {
         }
 
 
-        View dv=getLayoutInflater().inflate(R.layout.dialog_fedw,null);
+        View dv=getLayoutInflater().inflate(R.layout.dialog_ed_write,null);
         ImageView emo=dv.findViewById(R.id.dialog_iv);
 
         emo.setImageResource(R.drawable.e00_love +num);
@@ -190,7 +190,7 @@ public class FWriteEDActivity extends AppCompatActivity {
         builder.setPositiveButton("submit", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(FWriteEDActivity.this, "-Saved-", Toast.LENGTH_SHORT).show();
+                Toast.makeText(WriteEDActivity.this, "-Saved-", Toast.LENGTH_SHORT).show();
             }
         });
 

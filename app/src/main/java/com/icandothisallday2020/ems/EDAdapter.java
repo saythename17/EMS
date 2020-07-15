@@ -1,6 +1,5 @@
 package com.icandothisallday2020.ems;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -14,11 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class FEDAdapter extends RecyclerView.Adapter {
+public class EDAdapter extends RecyclerView.Adapter {
     Context context;
-    ArrayList<FEDItem> items;
+    ArrayList<EDItem> items;
 
-    public FEDAdapter(Context context, ArrayList<FEDItem> items) {
+    public EDAdapter(Context context, ArrayList<EDItem> items) {
         this.context = context;
         this.items = items;
     }
@@ -35,7 +34,7 @@ public class FEDAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         VH vh=(VH)holder;
-        FEDItem item=items.get(position);
+        EDItem item=items.get(position);
         //vh.emoIV.setImageResource();
 
     }
@@ -71,8 +70,8 @@ public class FEDAdapter extends RecyclerView.Adapter {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    FEDItem item=items.get(getLayoutPosition());
-                    Intent intent=new Intent(context,FEDDetailActivity.class);
+                    EDItem item=items.get(getLayoutPosition());
+                    Intent intent=new Intent(context, EDDetailActivity.class);
                     context.startActivity(intent);
                 }
             });

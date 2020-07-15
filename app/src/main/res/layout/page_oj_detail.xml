@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/sample3"
-    android:backgroundTint="#C1161C35"
-    android:backgroundTintMode="src_over"
-    tools:context=".FOJDetailActivity">
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/ojItemToolbar"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"/>
+    android:layout_width="match_parent" android:layout_height="match_parent">
     <TextView
-        android:id="@+id/ojItemQ"
-        android:layout_below="@id/ojItemToolbar"
+        android:id="@+id/ojQ"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -25,22 +13,24 @@
         android:textColor="#FFF"
         android:gravity="center"/>
     <ImageButton
+        android:id="@+id/ojPrevious"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:backgroundTint="#0000"
-        android:layout_below="@id/ojItemQ"
+        android:layout_below="@id/ojQ"
         android:src="@drawable/ic_back_white"/>
     <ImageButton
+        android:id="@+id/ojNext"
         android:layout_alignParentRight="true"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:backgroundTint="#0000"
-        android:layout_below="@id/ojItemQ"
+        android:layout_below="@id/ojQ"
         android:src="@drawable/ic_right_white"/>
     <TextView
         android:layout_marginVertical="16dp"
         android:id="@+id/ojItemO"
-        android:layout_below="@id/ojItemQ"
+        android:layout_below="@id/ojQ"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -60,6 +50,7 @@
             android:orientation="vertical"
             android:paddingHorizontal="40dp">
             <TextView
+                android:id="@+id/ojA"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
@@ -73,6 +64,7 @@
                 android:layout_height="0.5dp"
                 android:background="@color/colorText"/>
             <TextView
+                android:id="@+id/ojD"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
@@ -84,7 +76,5 @@
         </LinearLayout>
 
     </ScrollView>
-
-
 
 </RelativeLayout>

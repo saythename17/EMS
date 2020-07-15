@@ -7,7 +7,7 @@
     android:background="@drawable/sample3"
     android:backgroundTint="#8000"
     android:backgroundTintMode="src_over"
-    tools:context=".FFeedDetailActivity">
+    tools:context=".FeedDetailActivity">
 
 
 

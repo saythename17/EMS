@@ -1,12 +1,12 @@
 package com.icandothisallday2020.ems;
 
-public class FFeedItem {
+public class FeedItem {
     String imageURL,title,text;
 
-    public FFeedItem() {
+    public FeedItem() {
     }
 
-    public FFeedItem(String imageURL, String title, String text) {
+    public FeedItem(String imageURL, String title, String text) {
         this.imageURL = imageURL;
         this.title = title;
         this.text = text;

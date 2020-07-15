@@ -10,11 +10,11 @@ public class MainAdapter extends FragmentPagerAdapter {
 
     public MainAdapter(@NonNull FragmentManager fm) {
         super(fm);
-        fragments[0]=new FFeed();
-        fragments[1]=new FED();
-        fragments[2]=new FWrite();
-        fragments[3]=new FOJ();
-        fragments[4]=new FBP();
+        fragments[0]=new Feed();
+        fragments[1]=new ED();
+        fragments[2]=new Write();
+        fragments[3]=new OJ();
+        fragments[4]=new BP();
     }
 
     @NonNull

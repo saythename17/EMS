@@ -8,7 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-public class FFeedDetailActivity extends AppCompatActivity {
+public class FeedDetailActivity extends AppCompatActivity {
     Spinner spinner;
     ArrayAdapter adapter;
 

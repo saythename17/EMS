@@ -16,12 +16,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true">
-        <activity android:name=".FEDDetailActivity"></activity>
-        <activity android:name=".FFeedDetailActivity" />
-        <activity android:name=".FOJDetailActivity" />
-        <activity android:name=".FWriteBPActivity" />
-        <activity android:name=".FWriteOJActivity" />
-        <activity android:name=".FWriteEDActivity" />
+        <activity android:name=".EDDetailActivity"></activity>
+        <activity android:name=".FeedDetailActivity" />
+        <activity android:name=".OJDetailActivity" />
+        <activity android:name=".WriteBPActivity" />
+        <activity android:name=".WriteOJActivity" />
+        <activity android:name=".WriteEDActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".IntroActivity" />
         <activity

@@ -9,6 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -24,6 +25,7 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
@@ -213,7 +215,10 @@ public class MainActivity extends AppCompatActivity {
                         DatePickerDialog datePickerDialog=new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                                Toast.makeText(MainActivity.this, year+"/"+"/"+month+"/"+dayOfMonth, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, ""+year+"/"+month+"/"+dayOfMonth, Toast.LENGTH_SHORT).show();
+                                Intent intent=new Intent(MainActivity.this,OJDetailActivity.class);
+                                for(OJItem item:G.ojItems){
+                                }
                             }
                         },year,month,day);
                         datePickerDialog.show();

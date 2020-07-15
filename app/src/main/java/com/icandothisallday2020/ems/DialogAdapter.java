@@ -17,7 +17,7 @@ public class DialogAdapter extends RecyclerView.Adapter<DialogAdapter.ViewHolder
     public DialogAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context=parent.getContext();
         LayoutInflater inflater=LayoutInflater.from(context);
-        View contactView=inflater.inflate(R.layout.dialog_fedw,parent,false);
+        View contactView=inflater.inflate(R.layout.dialog_ed_write,parent,false);
 
         return new ViewHolder(contactView);
     }

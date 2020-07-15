@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".FWriteBPActivity">
+    tools:context=".WriteBPActivity">
     <ImageView
         android:id="@+id/fwbp_back"
         android:src="@drawable/ic_back_white"

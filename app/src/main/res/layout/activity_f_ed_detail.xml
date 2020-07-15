@@ -7,7 +7,7 @@
     android:background="@drawable/sample3"
     android:backgroundTint="#C1161C35"
     android:backgroundTintMode="src_over"
-    tools:context=".FEDDetailActivity">
+    tools:context=".EDDetailActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/edItemToolbar"
         android:layout_width="match_parent"

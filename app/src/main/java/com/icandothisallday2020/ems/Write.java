@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class FWrite extends Fragment {
+public class Write extends Fragment {
     Button btnED,btnOJ,btnBP;
 
     @Override
@@ -40,15 +40,15 @@ public class FWrite extends Fragment {
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.writeED:
-                    Intent  intent=new Intent(getContext(), FWriteEDActivity.class);
+                    Intent  intent=new Intent(getContext(), WriteEDActivity.class);
                     startActivityForResult(intent,1);
                     break;
                 case R.id.writeOJ:
-                    intent=new Intent(getContext(), FWriteOJActivity.class);
+                    intent=new Intent(getContext(), WriteOJActivity.class);
                     startActivityForResult(intent,2);
                     break;
                 case R.id.writeBP:
-                    intent=new Intent(getContext(), FWriteBPActivity.class);
+                    intent=new Intent(getContext(), WriteBPActivity.class);
                     startActivityForResult(intent,3);
                     break;
             }
