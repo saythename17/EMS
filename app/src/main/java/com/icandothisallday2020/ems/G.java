@@ -5,4 +5,6 @@ import java.util.ArrayList;
 public class G {
 
     public static ArrayList<OJItem> ojItems;
+
+    public static ArrayList<EDItem> edItems;
 }

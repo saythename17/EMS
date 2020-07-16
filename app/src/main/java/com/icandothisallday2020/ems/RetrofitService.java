@@ -18,4 +18,11 @@ public interface RetrofitService {
     @GET("/EMS/loadOJ.php")
     Call<ArrayList<OJItem>> loadDataFromOJB();
 
+    @Multipart
+    @POST("/EMS/insertED.php")
+    Call<String> postDataToEDB(@PartMap Map<String,String> ed);
+
+    @GET("EMS/loadED.php")
+    Call<ArrayList<EDItem>> loadDataFromEDB();
+
 }

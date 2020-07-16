@@ -62,7 +62,7 @@
                 android:textSize="4sp"
                 android:textColor="#FFF"/>
             <EditText
-                android:id="@+id/edet1"
+                android:id="@+id/wedSituation"
                 android:layout_below="@id/o"
                 android:layout_marginTop="8dp"
                 android:layout_marginHorizontal="16dp"
@@ -81,7 +81,7 @@
 
             <TextView
             android:id="@+id/edQ2"
-            android:layout_below="@id/edet1"
+            android:layout_below="@id/wedSituation"
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="40dp"
             android:gravity="center"
@@ -103,7 +103,7 @@
                 android:textSize="4sp"
                 android:textColor="#FFF"/>
             <EditText
-                android:id="@+id/edet2"
+                android:id="@+id/wedThought"
                 android:layout_below="@id/o2"
                 android:layout_marginTop="8dp"
                 android:layout_marginHorizontal="16dp"
@@ -123,7 +123,7 @@
 
             <TextView
                 android:id="@+id/edQ3"
-                android:layout_below="@id/edet2"
+                android:layout_below="@id/wedThought"
                 android:layout_marginHorizontal="32dp"
                 android:layout_marginTop="40dp"
                 android:gravity="center"
@@ -365,7 +365,7 @@
             android:textSize="4sp"
             android:textColor="#FFF"/>
         <EditText
-            android:id="@+id/edet4"
+            android:id="@+id/wedAction"
             android:layout_below="@id/o4"
             android:layout_marginTop="8dp"
             android:layout_marginHorizontal="16dp"
@@ -385,7 +385,7 @@
 
         <TextView
             android:id="@+id/edQ5"
-            android:layout_below="@id/edet4"
+            android:layout_below="@id/wedAction"
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="40dp"
             android:gravity="center"
@@ -407,7 +407,7 @@
             android:textSize="4sp"
             android:textColor="#FFF"/>
         <EditText
-            android:id="@+id/edet5"
+            android:id="@+id/wedResult"
             android:layout_below="@id/o5"
             android:layout_marginTop="8dp"
             android:layout_marginHorizontal="16dp"

@@ -1,12 +1,18 @@
 package com.icandothisallday2020.ems;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -15,19 +21,52 @@ import android.widget.ToggleButton;
 
 import com.nex3z.flowlayout.FlowLayout;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
 public class WriteEDActivity extends AppCompatActivity {
+    EditText etSituation, etThought, etAction, etResult;
+    String situation,thought,action,emotion,result,date,time,email;
+
+    StringBuffer[] buffers=new StringBuffer[15];
+    StringBuffer finalBuffer= new StringBuffer();
+    TextView emoDegree;
+    ArrayList<ToggleButton> toggles=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ed_write);
 
-//        initRecyclerDialog();
+        etSituation =findViewById(R.id.wedSituation);
+        etThought =findViewById(R.id.wedThought);
+        etAction =findViewById(R.id.wedAction);
+        etResult =findViewById(R.id.wedResult);
+
+
+        String[] permissions=new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){
+            if(checkSelfPermission(permissions[0])== PackageManager.PERMISSION_DENIED)
+                requestPermissions(permissions,100);
+        }
+    }
 
 
 
-
-
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode==100&&grantResults[0]==PackageManager.PERMISSION_DENIED)
+            Toast.makeText(this, "Can't upload your text in OJ internet board", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -52,8 +91,22 @@ public class WriteEDActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+
+
+
+
+
+
     public void guide(View view) {
     }
+
+
+
+
+
+
+
+
 
     public void complete(View view) {
         AlertDialog.Builder builder=new AlertDialog.Builder(this,R.style.MyDialog);
@@ -65,25 +118,99 @@ public class WriteEDActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
             }
         });
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                finish();
+
+
+
+
+
+                situation=etSituation.getText().toString();
+                thought=etThought.getText().toString();
+
+                for(StringBuffer buffer:buffers){
+                    buffer=new StringBuffer();
+                    String s=buffer.toString();
+                    finalBuffer.append(s);
+                }
+
+                emotion=finalBuffer.toString();
+                Toast.makeText(WriteEDActivity.this, ""+emotion, Toast.LENGTH_SHORT).show();
+                action=etAction.getText().toString();
+                result=etResult.getText().toString();
+                Calendar now=Calendar.getInstance();
+                SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd");
+                date=format.format(now.getTime());
+                SimpleDateFormat format1=new SimpleDateFormat("h:mmaa");
+                time=format1.format(now.getTime());
+                SharedPreferences preferences=getSharedPreferences("Data",MODE_PRIVATE);
+                email=preferences.getString("Email","");
+
+                if(email.equals("")){
+                    Toast.makeText(WriteEDActivity.this,
+                            "You can't save own your text.\nYou must agree to provide your email at login.", Toast.LENGTH_SHORT).show();
+                    finish();
+                    return;
+                }
+
+                Retrofit retrofit=RetrofitHelper.getInstanceFromScalars();
+                RetrofitService service=retrofit.create(RetrofitService.class);
+                Map<String,String> dataED=new HashMap<>();
+                dataED.put("Situation",situation);
+                dataED.put("Thought",thought);
+                dataED.put("Emotion",emotion);
+                dataED.put("Action",action);
+                dataED.put("Result",result);
+                dataED.put("Date",date);
+                dataED.put("Time",time);
+                dataED.put("Email",email);
+
+                Call<String> call=service.postDataToEDB(dataED);
+                call.enqueue(new Callback<String>() {
+                    @Override
+                    public void onResponse(Call<String> call, Response<String> response) {
+                        if(response.isSuccessful()){
+                            String s=response.body();
+                            Toast.makeText(WriteEDActivity.this, ""+s, Toast.LENGTH_SHORT).show();
+
+                            finish();
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<String> call, Throwable t) {
+
+                        Toast.makeText(WriteEDActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+
+                        finish();
+
+                    }
+                });
             }
         });
         AlertDialog alertDialog=builder.create();
         alertDialog.show();
     }
 
+
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
     public void selectEmotion(View view) {
         AlertDialog.Builder builder=new AlertDialog.Builder(this,R.style.EmoDialog);
         builder.setTitle("Choose Your Emotion");
         builder.setIcon(R.drawable.ic_ed_color);
 
         String imageTag=view.getTag().toString();
-        int num=Integer.parseInt(imageTag);
+        int tag=Integer.parseInt(imageTag);
+        buffers[tag]= new StringBuffer();
+        buffers[tag].append(tag+"_");
+
+
         String[] emos= getResources().getStringArray(R.array.Love);
-        switch (num){
+        switch (tag){
             case 0:
                 emos=getResources().getStringArray(R.array.Love);
                 break;
@@ -137,13 +264,18 @@ public class WriteEDActivity extends AppCompatActivity {
         View dv=getLayoutInflater().inflate(R.layout.dialog_ed_write,null);
         ImageView emo=dv.findViewById(R.id.dialog_iv);
 
-        emo.setImageResource(R.drawable.e00_love +num);
-        final TextView tv=dv.findViewById(R.id.dialog_tv);
+        emo.setImageResource(R.drawable.e00_love +tag);
+        emoDegree=dv.findViewById(R.id.dialog_tv);
         SeekBar seekBar=dv.findViewById(R.id.dialog_sb);
         FlowLayout flowLayout=dv.findViewById(R.id.flow);
 
+
         for(String s:emos){
             ToggleButton btn=new ToggleButton(this);
+
+            toggles.add(btn);
+
+
             btn.setText(s);
             btn.setTextOff(s);
             btn.setTextOn(s);
@@ -173,7 +305,7 @@ public class WriteEDActivity extends AppCompatActivity {
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                tv.setText(""+progress);
+                emoDegree.setText(""+progress);
             }
 
             @Override
@@ -190,7 +322,12 @@ public class WriteEDActivity extends AppCompatActivity {
         builder.setPositiveButton("submit", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(WriteEDActivity.this, "-Saved-", Toast.LENGTH_SHORT).show();
+                Toast.makeText(WriteEDActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+
+                for(ToggleButton tb: toggles){
+                    if(tb.isChecked()) buffers[tag].append(tb.getText()+",");
+                }
+                buffers[tag].append("_"+emoDegree.getText()+"!");
             }
         });
 
@@ -202,37 +339,7 @@ public class WriteEDActivity extends AppCompatActivity {
         });
         AlertDialog dialog=builder.create();
         dialog.show();
-    }
-
-//
-//    private void fillAutoSpacingLayout() {
-//        FlowLayout flowLayout = findViewById(R.id.flow);
-//        String[] dummyTexts = getResources().getStringArray(R.array.Love);
-//
-//        for (String text : dummyTexts) {
-//            TextView textView = buildLabel(text);
-//            flowLayout.addView(textView);
-//        }
-//    }
-//
-//    private TextView buildLabel(String text) {
-//        TextView textView = new TextView(this);
-//        textView.setText(text);
-//        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-//        textView.setPadding((int)dpToPx(16), (int)dpToPx(8), (int)dpToPx(16), (int)dpToPx(8));
-//        textView.setBackgroundResource(R.drawable.menu_write_outline);
-//
-//        return textView;
-//    }
-//
-//    private float dpToPx(float dp){
-//        return TypedValue.applyDimension(
-//                TypedValue.COMPLEX_UNIT_DIP, dp, getResources().getDisplayMetrics());
-//    }
-//
-//    private void initRecyclerDialog() {
-//        RecyclerView recyclerView
-//    }
+    }//////////////////////////////////////////////////////////////////////////////////////////////
 
 
 }

@@ -20,7 +20,7 @@ public class OJDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_f_oj_detail);
+        setContentView(R.layout.activity_oj_detail);
         Toolbar toolbar = findViewById(R.id.ojItemToolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");

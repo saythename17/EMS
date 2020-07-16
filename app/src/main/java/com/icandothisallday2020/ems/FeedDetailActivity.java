@@ -15,7 +15,7 @@ public class FeedDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_f_feed_detail);
+        setContentView(R.layout.activity_feed_detail);
         spinner=findViewById(R.id.spinner);
         adapter=ArrayAdapter.createFromResource(this,R.array.comments,R.layout.spinner_selected);
         adapter.setDropDownViewResource(R.layout.spinner_dropdown);
