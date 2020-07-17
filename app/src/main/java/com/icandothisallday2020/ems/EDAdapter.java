@@ -47,7 +47,7 @@ public class EDAdapter extends RecyclerView.Adapter {
         String[][] selections=new String[arr.length][];
 
         ArrayList<String[]> feelings=new ArrayList<>();
-        for(int i=0;i<arr.length;i++){
+        for(int i=0;i<arr.length-1;i++){
             selections[i]=arr[i].split("_");
             tag.add(selections[i][0]);
             String[] strings=(selections[i][1]).split(",");
@@ -57,9 +57,10 @@ public class EDAdapter extends RecyclerView.Adapter {
         }
         StringBuffer buffer=new StringBuffer();
 
-        for(int i=0; i<feelings.size();i++){
+        for(int i=0; i<feelings.size()-1;i++){
             String a=(feelings.get(i))[i];
             //└TODO java.lang.ArrayIndexOutOfBoundsException: length=1; index=2
+            //sdlkfajlkdjsflakjs;dfka
             buffer.append(a+"   ");
             Log.i("log",a);//check ---Fondly,Favourable, Joy
         }
