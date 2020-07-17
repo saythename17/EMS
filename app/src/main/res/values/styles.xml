@@ -38,4 +38,14 @@
         <item name="android:windowMinWidthMajor">95%</item>
         <item name="android:windowMinWidthMinor">95%</item>
     </style>
+
+
+    <style name="MySpinner" parent="Theme.AppCompat.Dialog">
+        <item name="colorAccent">#A137F8</item>
+        <item name="android:thumbTint">#FFF</item>
+        <item name="android:background">#0E0E10</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">serif-monospace</item>
+        <item name="android:textSize">18dp</item>
+    </style>
 </resources>

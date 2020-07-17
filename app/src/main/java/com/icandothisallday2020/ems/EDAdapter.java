@@ -53,6 +53,7 @@ public class EDAdapter extends RecyclerView.Adapter {
         String[][] selections=new String[arr.length][];
 
         ArrayList<String[]> emotions=new ArrayList<>();
+
         for(int i=0;i<arr.length-1;i++){
             selections[i]=arr[i].split("_");
             tag.add(selections[i][0]);

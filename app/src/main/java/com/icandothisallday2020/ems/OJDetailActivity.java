@@ -14,6 +14,7 @@ import android.view.MenuItem;
 
 public class OJDetailActivity extends AppCompatActivity {
     int position;
+    String date;
     OJDetailAdapter adapter;
     ViewPager pager;
 
@@ -28,11 +29,18 @@ public class OJDetailActivity extends AppCompatActivity {
 
 
         Intent intent=getIntent();
-        position=intent.getIntExtra("Position",-1);
-        if(position==-1){//-1:선택이 잘못된 상황
-            finish();
-            return;
+//        position=intent.getIntExtra("Position",-1);
+//        if(position==-1){//-1:선택이 잘못된 상황
+//            finish();
+//            return;
+//        }
+
+        date=intent.getStringExtra("Date");
+        for(int i=0;i<G.ojItems.size();i++){
+            String itemDate=(G.ojItems.get(i).year)+(G.ojItems.get(i).month)+(G.ojItems.get(i).day);
+            if(date.equals(itemDate)) position=i;
         }
+
 
 
 

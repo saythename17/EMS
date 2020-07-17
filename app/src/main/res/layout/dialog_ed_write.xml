@@ -32,10 +32,13 @@
         android:orientation="horizontal">
         <!--        progress 50-->
         <SeekBar
+            android:layout_marginTop="8dp"
             android:id="@+id/dialog_sb"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="5"/>
+            android:layout_weight="5"
+            android:thumb="@drawable/ic_like_red"
+            android:thumbTint="@color/colorAccent"/>
 
         <TextView
             android:id="@+id/dialog_tv"

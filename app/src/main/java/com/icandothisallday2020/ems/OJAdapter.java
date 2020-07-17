@@ -64,7 +64,9 @@ public class OJAdapter extends RecyclerView.Adapter {
                     OJItem ojItem=items.get(getLayoutPosition());
                     //Reference item data--now position
                     Intent intent=new Intent(context, OJDetailActivity.class);
-                    intent.putExtra("Position",getLayoutPosition());
+//                    intent.putExtra("Position",getLayoutPosition());
+                    intent.putExtra("Date",ojItem.year+ojItem.month+ojItem.day);
+
 
                     if(Build.VERSION.SDK_INT<21) context.startActivity(intent);
                     else{

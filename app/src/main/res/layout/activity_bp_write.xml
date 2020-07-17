@@ -85,7 +85,7 @@
 
             <TextView
                 android:id="@+id/bpQ2"
-                android:layout_marginTop="160dp"
+                android:layout_marginTop="240dp"
                 android:paddingHorizontal="18dp"
                 android:gravity="center"
                 android:layout_width="wrap_content"
@@ -119,6 +119,7 @@
                 android:fontFamily="serif-monospace"
                 android:hint="Input text.."
                 android:textColorHint="#8FFF"
+                android:minLines="10"
                 android:gravity="top"/>
             <TextView
                 android:id="@+id/line2"
@@ -138,7 +139,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/line2"
-                android:layout_marginTop="160dp"
+                android:layout_marginTop="240dp"
                 android:fontFamily="serif-monospace"
                 android:gravity="center"
                 android:text="What is your appearance \nwhen you realize your values 100%?"
@@ -168,7 +169,8 @@
                 android:fontFamily="serif-monospace"
                 android:hint="Input text.."
                 android:textColorHint="#8FFF"
-                android:gravity="top"/>
+                android:gravity="top"
+                android:minLines="10"/>
             <TextView
                 android:id="@+id/line4"
                 android:layout_width="match_parent"
@@ -193,7 +195,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/line4"
-                android:layout_marginTop="160dp"
+                android:layout_marginTop="240dp"
                 android:fontFamily="serif-monospace"
                 android:gravity="center"
                 android:text="How much do you live \nup to your values now?"
@@ -223,7 +225,8 @@
                 android:fontFamily="serif-monospace"
                 android:hint="How do you think of yourself now?"
                 android:textColorHint="#8FFF"
-                android:gravity="top"/>
+                android:gravity="top"
+                android:minLines="10"/>
             <TextView
                 android:id="@+id/line6"
                 android:layout_width="match_parent"
@@ -242,7 +245,7 @@
                 android:padding="8dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/line6"
-                android:layout_marginTop="160dp"
+                android:layout_marginTop="240dp"
                 android:fontFamily="serif-monospace"
                 android:gravity="center"
                 android:text="Detailed plan to realize bliss"
@@ -251,6 +254,7 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="18sp"
                 android:textStyle="bold" />
+
 
 
 
