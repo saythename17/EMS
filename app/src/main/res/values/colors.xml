@@ -6,5 +6,10 @@
     <color name="colorText">#FFFF</color>
     <color name="colorDarkGray">#282828</color>
     <color name="colorDarkSky">#2C3563</color>
-    <color name="colorSky">#727CB3</color>
+    <color name="colorSky">#7B85B5</color>
+    <color name="colorGray">#B54D5968</color>
+    <color name="colorAlpha">#0FFF</color>
+    <color name="colorPastelBlue">#3E5B68</color>
+    <color name="colorPastelPurple">#ACA08AC8</color>
+    <color name="colorDarkPurple">#B05E438F</color>
 </resources>

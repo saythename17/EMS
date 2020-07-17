@@ -51,6 +51,8 @@
             android:layout_marginTop="8dp"
             android:layout_below="@id/ed_itemD"
             android:fontFamily="casual"
+            android:maxLines="2"
+            android:ellipsize="end"
             android:textColor="@color/colorText"
             android:layout_toRightOf="@id/ed_emo"/>
         <ImageView

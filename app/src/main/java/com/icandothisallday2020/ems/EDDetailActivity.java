@@ -3,26 +3,19 @@ package com.icandothisallday2020.ems;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
 
-import android.graphics.Color;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.animation.Animation;
-
-import com.github.mikephil.charting.animation.Easing;
-import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.Description;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.PieData;
-import com.github.mikephil.charting.data.PieDataSet;
-import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.utils.ColorTemplate;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class EDDetailActivity extends AppCompatActivity {
+    int position;
+    EDDetailAdapter adapter;
+    ViewPager pager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,61 +25,20 @@ public class EDDetailActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
 
-        PieChart chart=(PieChart) findViewById(R.id.pieChart);
-        chart.setUsePercentValues(true);
-        chart.getDescription().setEnabled(false);
-        chart.setExtraOffsets(5,10,5,5);
+        Intent intent=getIntent();
+        position=intent.getIntExtra("Position",-1);
+        if(position==-1){//-1:wrong position --can't exist
+            finish();
+            return;
+        }
 
-        chart.setDragDecelerationFrictionCoef(0.95f);
-
-        chart.setDrawHoleEnabled(false);
-        chart.setHoleColor(Color.WHITE);
-        chart.setTransparentCircleRadius(61f);
-
-        ArrayList<PieEntry> yValues = new ArrayList<PieEntry>();
-
-        yValues.add(new PieEntry(34f,"Japen"));
-        yValues.add(new PieEntry(23f,"USA"));
-        yValues.add(new PieEntry(14f,"UK"));
-        yValues.add(new PieEntry(35f,"India"));
-        yValues.add(new PieEntry(40f,"Russia"));
-        yValues.add(new PieEntry(40f,"Korea"));
-
-        Description description = new Description();
-        description.setText("세계 국가"); //라벨
-        description.setTextSize(15);
-        chart.setDescription(description);
-
-        //chart.animateY(1000, Easing.EasingFunction.class); //애니메이션
-
-        PieDataSet dataSet = new PieDataSet(yValues,"Countries");
-        dataSet.setSliceSpace(3f);
-        dataSet.setSelectionShift(5f);
-        dataSet.setColors(ColorTemplate.JOYFUL_COLORS);
-
-        PieData data = new PieData((dataSet));
-        data.setValueTextSize(10f);
-        data.setValueTextColor(Color.YELLOW);
-
-        chart.setData(data);
+        pager=findViewById(R.id.edPager);
+        adapter=new EDDetailAdapter(getLayoutInflater());
+        pager.setAdapter(adapter);
+        pager.setCurrentItem(position);
 
 
         }
-//        ArrayList no=new ArrayList();
-//
-//        no.add(new Entry(945f,0));
-//        no.add(new Entry(1040f,1));
-//        no.add(new Entry(1133f,3));
-//        PieDataSet dataSet=new PieDataSet(no,"Emotion");
-//
-//        ArrayList emo=new ArrayList();
-//        emo.add("Angry");
-//        emo.add("sad");
-//        emo.add("Happy");
-//        PieData data=new PieData(emo,dataSet);
-//        chart.setData(data);
-//        dataSet.setColor(R.color.colorAccent);
-//        chart.animateXY(2000,2000);
 
 
     @Override
@@ -100,6 +52,26 @@ public class EDDetailActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.close:
                 finish();
+                break;
+            case R.id.delete:
+                AlertDialog.Builder builder=new AlertDialog.Builder(this,R.style.MyDialog);
+                builder.setIcon(R.drawable.ic_alert);
+                builder.setTitle("Do you want to delete this dairy?");
+                builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                });
+                AlertDialog alertDialog=builder.create();
+                alertDialog.show();
+                break;
+            case R.id.edit:
                 break;
         }
         return super.onOptionsItemSelected(item);

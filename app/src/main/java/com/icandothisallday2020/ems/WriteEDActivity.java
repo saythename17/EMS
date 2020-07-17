@@ -11,6 +11,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -40,7 +41,7 @@ public class WriteEDActivity extends AppCompatActivity {
     StringBuffer[] buffers=new StringBuffer[15];
     StringBuffer finalBuffer= new StringBuffer();
     TextView emoDegree;
-    ArrayList<ToggleButton> toggles=new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,6 +137,7 @@ public class WriteEDActivity extends AppCompatActivity {
                 }
 
                 emotion=finalBuffer.toString();
+
                 Toast.makeText(WriteEDActivity.this, ""+emotion, Toast.LENGTH_SHORT).show();
                 action=etAction.getText().toString();
                 result=etResult.getText().toString();
@@ -160,6 +162,7 @@ public class WriteEDActivity extends AppCompatActivity {
                 dataED.put("Situation",situation);
                 dataED.put("Thought",thought);
                 dataED.put("Emotion",emotion);
+                Log.i("log",emotion);
                 dataED.put("Action",action);
                 dataED.put("Result",result);
                 dataED.put("Date",date);
@@ -207,6 +210,8 @@ public class WriteEDActivity extends AppCompatActivity {
         int tag=Integer.parseInt(imageTag);
         buffers[tag]= new StringBuffer();
         buffers[tag].append(tag+"_");
+
+        ArrayList<ToggleButton> toggles=new ArrayList<>();
 
 
         String[] emos= getResources().getStringArray(R.array.Love);
@@ -328,6 +333,8 @@ public class WriteEDActivity extends AppCompatActivity {
                     if(tb.isChecked()) buffers[tag].append(tb.getText()+",");
                 }
                 buffers[tag].append("_"+emoDegree.getText()+"!");
+                Log.i("log",""+buffers[tag].toString());
+                finalBuffer.append(buffers[tag].toString());
             }
         });
 
