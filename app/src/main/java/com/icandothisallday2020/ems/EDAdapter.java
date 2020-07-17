@@ -17,9 +17,11 @@ import java.util.ArrayList;
 public class EDAdapter extends RecyclerView.Adapter {
     Context context;
     ArrayList<EDItem> items;
+
     ArrayList<String> tag=new ArrayList<>();
     ArrayList<String> intensity=new ArrayList<>();
     ArrayList<String> feelings=new ArrayList<>();
+
 
 
     public EDAdapter(Context context, ArrayList<EDItem> items) {
@@ -41,31 +43,37 @@ public class EDAdapter extends RecyclerView.Adapter {
         VH vh=(VH)holder;
         EDItem item=items.get(position);
 
+        tag.clear();
+        intensity.clear();
+        feelings.clear();
+
         vh.date.setText(item.date);
 
         String[] arr=item.emotion.split("!");
         String[][] selections=new String[arr.length][];
 
-        ArrayList<String[]> feelings=new ArrayList<>();
+        ArrayList<String[]> emotions=new ArrayList<>();
         for(int i=0;i<arr.length-1;i++){
             selections[i]=arr[i].split("_");
             tag.add(selections[i][0]);
             String[] strings=(selections[i][1]).split(",");
-            feelings.add(strings);
-            this.feelings.add(selections[i][1]);
+            emotions.add(strings);
+            feelings.add(selections[i][1]);
             intensity.add(selections[i][2]);
         }
         StringBuffer buffer=new StringBuffer();
 
-        for(int i=0; i<feelings.size()-1;i++){
-            String a=(feelings.get(i))[i];
+        for(int i=0; i<emotions.size()-1;i++){
+            String a=(emotions.get(i))[i];
             //└TODO java.lang.ArrayIndexOutOfBoundsException: length=1; index=2
-            //sdlkfajlkdjsflakjs;dfka
+
             buffer.append(a+"   ");
             Log.i("log",a);//check ---Fondly,Favourable, Joy
         }
         String emo=buffer.toString();
         vh.emoTV.setText(emo);
+
+        vh.emoIV.setImageResource(R.drawable.e00_love+Integer.parseInt(tag.get(0)));
         vh.time.setText(item.time);
 
     }
@@ -98,6 +106,7 @@ public class EDAdapter extends RecyclerView.Adapter {
                 }
             });
 
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -108,9 +117,11 @@ public class EDAdapter extends RecyclerView.Adapter {
                     intent.putStringArrayListExtra("feelings",feelings);
                     intent.putStringArrayListExtra("intensity",intensity);
 
+
                     context.startActivity(intent);
                 }
             });
+
 
         }
     }

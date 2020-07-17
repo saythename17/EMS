@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
 public class FeedDetailActivity extends AppCompatActivity {
     Spinner spinner;
     ArrayAdapter adapter;
+    ImageView close;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,14 @@ public class FeedDetailActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
+
+        close=findViewById(R.id.FDx);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

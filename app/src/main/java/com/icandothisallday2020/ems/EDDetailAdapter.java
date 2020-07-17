@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -23,9 +24,15 @@ import java.util.ArrayList;
 
 public class EDDetailAdapter extends PagerAdapter {
     LayoutInflater inflater;
+    ArrayList<String> tag;
+    ArrayList<String> intensity;
+    ArrayList<String> feelings;
 
-    public EDDetailAdapter(LayoutInflater inflater) {
+    public EDDetailAdapter(LayoutInflater inflater, ArrayList<String> tag, ArrayList<String> intensity, ArrayList<String> feelings) {
         this.inflater = inflater;
+        this.tag = tag;
+        this.intensity = intensity;
+        this.feelings = feelings;
     }
 
     @Override
@@ -41,17 +48,18 @@ public class EDDetailAdapter extends PagerAdapter {
         TextView date=page.findViewById(R.id.edDate),
                 situation=page.findViewById(R.id.detailSituation),
                 thought=page.findViewById(R.id.detailThought),
-                emotion=page.findViewById(R.id.detailEmotion),
                 action=page.findViewById(R.id.detailAction),
                 result=page.findViewById(R.id.detailResult);
         ImageView previous=page.findViewById(R.id.edPrevious),
-                next=page.findViewById(R.id.edNext);
+                  next=page.findViewById(R.id.edNext);
+        RecyclerView recyclerView=page.findViewById(R.id.recyclerEDDetail);
+        EDDEAdapter adapterE=new EDDEAdapter(inflater.getContext(),tag,feelings);
+        recyclerView.setAdapter(adapterE);
 
         EDItem item=G.edItems.get(position);
         date.setText(item.date);
         situation.setText(item.situation);
         thought.setText(item.thought);
-        emotion.setText(item.emotion);
         action.setText(item.action);
         result.setText(item.result);
 
@@ -73,9 +81,9 @@ public class EDDetailAdapter extends PagerAdapter {
 
         //emotion chart value
         ArrayList<PieEntry> value=new ArrayList<>();
-        value.add(new PieEntry(30f,"Angry"));
-        value.add(new PieEntry(20f,"Sad"));
-        value.add(new PieEntry(50f,"Happy"));
+        for(int i=0;i<feelings.size();i++){
+            value.add(new PieEntry(Integer.parseInt(intensity.get(i)),feelings.get(i)));
+        }
         PieDataSet dataSet=new PieDataSet(value,"Emotion");
         dataSet.setColors(colorArray);
         PieData data=new PieData(dataSet);
