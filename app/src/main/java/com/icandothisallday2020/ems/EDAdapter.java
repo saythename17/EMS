@@ -18,9 +18,9 @@ public class EDAdapter extends RecyclerView.Adapter {
     Context context;
     ArrayList<EDItem> items;
 
-    ArrayList<String> tag=new ArrayList<>();
-    ArrayList<String> intensity=new ArrayList<>();
-    ArrayList<String> feelings=new ArrayList<>();
+    ArrayList<String> tag;
+    ArrayList<String> intensity;
+    ArrayList<String> feelings;
 
 
 
@@ -35,43 +35,61 @@ public class EDAdapter extends RecyclerView.Adapter {
         LayoutInflater inflater=LayoutInflater.from(context);
         View itemView=inflater.inflate(R.layout.recycler_ed_item,parent,false);
         VH vh=new VH(itemView);
+
+
         return vh;
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         VH vh=(VH)holder;
-        EDItem item=items.get(position);
+        EDItem item=G.edItems.get(position);
 
-        tag.clear();
-        intensity.clear();
-        feelings.clear();
+        tag=new ArrayList<>();
+        intensity=new ArrayList<>();
+        feelings=new ArrayList<>();
+
+
 
         vh.date.setText(item.date);
 
         String[] arr=item.emotion.split("!");
         String[][] selections=new String[arr.length][];
-
         ArrayList<String[]> emotions=new ArrayList<>();
 
-        for(int i=0;i<arr.length-1;i++){
+        for(int i=0;i<=arr.length-1;i++){
             selections[i]=arr[i].split("_");
             tag.add(selections[i][0]);
+            Log.i("log",""+i+selections[i][0]);
             String[] strings=(selections[i][1]).split(",");
+            Log.i("log",""+i+selections[i][1]);
             emotions.add(strings);
-            feelings.add(selections[i][1]);
+//            feelings.add(selections[i][1]);
             intensity.add(selections[i][2]);
+            Log.i("log",""+i+selections[i][2]);
+            Log.i("log","----------------");
         }
-        StringBuffer buffer=new StringBuffer();
+        StringBuffer finalBuffer=new StringBuffer();
 
-        for(int i=0; i<emotions.size()-1;i++){
-            String a=(emotions.get(i))[i];
-            //└TODO java.lang.ArrayIndexOutOfBoundsException: length=1; index=2
+        for(int i=0; i<=arr.length-1;i++){
 
-            buffer.append(a+"   ");
-            Log.i("log",a);//check ---Fondly,Favourable, Joy
+            StringBuffer buffer=new StringBuffer();
+            for(int j=0;j<=emotions.get(i).length-1;j++){
+                String a=(emotions.get(i))[j];
+                buffer.append(a);
+                if(j<=emotions.get(i).length-2){
+                    buffer.append(", ");
+                }
+
+            }
+            buffer.append("\n");
+            feelings.add(buffer.toString());
+            finalBuffer.append(buffer.toString());
+            Log.i("log",finalBuffer.toString());//check ---Fondly,Favourable, Joy
+
+
         }
-        String emo=buffer.toString();
+        String emo=finalBuffer.toString();
         vh.emoTV.setText(emo);
 
         vh.emoIV.setImageResource(R.drawable.e00_love+Integer.parseInt(tag.get(0)));
@@ -111,7 +129,7 @@ public class EDAdapter extends RecyclerView.Adapter {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    EDItem item=items.get(getLayoutPosition());
+                    EDItem item=G.edItems.get(getLayoutPosition());
                     Intent intent=new Intent(context, EDDetailActivity.class);
                     intent.putExtra("Position",getLayoutPosition());
                     intent.putStringArrayListExtra("tag",tag);
@@ -120,6 +138,9 @@ public class EDAdapter extends RecyclerView.Adapter {
 
 
                     context.startActivity(intent);
+//                    tag.clear();
+//                    intensity.clear();
+//                    feelings.clear();
                 }
             });
 

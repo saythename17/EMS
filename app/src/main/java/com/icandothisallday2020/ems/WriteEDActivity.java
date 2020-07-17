@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -327,24 +328,37 @@ public class WriteEDActivity extends AppCompatActivity {
         builder.setPositiveButton("submit", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(WriteEDActivity.this, "Saved", Toast.LENGTH_SHORT).show();
-
                 for(ToggleButton tb: toggles){
                     if(tb.isChecked()) buffers[tag].append(tb.getText()+",");
                 }
+
                 buffers[tag].append("_"+emoDegree.getText()+"!");
                 Log.i("log",""+buffers[tag].toString());
-                finalBuffer.append(buffers[tag].toString());
+
+                if(buffers[tag].toString().length()<=10){
+                    Toast.makeText(WriteEDActivity.this, "Please Select Your Emotions", Toast.LENGTH_SHORT).show();
+                    ((ImageView) view).setColorFilter(null);
+
+                }else{
+                    Toast.makeText(WriteEDActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+
+                    finalBuffer.append(buffers[tag].toString());
+
+                    int color=Color.parseColor("#8E2FDC");
+                    ((ImageView) view).setColorFilter(color);
+                }
+
+
             }
         });
 
         builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                ((ImageView) view).setColorFilter(null);
             }
         });
-        AlertDialog dialog=builder.create();
+        final AlertDialog dialog=builder.create();
         dialog.show();
     }//////////////////////////////////////////////////////////////////////////////////////////////
 

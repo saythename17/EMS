@@ -27,7 +27,7 @@ public class EDDEAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater=LayoutInflater.from(context);
-        View v=inflater.inflate(R.layout.emotion_detail,parent,false);
+        View v=inflater.inflate(R.layout.recycler_ed_detail,parent,false);
         VH vh=new VH(v);
         return vh;
     }
@@ -35,6 +35,7 @@ public class EDDEAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         VH vh=(VH)holder;
+
         vh.tv.setText(feelings.get(position));
         vh.iv.setImageResource(R.drawable.e00_love+Integer.parseInt(tag.get(position)));
     }

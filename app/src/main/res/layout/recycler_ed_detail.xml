@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="horizontal"
     android:gravity="center"
     android:layout_height="wrap_content">
     <ImageView
@@ -11,12 +10,15 @@
         android:layout_height="100dp"/>
     <TextView
         android:id="@+id/detailETV"
+        android:paddingRight="8dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/detailEIV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18dp"
         android:textColor="#FFF"
         android:fontFamily="serif-monospace"
         android:text="What di you do yesterday? I'm fgsfgsfgsfgsfdgsg"
-        android:gravity="center_horizontal"/>
+        android:gravity="center"/>
 
-</LinearLayout>
+</RelativeLayout>

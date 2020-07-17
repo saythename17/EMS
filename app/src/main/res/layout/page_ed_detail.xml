@@ -65,12 +65,13 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerEDDetail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    android:orientation="vertical"/>
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
             </RelativeLayout>
 
 
@@ -168,7 +169,7 @@
                 android:textSize="24sp"
                 android:fontFamily="casual"
                 android:textStyle="bold"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="80dp"
                 android:background="@drawable/button_bg"
                 android:drawableRight="@drawable/ic_self_talk"/>
             <TextView
