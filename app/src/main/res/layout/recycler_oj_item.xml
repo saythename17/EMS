@@ -23,7 +23,6 @@
             android:layout_marginHorizontal="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="What Are You Wondering?"
             android:fontFamily="serif-monospace"
             android:ellipsize="end"
             android:maxLines="2"

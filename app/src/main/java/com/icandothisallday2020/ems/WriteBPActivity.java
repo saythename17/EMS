@@ -57,4 +57,7 @@ public class WriteBPActivity extends AppCompatActivity {
         AlertDialog alertDialog=builder.create();
         alertDialog.show();
     }
+
+    public void createTable(View view) {
+    }
 }

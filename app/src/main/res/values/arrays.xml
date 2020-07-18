@@ -236,5 +236,57 @@
         <item>Curious</item>
         <item>Perplexed</item>
         <item>What The F...</item>
+        <item></item>
+    </string-array>
+
+    <string-array name="OJQ">
+        <item>What do you want to get through writing this journal?</item>
+        <item>How do you feel about yourself?</item>
+        <item>What kind of person you see as others?</item>
+        <item>How would you like others to see you? What are you trying to do for it?</item>
+        <item>What are you hiding from others?</item>
+        <item>What do you fear the most?</item>
+        <item>Where have you reached your life journey now?</item>
+        <item>What life do you want to live? What are you doing now for that?</item>
+        <item>Write down things you"'"ll throw away in your life(more than 10). And be sure to throw it out a week.</item>
+        <item>Write down what you should do to throw away these trash. And do it.</item>
+        <item>What are the failure patterns that repeatedly fall out of your life?</item>
+        <item>What choice have you made your life here?</item>
+        <item>When do you blame others for passing on the responsibility of your own life?</item>
+        <item>Why don"'"t you take responsibility and change your life? Why give your initiative to others?</item>
+        <item>Are there any options you would like to change in the past? (It is optional not to choose)</item>
+        <item>What choice would you make if you were in that situation again?</item>
+        <item>What can you choose other than complaining as a victim?</item>
+        <item>What did you choose all day? When did you consider yourself a victim?</item>
+        <item>What choice did I make for my future?</item>
+        <item>In what aspects of your life are you just holding on?</item>
+        <item>How and where can I create opportunities?</item>
+        <item>What part of your life are you grateful for? Why are you thankful?</item>
+        <item>What do you appreciate about your relationship?</item>
+        <item>What opportunities have you made today grow?</item>
+        <item>What have you been thankful for this week?(more than 20)</item>
+        <item>What do you like around you? (People, things... anything)</item>
+        <item>What is the most impressive knowledge or wisdom you have learned over the years?</item>
+        <item>Which part of you do you think succeeded?</item>
+        <item>Which people helped you the most?</item>
+        <item>What opportunities should you thankful for in the future?</item>
+        <item>How can you express your gratitude?</item>
+        <item>How can you help others?</item>
+        <item>What makes you yourself, even if all the choices in your life change?</item>
+        <item>What can"'"t you live without in your life?</item>
+        <item>What do you value most?(more than 10)</item>
+        <item>What is the best value of your life?</item>
+        <item>What do you really like about you?</item>
+        <item>What do you really hate about you?</item>
+        <item>What are your strengths? (What are you doing well?)</item>
+        <item>How can you use your strengths usefully?</item>
+        <item>What makes you so happy?</item>
+        <item>What do you do without knowing that time will pass?</item>
+        <item>What is it that makes you feel like you are not at work?</item>
+        <item>What is the value you want to teach your children? Are you living up to that value now?</item>
+        <item>What do you really enjoy? When do you fall into immersion?</item>
+        <item>A letter to you now from 10 years after you discovered your life goals</item>
+        <item>What is your long-term ambition beyond your passion?</item>
+        <item>If you write a book about you? (Write down the title, table of contents, plot)</item>
     </string-array>
 </resources>
