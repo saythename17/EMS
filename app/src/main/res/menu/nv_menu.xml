@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/pushAlarm" android:title="PUSH"
+        android:icon="@drawable/emsicon2"/>
     <item android:id="@+id/alarm" android:title="Alarm"
         android:icon="@drawable/ic_noti_off"/>
     <item android:id="@+id/scrap" android:title="Scrap"
@@ -8,4 +11,6 @@
         android:title="My Comment"/>
     <item android:id="@+id/privacyPolicy" android:title="Privacy policy"
         android:icon="@drawable/ic_people"/>
+
+
 </menu>

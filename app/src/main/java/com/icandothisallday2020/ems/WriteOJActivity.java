@@ -45,6 +45,10 @@ public class WriteOJActivity extends AppCompatActivity {
         question =findViewById(R.id.ojQ);
         userET =findViewById(R.id.user_writeOJ);
 
+        String[] questions=getResources().getStringArray(R.array.OJQ);
+        question.setText(questions[G.numOJ]);
+
+
         userET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -116,7 +120,9 @@ public class WriteOJActivity extends AppCompatActivity {
                 String email=preferences.getString("Email","Everyone/'s Board");
                 if(email.equals("Everyone/'s Board")){
                     Toast.makeText(WriteOJActivity.this,
-                            "You can't save own your text.\nYou must agree to provide your email at login.", Toast.LENGTH_SHORT).show();
+                            "You can't save own your text.\nYou must agree to provide your email at login.",
+                            Toast.LENGTH_SHORT).show();
+                    G.numOJ++;
                     finish();
                     return;
                 }

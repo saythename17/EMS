@@ -255,6 +255,16 @@
                 android:textStyle="bold"
                 android:clickable="true"
                 android:onClick="createTable"/>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TableRow>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp"/>
+                </TableRow>
+
+            </TableLayout>
 
 
 
