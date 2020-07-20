@@ -42,6 +42,7 @@ public class Feed extends Fragment {
         recyclerView.setAdapter(adapter);
         RecyclerView.LayoutManager manager=new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,true);
         recyclerView.setLayoutManager(manager);
+        recyclerView.scrollToPosition(items.size()-1);
         //TODO focus on most recent item
         return view;
     }

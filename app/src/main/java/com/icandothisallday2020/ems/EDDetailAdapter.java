@@ -1,5 +1,6 @@
 package com.icandothisallday2020.ems;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -49,7 +51,8 @@ public class EDDetailAdapter extends PagerAdapter {
                 situation=page.findViewById(R.id.detailSituation),
                 thought=page.findViewById(R.id.detailThought),
                 action=page.findViewById(R.id.detailAction),
-                result=page.findViewById(R.id.detailResult);
+                result=page.findViewById(R.id.detailResult),
+                selfTalk=page.findViewById(R.id.selfTalk);
         ImageView previous=page.findViewById(R.id.edPrevious),
                   next=page.findViewById(R.id.edNext);
         RecyclerView recyclerView=page.findViewById(R.id.recyclerEDDetail);
@@ -62,6 +65,14 @@ public class EDDetailAdapter extends PagerAdapter {
         thought.setText(item.thought);
         action.setText(item.action);
         result.setText(item.result);
+
+        selfTalk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(container.getContext(),SelfTalkActivity.class);
+                container.getContext().startActivity(intent);
+            }
+        });
 
 
 

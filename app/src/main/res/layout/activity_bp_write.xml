@@ -242,29 +242,133 @@
                 android:id="@+id/bp"
                 android:layout_width="wrap_content"
                 android:layout_centerHorizontal="true"
+                android:background="@drawable/create_table_final"
                 android:padding="8dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/line6"
                 android:layout_marginTop="240dp"
                 android:fontFamily="serif-monospace"
                 android:gravity="center"
-                android:text="Detailed plan to realize bliss"
-                android:background="@drawable/create_table_final"
-                android:textColor="@color/colorPrimary"
+                android:text="Detail plan to realize bliss"
+                android:textColor="@color/colorText"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:clickable="true"
+                android:layout_marginBottom="32dp"
                 android:onClick="createTable"/>
-            <TableLayout
+
+
+
+            <LinearLayout
+                android:id="@+id/table"
+                android:layout_below="@id/bp"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <TableRow>
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="16dp"/>
-                </TableRow>
 
-            </TableLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorText"
+                    android:paddingVertical="1dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1.2"
+                        android:layout_height="match_parent"
+                        android:text="GOAL"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorText"
+                        android:gravity="center"
+                        android:textSize="16dp"
+                        android:padding="8dp"
+                        android:background="@color/colorPrimary"/>
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:hint="Write your final goal"
+                        android:textColorHint="@color/colorPastelPurple"
+                        android:paddingLeft="8dp"
+                        android:gravity="center"
+                        android:fontFamily="serif-monospace"
+                        android:textColor="@color/colorText"
+                        android:background="@color/colorPrimary"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorText"
+                    android:clickable="true"
+                    android:orientation="horizontal"
+                    android:onClick="selectDeadLine">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1.5"
+                        android:layout_height="match_parent"
+                        android:text="Dead line"
+                        android:textColor="@color/colorText"
+                        android:gravity="center"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        android:background="@color/colorPrimary"
+                        android:padding="8dp"/>
+                    <TextView
+                        android:id="@+id/deadline"
+                        android:layout_width="0dp"
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:hint="CLICK TO SELECT DATE"
+                        android:textColorHint="@color/colorPastelPurple"
+                        android:textSize="16dp"
+                        android:paddingHorizontal="8dp"
+                        android:textColor="@color/colorText"
+                        android:paddingLeft="8dp"
+                        android:gravity="center"
+                        android:background="@color/colorPrimary"
+                        android:fontFamily="serif-monospace"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="#AFFF"
+                    android:paddingVertical="1dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.7"
+                        android:layout_height="match_parent"
+                        android:text="1"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorText"
+                        android:gravity="center"
+                        android:textSize="16dp"
+                        android:padding="8dp"
+                        android:background="@color/colorPrimary"/>
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:hint="Write your detail plan"
+                        android:paddingHorizontal="16dp"
+                        android:fontFamily="serif-monospace"
+                        android:background="@color/colorText"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+            <ImageView
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="80dp"
+                android:layout_below="@id/table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_menu_add"
+                android:clickable="true"
+                android:onClick="addTableRow"/>
+
 
 
 

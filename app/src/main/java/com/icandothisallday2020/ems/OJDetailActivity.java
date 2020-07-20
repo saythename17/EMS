@@ -59,7 +59,7 @@ public class OJDetailActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.toolbar,menu);
+        getMenuInflater().inflate(R.menu.toolbar_oj,menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -68,24 +68,6 @@ public class OJDetailActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.close:
                 finish();
-                break;
-            case R.id.delete:
-                AlertDialog.Builder builder=new AlertDialog.Builder(this,R.style.MyDialog);
-                builder.setIcon(R.drawable.ic_alert);
-                builder.setTitle("Do you want to delete this journal?");
-                builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                });
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-                });
-                AlertDialog alertDialog=builder.create();
-                alertDialog.show();
                 break;
             case R.id.edit:
                 break;

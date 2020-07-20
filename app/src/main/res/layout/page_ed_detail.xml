@@ -160,6 +160,7 @@
                 android:fontFamily="serif-monospace"
                 android:text="@string/introED" />
             <Button
+                android:id="@+id/selfTalk"
                 android:layout_width="match_parent"
                 android:layout_height="98dp"
                 android:text="self-talk"
@@ -173,7 +174,6 @@
                 android:background="@drawable/button_bg"
                 android:drawableRight="@drawable/ic_self_talk"/>
             <TextView
-                android:id="@+id/selfTalk"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"/>
         </LinearLayout>
