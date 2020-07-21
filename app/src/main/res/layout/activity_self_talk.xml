@@ -18,6 +18,7 @@
 
 
     <TextView
+        android:id="@+id/selfTalk_complete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="right"
@@ -26,7 +27,7 @@
         android:textSize="16dp"
         android:fontFamily="@font/hand"
         android:textStyle="bold"
-        android:text="→ complete answer"
+        android:text="→ Next Question"
         android:clickable="true"
         android:onClick="complete"/>
 

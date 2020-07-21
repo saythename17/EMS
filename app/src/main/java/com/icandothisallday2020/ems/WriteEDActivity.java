@@ -163,7 +163,6 @@ public class WriteEDActivity extends AppCompatActivity {
                 dataED.put("Situation",situation);
                 dataED.put("Thought",thought);
                 dataED.put("Emotion",emotion);
-                Log.i("log",emotion);
                 dataED.put("Action",action);
                 dataED.put("Result",result);
                 dataED.put("Date",date);

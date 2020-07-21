@@ -3,10 +3,14 @@ package com.icandothisallday2020.ems;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Layout;
+import android.view.Gravity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,6 +29,7 @@ import java.util.ArrayList;
 public class SelfTalkActivity extends AppCompatActivity {
     ListView listView;
     EditText et;
+    TextView complete;
     SelfTalkAdapter adapter;
     ArrayList<TalkItem> items =new ArrayList<>();
 
@@ -45,6 +50,7 @@ public class SelfTalkActivity extends AppCompatActivity {
         listView=findViewById(R.id.selfTalk_listView);
         adapter=new SelfTalkAdapter(this, items);
         listView.setAdapter(adapter);
+        complete=findViewById(R.id.selfTalk_complete);
 
         database=FirebaseDatabase.getInstance();
         reference=database.getReference("talk");
@@ -69,9 +75,10 @@ public class SelfTalkActivity extends AppCompatActivity {
                 TalkItem item=dataSnapshot.getValue(TalkItem.class);
                 items.add(item);
                 adapter.notifyDataSetChanged();
+                listView.setSelection(items.size()-1);
 
                 if(item.type.equals("Q")) {
-                    if(qNum<)qNum++;
+                    if(qNum<questions.length)  qNum++;
                 }
             }
 
@@ -102,6 +109,14 @@ public class SelfTalkActivity extends AppCompatActivity {
 
     public void complete(View view) {
 
+        if(qNum>=questions.length){
+            view.setVisibility(View.INVISIBLE);
+            view.setLayoutParams(new LinearLayout.LayoutParams(0,0));
+            Toast.makeText(SelfTalkActivity.this, "Complete Self-Talk", Toast.LENGTH_SHORT).show();
+            qNum=1;
+            return;
+        }
+
         TalkItem item=new TalkItem(questions[qNum],"Q");
         reference1.push().setValue(item);
 
@@ -126,6 +141,11 @@ public class SelfTalkActivity extends AppCompatActivity {
         reference1.removeValue();
         items.clear();
         adapter.notifyDataSetChanged();
+
+        complete.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        complete.setVisibility(View.VISIBLE);
+        complete.setGravity(Gravity.RIGHT);
+
 
         items.add(new TalkItem(questions[0],"Q"));
         qNum++;

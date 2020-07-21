@@ -1,44 +1,88 @@
 package com.icandothisallday2020.ems;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ActionBar;
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.Typeface;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TableLayout;
-import android.widget.TableRow;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import retrofit2.Retrofit;
 
 public class WriteBPActivity extends AppCompatActivity {
-    TextView deadline;
+    TextView deadline,answer1,answer2,answer3,answer4, userProgress;
+    SeekBar seekBar;
     LinearLayout container;
     int tableRow=1;
+    ArrayList<EditText> ets=new ArrayList<>();
+    ArrayList<String> plans=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bp_write);
-        deadline=findViewById(R.id.deadline);
+        deadline=findViewById(R.id.plan_deadline);
         container=findViewById(R.id.table);
+        answer1=findViewById(R.id.bpet1);
+        answer2=findViewById(R.id.bpet2);
+        answer3=findViewById(R.id.bpet3);
+        answer4=findViewById(R.id.bpet4);
+        seekBar=findViewById(R.id.now);
+        userProgress=findViewById(R.id.real_progress);
+
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                userProgress.setText(""+progress+"%");
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        ets.add(findViewById(R.id.plan_detail));
+
+        String[] permissions=new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){
+            if(checkSelfPermission(permissions[0])== PackageManager.PERMISSION_DENIED)
+                requestPermissions(permissions,100);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode==100&&grantResults[0]==PackageManager.PERMISSION_DENIED)
+            Toast.makeText(this, "Can't upload your text in BP internet board", Toast.LENGTH_SHORT).show();
     }
 
     public void back(View view) {
@@ -77,6 +121,46 @@ public class WriteBPActivity extends AppCompatActivity {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                String bliss=answer1.getText().toString();
+                String reason=answer2.getText().toString();
+                String ideal=answer3.getText().toString();
+                String reality=answer4.getText().toString();
+                String progress=userProgress.getText().toString();
+
+
+                SharedPreferences preferences=getSharedPreferences("Data",MODE_PRIVATE);
+                String email=preferences.getString("Email","Everyone/'s Board");
+                if(email.equals("Everyone/'s Board")){
+                    Toast.makeText(WriteBPActivity.this,
+                            "You can't save own your text.\nYou must agree to provide your email when you login.",
+                            Toast.LENGTH_SHORT).show();
+
+                    finish();
+                    return;
+                }
+
+
+                Retrofit retrofit=RetrofitHelper.getInstanceFromScalars();
+                RetrofitService service=retrofit.create(RetrofitService.class);
+                Map<String,String> dataBP=new HashMap<>();
+                dataBP.put("Bliss",bliss);
+                dataBP.put("Reason",reason);
+                dataBP.put("Ideal",ideal);
+                dataBP.put("Reality",reality);
+                dataBP.put("Progress",""+seekBar.getProgress());
+
+
+
+                for(int i=0;i<ets.size();i++){
+                   plans.add(ets.get(i).getText().toString());
+                }
+
+                JSONArray jsonArray=new JSONArray(plans);
+                String jsonString=jsonArray.toString();
+                Log.i("json",jsonString);
+                dataBP.put("Plans",jsonString);
+
+
                 finish();
             }
         });
@@ -111,7 +195,8 @@ public class WriteBPActivity extends AppCompatActivity {
         TextView tv=tableRow.findViewById(R.id.tableTV);
         this.tableRow++;
         tv.setText(""+ this.tableRow);
-        EditText et=tableRow.findViewById(R.id.tableET);
+        ets.add(tableRow.findViewById(R.id.tableET));
+
 
         container.addView(tableRow);
         //hide keyboard

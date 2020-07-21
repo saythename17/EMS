@@ -120,7 +120,7 @@ public class WriteOJActivity extends AppCompatActivity {
                 String email=preferences.getString("Email","Everyone/'s Board");
                 if(email.equals("Everyone/'s Board")){
                     Toast.makeText(WriteOJActivity.this,
-                            "You can't save own your text.\nYou must agree to provide your email at login.",
+                            "You can't save own your text.\nYou must agree to provide your email when you login.",
                             Toast.LENGTH_SHORT).show();
 
                     finish();

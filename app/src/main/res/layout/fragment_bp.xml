@@ -46,25 +46,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp">
-            <TextView
-                android:id="@+id/tv1"
-                android:layout_width="wrap_content"
-                android:layout_height="500dp"
-                android:text="@string/introBP"
-                android:textColor="@color/colorText"/>
-            <TextView
-                android:id="@+id/tv2"
-                android:layout_below="@+id/tv1"
-                android:layout_width="wrap_content"
-                android:layout_height="500dp"
-                android:text="@string/introBP"
-                android:textColor="@color/colorText"/>
-            <TextView
-                android:layout_below="@id/tv2"
-                android:layout_width="wrap_content"
-                android:layout_height="500dp"
-                android:text="@string/introBP"
-                android:textColor="@color/colorText"/>
+
+            <com.dinuscxj.progressbar.CircleProgressBar
+                android:id="@+id/cpb_circlebar"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:progress_text_size="18sp"
+                app:progress_text_color="#DE8E2FDC"
+                app:style="solid_line"
+                app:progress_stroke_width="10dp "
+                app:progress_stroke_cap="round"
+                app:progress_start_color="@color/colorAccent"
+                app:progress_end_color="#213CCC"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
 
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
