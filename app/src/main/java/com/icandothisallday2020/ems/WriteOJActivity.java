@@ -122,7 +122,7 @@ public class WriteOJActivity extends AppCompatActivity {
                     Toast.makeText(WriteOJActivity.this,
                             "You can't save own your text.\nYou must agree to provide your email at login.",
                             Toast.LENGTH_SHORT).show();
-                    G.numOJ+=1;
+
                     finish();
                     return;
                 }
@@ -144,7 +144,8 @@ public class WriteOJActivity extends AppCompatActivity {
                         if(response.isSuccessful()){
                             String s=response.body();
                             Toast.makeText(WriteOJActivity.this, ""+s, Toast.LENGTH_SHORT).show();
-
+                            G.numOJ+=1;
+                            Toast.makeText(WriteOJActivity.this, ""+G.numOJ, Toast.LENGTH_SHORT).show();
                             finish();
                         }
                     }

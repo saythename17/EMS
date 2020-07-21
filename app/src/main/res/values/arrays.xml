@@ -289,4 +289,20 @@
         <item>What is your long-term ambition beyond your passion?</item>
         <item>If you write a book about you? (Write down the title, table of contents, plot)</item>
     </string-array>
+
+
+    <string-array name="QselfTalk">
+        <item>Question1</item>
+        <item>Question2</item>
+        <item>Question3</item>
+        <item>Question4</item>
+        <item>Question5</item>
+        <item>Question6</item>
+        <item>Question7</item>
+        <item>Question8</item>
+        <item>Question9</item>
+        <item>Question10</item>
+        <item>Question11</item>
+        <item>Question12</item>
+    </string-array>
 </resources>

@@ -1,10 +1,8 @@
 package com.icandothisallday2020.ems;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -28,10 +26,15 @@ public class SelfTalkActivity extends AppCompatActivity {
     ListView listView;
     EditText et;
     SelfTalkAdapter adapter;
-    ArrayList<String> talks=new ArrayList<>();
+    ArrayList<TalkItem> items =new ArrayList<>();
 
     FirebaseDatabase database;
     DatabaseReference reference;
+    DatabaseReference reference1;
+    String[] questions;
+    int qNum=0;
+    int num;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,23 +43,36 @@ public class SelfTalkActivity extends AppCompatActivity {
 
         et=findViewById(R.id.et_msg);
         listView=findViewById(R.id.selfTalk_listView);
-        adapter=new SelfTalkAdapter(this, talks);
+        adapter=new SelfTalkAdapter(this, items);
         listView.setAdapter(adapter);
 
         database=FirebaseDatabase.getInstance();
         reference=database.getReference("talk");
-    }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
-        reference.addChildEventListener(new ChildEventListener() {
+
+        SharedPreferences preferences = getSharedPreferences("Data", MODE_PRIVATE);
+        String email = preferences.getString("Email", "Email");
+        String emailCompat=email.replace('.','@');
+        reference1=reference.child(emailCompat);
+
+
+        questions=getResources().getStringArray(R.array.QselfTalk);
+        items.add(new TalkItem(questions[0],"Q"));
+        qNum++;
+
+
+        reference1.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                String talk= (String) dataSnapshot.getValue();
-                talks.add(talk);
+               // String key=reference1.getKey(); //==woohyo17@icloud@com
+
+                TalkItem item=dataSnapshot.getValue(TalkItem.class);
+                items.add(item);
                 adapter.notifyDataSetChanged();
-                listView.setSelection(talks.size()-1);
+
+                if(item.type.equals("Q")) {
+                    if(qNum<)qNum++;
+                }
             }
 
             @Override
@@ -82,24 +98,39 @@ public class SelfTalkActivity extends AppCompatActivity {
 
     }
 
+
+
+    public void complete(View view) {
+
+        TalkItem item=new TalkItem(questions[qNum],"Q");
+        reference1.push().setValue(item);
+
+    }
+
     public void send(View view) {
-        Toast.makeText(this, "?", Toast.LENGTH_SHORT).show();
 
-        SharedPreferences preferences = getSharedPreferences("Data", MODE_PRIVATE);
-        String email = preferences.getString("Email", "");
         String msg=et.getText().toString();
+        TalkItem item=new TalkItem(msg,"A");
+        reference1.push().setValue(item);
 
-        Talk talk=new Talk(email,msg,"");
-        reference.push().setValue(talk);
-//
-//        //hide soft keyboard after push
-//        InputMethodManager imm= (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-//        imm.hideSoftInputFromWindow(getCurrentFocus()/*current focus*/.getWindowToken()
-//                ,0/*flag:Googleing - 0: right now*/);
 
+        //hide soft keyboard after push
+        InputMethodManager imm= (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(getCurrentFocus()/*current focus*/.getWindowToken()
+                ,0/*flag:Googleing - 0: right now*/);
+        et.setText("");
 
     }
 
     public void rewind(View view) {
+        reference1.removeValue();
+        items.clear();
+        adapter.notifyDataSetChanged();
+
+        items.add(new TalkItem(questions[0],"Q"));
+        qNum++;
+        adapter.notifyDataSetChanged();
     }
+
+
 }
