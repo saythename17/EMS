@@ -9,7 +9,6 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,7 +26,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -169,7 +167,7 @@ public class WriteEDActivity extends AppCompatActivity {
                 dataED.put("Time",time);
                 dataED.put("Email",email);
 
-                Call<String> call=service.postDataToEDB(dataED);
+                Call<String> call=service.postDataToED(dataED);
                 call.enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {

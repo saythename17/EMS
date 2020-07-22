@@ -7,9 +7,4 @@
     android:textColor="@color/colorText"
     android:textStyle="bold"
     android:fontFamily="serif-monospace"
-    android:textSize="18dp">
-
-
-
-
-</TextView>
+    android:textSize="18dp"/>

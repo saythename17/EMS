@@ -13,16 +13,23 @@ public interface RetrofitService {
 
     @Multipart
     @POST("/EMS/insertOJ.php")
-    Call<String> postDataToOJB(@PartMap Map<String,String> oj);
+    Call<String> postDataToOJ(@PartMap Map<String,String> oj);
 
     @GET("/EMS/loadOJ.php")
-    Call<ArrayList<OJItem>> loadDataFromOJB();
+    Call<ArrayList<OJItem>> loadDataFromOJ();
 
     @Multipart
     @POST("/EMS/insertED.php")
-    Call<String> postDataToEDB(@PartMap Map<String,String> ed);
+    Call<String> postDataToED(@PartMap Map<String,String> ed);
 
     @GET("EMS/loadED.php")
-    Call<ArrayList<EDItem>> loadDataFromEDB();
+    Call<ArrayList<EDItem>> loadDataFromED();
+
+    @Multipart
+    @POST("/EMS/insertBP.php")
+    Call<String> postDataToBP(@PartMap Map<String,String> bp);
+
+    @GET("EMS/loadBP.php")
+    Call<ArrayList<BPItem>> loadDataFromBP();
 
 }

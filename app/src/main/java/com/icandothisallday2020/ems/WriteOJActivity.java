@@ -137,7 +137,7 @@ public class WriteOJActivity extends AppCompatActivity {
                 dataOJ.put("Date",date);
                 dataOJ.put("Email",email);
 
-                Call<String> call=service.postDataToOJB(dataOJ);
+                Call<String> call=service.postDataToOJ(dataOJ);
                 call.enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {

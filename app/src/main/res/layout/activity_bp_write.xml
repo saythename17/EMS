@@ -313,6 +313,7 @@
                         android:textColorHint="@color/colorPastelPurple"
                         android:gravity="center"
                         android:paddingRight="16dp"
+                        android:paddingVertical="8dp"
                         android:fontFamily="serif-monospace"
                         android:textColor="@color/colorText"
                         android:background="@color/colorPrimary"/>

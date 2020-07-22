@@ -11,4 +11,6 @@ public class G {
     public static ArrayList<OJItem> ojItems;
 
     public static ArrayList<EDItem> edItems;
+
+    public static ArrayList<BPItem> bpItems;
 }

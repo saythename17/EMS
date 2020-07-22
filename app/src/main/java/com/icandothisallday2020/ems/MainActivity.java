@@ -23,6 +23,9 @@ import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.ToxicBakery.viewpager.transforms.CubeInTransformer;
+import com.ToxicBakery.viewpager.transforms.CubeOutTransformer;
+import com.ToxicBakery.viewpager.transforms.RotateUpTransformer;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -98,6 +101,8 @@ public class MainActivity extends AppCompatActivity {
         adapter=new MainAdapter(getSupportFragmentManager());
         pager.setAdapter(adapter);
         pager.setCurrentItem(2);
+        pager.setPageTransformer(true, new CubeOutTransformer());
+//        pager.setPageTransformer(true, new RotateUpTransformer());
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -215,9 +220,8 @@ public class MainActivity extends AppCompatActivity {
                         DatePickerDialog datePickerDialog=new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-//                                Toast.makeText(MainActivity.this, ""+year+"/"+month+"/"+dayOfMonth, Toast.LENGTH_SHORT).show();
                                 Intent intent=new Intent(MainActivity.this,OJDetailActivity.class);
-                                intent.putExtra("Date",""+year+month+dayOfMonth);
+                                intent.putExtra("Date",""+year+(month+1)+dayOfMonth);
                                 startActivity(intent);
                             }
                         },year,month,day);

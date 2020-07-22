@@ -1,6 +1,7 @@
 package com.icandothisallday2020.ems;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
@@ -13,12 +14,15 @@ public class FeedDetailActivity extends AppCompatActivity {
     Spinner spinner;
     ArrayAdapter adapter;
     ImageView close;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed_detail);
         spinner=findViewById(R.id.spinner);
+        recyclerView=findViewById(R.id.recycler_comments);
+
         adapter=ArrayAdapter.createFromResource(this,R.array.comments,R.layout.spinner_selected);
         adapter.setDropDownViewResource(R.layout.spinner_dropdown);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

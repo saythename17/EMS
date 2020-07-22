@@ -35,7 +35,7 @@ public class ED extends Fragment {
 
         Retrofit retrofit=RetrofitHelper.getInstanceFromGson();
         RetrofitService service=retrofit.create(RetrofitService.class);
-        Call<ArrayList<EDItem>> call=service.loadDataFromEDB();
+        Call<ArrayList<EDItem>> call=service.loadDataFromED();
 
         call.enqueue(new Callback<ArrayList<EDItem>>() {
             @Override

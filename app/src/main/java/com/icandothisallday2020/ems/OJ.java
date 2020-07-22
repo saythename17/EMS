@@ -39,7 +39,7 @@ public class OJ extends Fragment {
 
         Retrofit retrofit=RetrofitHelper.getInstanceFromGson();
         RetrofitService service=retrofit.create(RetrofitService.class);
-        Call<ArrayList<OJItem>> call=service.loadDataFromOJB();
+        Call<ArrayList<OJItem>> call=service.loadDataFromOJ();
 
 
 

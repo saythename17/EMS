@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class OJDetailActivity extends AppCompatActivity {
     int position;
@@ -36,6 +37,7 @@ public class OJDetailActivity extends AppCompatActivity {
 //        }
 
         date=intent.getStringExtra("Date");
+        Toast.makeText(this, "OJDetailActivity:"+date, Toast.LENGTH_SHORT).show();
         for(int i=0;i<G.ojItems.size();i++){
             String itemDate=(G.ojItems.get(i).year)+(G.ojItems.get(i).month)+(G.ojItems.get(i).day);
             if(date.equals(itemDate)) position=i;
