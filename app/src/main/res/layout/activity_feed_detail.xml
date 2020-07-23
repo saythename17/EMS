@@ -146,11 +146,14 @@
                     android:layout_weight="1"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:src="@android:drawable/ic_menu_send"/>
+                    android:padding="4dp"
+                    android:src="@drawable/ic_send_final"
+                    android:clickable="true"
+                    android:onClick="send"/>
             </LinearLayout>
 
             <TextView
-                android:id="@+id/comments"
+                android:id="@+id/count"
                 android:layout_below="@id/etcomment"
                 android:layout_margin="16dp"
                 android:layout_width="wrap_content"
@@ -174,10 +177,11 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_comments"
-                android:layout_below="@id/comments"
+                android:layout_below="@id/count"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_marginBottom="80dp"/>
         </RelativeLayout>
         </RelativeLayout>
     </ScrollView>

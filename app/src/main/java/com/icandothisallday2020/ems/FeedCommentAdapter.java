@@ -5,19 +5,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class FeedDetailCommentAdapter extends RecyclerView.Adapter {
+public class FeedCommentAdapter extends RecyclerView.Adapter {
     Context context;
     ArrayList<CItem> items;
 
-    public FeedDetailCommentAdapter(Context context, ArrayList<CItem> items) {
+    public FeedCommentAdapter(Context context, ArrayList<CItem> items) {
         this.context = context;
         this.items = items;
     }
@@ -38,11 +41,40 @@ public class FeedDetailCommentAdapter extends RecyclerView.Adapter {
         CItem item=items.get(position);
         vh.name.setText(item.name);
         vh.comment.setText(item.comment);
-        vh.date.setText(item.comment);
-        vh.up.setText(item.up);
-        vh.down.setText(item.down);
+        if(!item.profileUrl.equals("No File")){
+            Glide.with(context).load(item.profileUrl).into(vh.profile);
+        }
+        vh.date.setText(item.date);
+        vh.up.setText("\t"+item.up);
+        vh.down.setText("\t"+item.down);
+        final boolean[] click = {true,true};
+        vh.up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(click[0]){
+                    vh.up.setText("\t"+(Integer.parseInt(item.up)+1));
+                    click[0] =!click[0];
+                }else{
+                    vh.up.setText("\t"+item.up);
+                    click[0] =!click[0];
+                }
+            }
+        });
 
-        //TODO set user's profile photo to civ
+        vh.down.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(click[1]){
+                        vh.down.setText("\t"+(Integer.parseInt(item.down)+1));
+                        click[1] =!click[1];
+
+                }else{
+                    vh.down.setText("\t"+item.down);
+                    click[1] =!click[1];
+                }
+            }
+        });
+
     }
 
     @Override

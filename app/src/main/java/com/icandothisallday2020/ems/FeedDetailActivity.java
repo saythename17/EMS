@@ -1,20 +1,45 @@
 package com.icandothisallday2020.ems;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.icu.text.Transliterator;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.Calendar;
 
 public class FeedDetailActivity extends AppCompatActivity {
     Spinner spinner;
     ArrayAdapter adapter;
     ImageView close;
     RecyclerView recyclerView;
+    ArrayList<CItem> items=new ArrayList<>();
+    FirebaseDatabase database;
+    DatabaseReference reference;
+    EditText comment;
+    TextView count,like;
+    FeedCommentAdapter commentAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +47,11 @@ public class FeedDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_feed_detail);
         spinner=findViewById(R.id.spinner);
         recyclerView=findViewById(R.id.recycler_comments);
+        comment=findViewById(R.id.FDet);
+        count=findViewById(R.id.count);
+        like=findViewById(R.id.FDlike);
+        commentAdapter=new FeedCommentAdapter(this,items);
+        recyclerView.setAdapter(commentAdapter);
 
         adapter=ArrayAdapter.createFromResource(this,R.array.comments,R.layout.spinner_selected);
         adapter.setDropDownViewResource(R.layout.spinner_dropdown);
@@ -49,6 +79,40 @@ public class FeedDetailActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+
+        database=FirebaseDatabase.getInstance();
+        reference=database.getReference("comments");
+
+        reference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                CItem item=dataSnapshot.getValue(CItem.class);
+                items.add(item);
+                commentAdapter.notifyItemInserted(items.size()-1);
+                count.setText("\t"+items.size());
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     public void like(View view) {
@@ -58,5 +122,27 @@ public class FeedDetailActivity extends AppCompatActivity {
     }
 
     public void share(View view) {
+    }
+
+    public void send(View view) {
+        SharedPreferences preferences=getSharedPreferences("Data",MODE_PRIVATE);
+        G.userName=preferences.getString("Name","User");
+        G.userEmail=preferences.getString("Email","Unknown");
+        G.userProfileUrl=preferences.getString("ProfileUrl","No File");
+        Calendar calendar=Calendar.getInstance();
+        @SuppressLint("WrongConstant")
+        String date=""+calendar.get(Calendar.YEAR)+"."+
+                    (calendar.get(Calendar.MONTH)+1)+"."+
+                    calendar.get(Calendar.DAY_OF_MONTH);
+        String up=""+0;
+        String down=""+0;
+        String comment=this.comment.getText().toString();
+
+        CItem item=new CItem(G.userName,G.userProfileUrl,G.userEmail,comment,date,up,down);
+        reference.push().setValue(item);
+
+        this.comment.setText("");
+        InputMethodManager imm=(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),0);
     }
 }

@@ -1,16 +1,17 @@
 package com.icandothisallday2020.ems;
 
 class CItem {
-    String name, comment,time,profileUrl,up,down;
+    String name, profileUrl, email, comment, date, up, down;
 
     public CItem() {
     }
 
-    public CItem(String name, String comment, String time, String profileUrl, String up, String down) {
+    public CItem(String name, String profileUrl, String email, String comment, String date, String up, String down) {
         this.name = name;
-        this.comment = comment;
-        this.time = time;
         this.profileUrl = profileUrl;
+        this.email = email;
+        this.comment = comment;
+        this.date = date;
         this.up = up;
         this.down = down;
     }
@@ -23,6 +24,22 @@ class CItem {
         this.name = name;
     }
 
+    public String getProfileUrl() {
+        return profileUrl;
+    }
+
+    public void setProfileUrl(String profileUrl) {
+        this.profileUrl = profileUrl;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getComment() {
         return comment;
     }
@@ -31,20 +48,12 @@ class CItem {
         this.comment = comment;
     }
 
-    public String getTime() {
-        return time;
+    public String getDate() {
+        return date;
     }
 
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public String getProfileUrl() {
-        return profileUrl;
-    }
-
-    public void setProfileUrl(String profileUrl) {
-        this.profileUrl = profileUrl;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getUp() {

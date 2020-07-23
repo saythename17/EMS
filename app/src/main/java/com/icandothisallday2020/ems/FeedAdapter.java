@@ -55,6 +55,7 @@ public class FeedAdapter extends RecyclerView.Adapter {
     class VH extends RecyclerView.ViewHolder{
         ImageView feedImage;
         TextView title,text;
+
         public VH(@NonNull View itemView) {
             super(itemView);
             feedImage=itemView.findViewById(R.id.feedImage);
