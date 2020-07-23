@@ -3,33 +3,46 @@ package com.icandothisallday2020.ems;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.ContextMenu;
+import android.view.Gravity;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.CalendarView;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
-
-import com.ToxicBakery.viewpager.transforms.CubeInTransformer;
 import com.ToxicBakery.viewpager.transforms.CubeOutTransformer;
-import com.ToxicBakery.viewpager.transforms.RotateUpTransformer;
 import com.google.android.material.navigation.NavigationView;
+import com.kakao.auth.KakaoSDK;
+
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawer;
@@ -38,6 +51,10 @@ public class MainActivity extends AppCompatActivity {
     ImageView feed, ed, write, oj, bp, menu, menu2;
 
     NavigationView nv;
+    LinearLayout nvHeader;
+
+    int Hour,Min;
+
 
     @SuppressLint("ResourceAsColor")
     @Override
@@ -48,12 +65,32 @@ public class MainActivity extends AppCompatActivity {
         pager=findViewById(R.id.mainPager);
         nv=findViewById(R.id.nv);
 
+        nvHeader=findViewById(R.id.nameGroup);
+
+
+
+
+
+
+
+        TimePickerDialog.OnTimeSetListener timeSetListener=new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                Hour=hourOfDay;
+                Min=minute;
+
+                Toast.makeText(MainActivity.this, "Set alarm daily at specified time \n★"+Hour+":"+Min, Toast.LENGTH_SHORT).show();
+            }
+        };
+
         nv.setItemTextColor(ColorStateList.valueOf(R.color.colorDarkGray));
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.alarm:
+                        Intent intent=new Intent(MainActivity.this,AlarmActivity.class);
+                        startActivity(intent);
                         break;
                     case R.id.scrap:
                         break;
@@ -193,6 +230,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void changeName(View view){
+        view.setVisibility(View.INVISIBLE);
+
+        EditText et=new EditText(this);
+        et.setTypeface(Typeface.MONOSPACE);
+        et.setTextSize(18f);
+        ImageView iv=new ImageView(this);
+        iv.setImageResource(R.drawable.ic_check_circle_black_24dp);
+        nvHeader.addView(et);
+        nvHeader.addView(iv);
+
+        iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name=et.getText().toString();
+                G.userName=name;
+                nvHeader.removeView(et);
+                nvHeader.removeView(iv);
+                view.setVisibility(View.VISIBLE);
+                TextView tv=(TextView) view;
+                tv.setText(name);
+            }
+        });
+
 
     }
     //-----------------------------------------

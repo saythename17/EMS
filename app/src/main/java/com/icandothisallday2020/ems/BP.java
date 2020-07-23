@@ -1,12 +1,18 @@
 package com.icandothisallday2020.ems;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
@@ -25,6 +31,7 @@ import com.google.gson.JsonArray;
 
 import java.util.ArrayList;
 
+import me.itangqi.waveloadingview.WaveLoadingView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -35,9 +42,11 @@ public class BP extends Fragment {
     Spinner spinner;
     ArrayAdapter adapter;
     TextView reason,ideal,reality,goal,deadline;
-    CircleProgressBar circleProgressBar2;
+//    CircleProgressBar circleProgressBar2;
+    WaveLoadingView wave;
     LinearLayout bp;
     String[] plans;
+
 
     @Nullable
     @Override
@@ -48,10 +57,14 @@ public class BP extends Fragment {
         reality=view.findViewById(R.id.reality);
         goal=view.findViewById(R.id.goal);
         deadline=view.findViewById(R.id.deadline);
-        circleProgressBar2=view.findViewById(R.id.cpb_reality);
+//        circleProgressBar2=view.findViewById(R.id.cpb_reality);
         bp=view.findViewById(R.id.table);
+        wave=view.findViewById(R.id.wave_reality);
 
         spinner=view.findViewById(R.id.spinnerBP);
+
+
+
 
 //        adapter=ArrayAdapter.createFromResource(getContext(),R.array.comments,R.layout.spinner_bp_selected);
 //        adapter.setDropDownViewResource(R.layout.spinner_dropdown);
@@ -109,7 +122,9 @@ public class BP extends Fragment {
                 reality.setText(G.bpItems.get(position).reality);
                 goal.setText(G.bpItems.get(position).goal);
                 deadline.setText(G.bpItems.get(position).deadline);
-                circleProgressBar2.setProgress(Integer.parseInt(G.bpItems.get(position).progress));
+//                circleProgressBar2.setProgress(Integer.parseInt(G.bpItems.get(position).progress));
+                wave.setProgressValue(Integer.parseInt(G.bpItems.get(position).progress));
+                wave.setCenterTitle(G.bpItems.get(position).progress+"%");
 
                 Gson gson=new Gson();
                 plans=gson.fromJson(G.bpItems.get(position).plans,String[].class);
