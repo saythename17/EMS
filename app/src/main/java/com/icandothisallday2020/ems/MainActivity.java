@@ -1,6 +1,7 @@
 package com.icandothisallday2020.ems;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -12,9 +13,11 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -34,6 +37,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 import com.ToxicBakery.viewpager.transforms.CubeOutTransformer;
+import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
 import com.kakao.auth.KakaoSDK;
 
@@ -65,8 +69,11 @@ public class MainActivity extends AppCompatActivity {
         pager=findViewById(R.id.mainPager);
         nv=findViewById(R.id.nv);
 
-        nvHeader=findViewById(R.id.nameGroup);
-
+        nvHeader=nv.getHeaderView(0).findViewById(R.id.nameGroup);
+        TextView userName=nv.getHeaderView(0).findViewById(R.id.nv_name);
+        if(!(G.userName==null)) userName.setText(G.userName);
+        ImageView userProfile=nv.getHeaderView(0).findViewById(R.id.nv_profile);
+        if(!(G.uri==null)) Glide.with(this).load(G.uri).into(userProfile);
 
 
 
@@ -226,36 +233,48 @@ public class MainActivity extends AppCompatActivity {
 
     //nv Drawer -------------------------------
     public void changeProfile(View view){
+        Intent intent=new Intent(Intent.ACTION_PICK);
+        intent.setType("image/*");
+        startActivityForResult(intent,615);
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        ImageView iv=nv.getHeaderView(0).findViewById(R.id.nv_profile);
+        switch (requestCode){
+            case 615:
+                if(resultCode!=RESULT_CANCELED){
+                    Uri uri=data.getData();
+                    G.uri=uri;
+                    if(uri==null) Toast.makeText(this, "No Image", Toast.LENGTH_SHORT).show();
+                    else Glide.with(this).load(uri).into(iv);
+                }
+        }
     }
 
     public void changeName(View view){
-        view.setVisibility(View.INVISIBLE);
+        view.setVisibility(View.GONE);
 
-        EditText et=new EditText(this);
-        et.setTypeface(Typeface.MONOSPACE);
-        et.setTextSize(18f);
-        ImageView iv=new ImageView(this);
-        iv.setImageResource(R.drawable.ic_check_circle_black_24dp);
-        nvHeader.addView(et);
-        nvHeader.addView(iv);
+        EditText et=nv.getHeaderView(0).findViewById(R.id.nv_userName);
+        ImageView iv=nv.getHeaderView(0).findViewById(R.id.nv_userNameSet);
+
+        et.setVisibility(View.VISIBLE);
+        iv.setVisibility(View.VISIBLE);
 
         iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String name=et.getText().toString();
                 G.userName=name;
-                nvHeader.removeView(et);
-                nvHeader.removeView(iv);
+                et.setVisibility(View.GONE);
+                iv.setVisibility(View.GONE);
                 view.setVisibility(View.VISIBLE);
                 TextView tv=(TextView) view;
                 tv.setText(name);
             }
         });
-
-
-    }
-    //-----------------------------------------
+    }//-----------------------------------------
 
     View.OnClickListener menuListener= new View.OnClickListener() {
         @Override

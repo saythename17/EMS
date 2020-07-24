@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
-import android.icu.text.Transliterator;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -18,8 +18,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,14 +31,14 @@ import java.util.Calendar;
 
 public class FeedDetailActivity extends AppCompatActivity {
     Spinner spinner;
-    ArrayAdapter adapter;
-    ImageView close;
+    ArrayAdapter spinnerAdapter;
+    ImageView close,iv;
     RecyclerView recyclerView;
     ArrayList<CItem> items=new ArrayList<>();
     FirebaseDatabase database;
     DatabaseReference reference;
     EditText comment;
-    TextView count,like;
+    TextView count,like,title,text;
     FeedCommentAdapter commentAdapter;
 
     @Override
@@ -53,8 +53,24 @@ public class FeedDetailActivity extends AppCompatActivity {
         commentAdapter=new FeedCommentAdapter(this,items);
         recyclerView.setAdapter(commentAdapter);
 
-        adapter=ArrayAdapter.createFromResource(this,R.array.comments,R.layout.spinner_selected);
-        adapter.setDropDownViewResource(R.layout.spinner_dropdown);
+        title=findViewById(R.id.FDtitle);
+        text=findViewById(R.id.FDtext);
+        iv=findViewById(R.id.FDiv);
+
+
+        String title=getIntent().getStringExtra("Title");
+        String content=getIntent().getStringExtra("Content");
+        String file=getIntent().getStringExtra("File");
+
+        this.title.setText(title);
+        text.setText(content);
+        Glide.with(this).load("http://soon0.dothome.co.kr/EMS/"+file).into(iv);
+
+
+
+
+        spinnerAdapter =ArrayAdapter.createFromResource(this,R.array.comments,R.layout.spinner_selected);
+        spinnerAdapter.setDropDownViewResource(R.layout.spinner_dropdown);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

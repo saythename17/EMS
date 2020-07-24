@@ -1,11 +1,14 @@
 package com.icandothisallday2020.ems;
 
+import android.net.Uri;
+
 import java.util.ArrayList;
 
 public class G {
     public  static String userName;
     public  static String userEmail;
     public  static String userProfileUrl;
+    public  static Uri uri;
 
     public static int numOJ=0;
 
@@ -17,4 +20,6 @@ public class G {
     public static ArrayList<EDItem> edItems;
 
     public static ArrayList<BPItem> bpItems;
+
+    public static ArrayList<FeedItem> feedItems;
 }

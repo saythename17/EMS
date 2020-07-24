@@ -32,4 +32,7 @@ public interface RetrofitService {
     @GET("EMS/loadBP.php")
     Call<ArrayList<BPItem>> loadDataFromBP();
 
+    @GET("EMS/loadFeed.php")
+    Call<ArrayList<FeedItem>> loadDataFromFeed();
+
 }

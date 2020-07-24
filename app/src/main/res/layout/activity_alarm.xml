@@ -108,7 +108,7 @@
                 tools:text="Monday" />
 
             <CheckBox
-                android:id="@+id/cv_mon"
+                android:id="@+id/cb_mon"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_row="0"
@@ -127,7 +127,7 @@
                 tools:text="Tuesday" />
 
             <CheckBox
-                android:id="@+id/edit_alarm_tues"
+                android:id="@+id/cb_tues"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
@@ -144,7 +144,7 @@
                 tools:text="Wednesday" />
 
             <CheckBox
-                android:id="@+id/edit_alarm_wed"
+                android:id="@+id/cb_wed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
@@ -161,7 +161,7 @@
                 tools:text="Thursday" />
 
             <CheckBox
-                android:id="@+id/edit_alarm_thurs"
+                android:id="@+id/cb_thurs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
@@ -178,7 +178,7 @@
                 tools:text="Friday" />
 
             <CheckBox
-                android:id="@+id/edit_alarm_fri"
+                android:id="@+id/cb_fri"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
@@ -195,7 +195,7 @@
                 tools:text="Saturday" />
 
             <CheckBox
-                android:id="@+id/edit_alarm_sat"
+                android:id="@+id/cb_sat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
@@ -212,31 +212,44 @@
                 tools:text="Sunday" />
 
             <CheckBox
-                android:id="@+id/edit_alarm_sun"
+                android:id="@+id/cb_sun"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:buttonTint="@color/colorSky"
                 android:layout_marginBottom="@dimen/list_padding_vertical_small"/>
+
+            <Button
+                android:id="@+id/alarmBtn"
+                android:elevation="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_gravity="center"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:text=" save "
+                android:textColor="@color/colorText"
+                android:fontFamily="monospace"
+                android:backgroundTint="@color/colorSky"
+                android:drawableLeft="@android:drawable/ic_lock_idle_alarm"
+                android:drawableTint="@color/colorText"
+                android:drawableRight="@android:drawable/ic_lock_idle_alarm"
+                android:onClick="save"/>
+            <Button
+                android:id="@+id/deleteBtn"
+                android:elevation="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_gravity="right"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:text=" delete "
+                android:textColor="@color/colorText"
+                android:fontFamily="monospace"
+                android:backgroundTint="@color/colorGray"
+                android:drawableLeft="@android:drawable/ic_delete"
+                android:drawableTint="@color/colorText"
+                android:drawableRight="@android:drawable/ic_delete"
+                android:onClick="deleteAlarm"/>
         </GridLayout>
-
-
-        <Button
-            android:id="@+id/alarmBtn"
-            android:layout_marginTop="40dp"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" save "
-            android:textColor="@color/colorText"
-            android:fontFamily="monospace"
-            android:backgroundTint="@color/colorSky"
-            android:drawableLeft="@android:drawable/ic_lock_idle_alarm"
-            android:drawableTint="@color/colorText"
-            android:drawableRight="@android:drawable/ic_lock_idle_alarm"
-            android:onClick="save"/>
-
-
 
     </LinearLayout>
 

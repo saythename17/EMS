@@ -24,5 +24,6 @@ public class IntroActivity extends AppCompatActivity {
         introVP.setAdapter(adapter);
         indicator.setViewPager(introVP);
         indicator.setItemNum(3);
+
     }
 }

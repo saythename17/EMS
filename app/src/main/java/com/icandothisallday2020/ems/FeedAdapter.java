@@ -42,9 +42,9 @@ public class FeedAdapter extends RecyclerView.Adapter {
         VH vh=(VH) holder;
         FeedItem feedItem=items.get(position);
         vh.title.setText(feedItem.title);
-        vh.text.setText(feedItem.text);
+        vh.text.setText(feedItem.content);
 
-        Glide.with(context).load(feedItem.imageURL).into(vh.feedImage);
+        Glide.with(context).load(feedItem.file).into(vh.feedImage);
     }
 
     @Override
@@ -68,8 +68,8 @@ public class FeedAdapter extends RecyclerView.Adapter {
                     FeedItem item=items.get(getLayoutPosition());
                     Intent intent=new Intent(context, FeedDetailActivity.class);
                     intent.putExtra("Title",item.title);
-                    intent.putExtra("Text",item.text);
-                    intent.putExtra("Image",item.imageURL);
+                    intent.putExtra("Content",item.content);
+                    intent.putExtra("File",item.file);
 
                     if(Build.VERSION.SDK_INT<21) context.startActivity(intent);
                     else{

@@ -8,7 +8,6 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.IBinder;
@@ -18,8 +17,8 @@ import androidx.core.app.NotificationCompat;
 
 public class AlarmSoundService extends Service {
     MediaPlayer player;
-    int startId;
     boolean isRun;
+    String state;
 
 
     @Nullable
@@ -42,7 +41,7 @@ public class AlarmSoundService extends Service {
             manager.createNotificationChannel(channel);
 
             Uri uri= Uri.parse("android.resources://"+getPackageName()+"/"+R.raw.get_coin);
-            Intent intent=new Intent(this,MainActivity.class);
+            Intent intent=new Intent(this,WriteOJActivity.class);
             PendingIntent pendingIntent=PendingIntent.getActivity(
                     this,17,intent,PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -62,15 +61,18 @@ public class AlarmSoundService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        String getState=intent.getExtras().getString("state");
+        state =intent.getExtras().getString("state");
 
-        assert  getState !=null;
-        startId=1;
-        if(!this.isRun && startId ==1){
+        assert  state !=null;
+        if(!this.isRun && state.equals("on")){
             player=MediaPlayer.create(this,R.raw.alarm);
             player.start();
             this.isRun=true;
-            this.startId=0;
+        }else if(this.isRun && state.equals("off")){
+            player.stop();
+            player.release();
+            player=null;
+            this.isRun = false;
         }else{
             return  START_NOT_STICKY;
         }

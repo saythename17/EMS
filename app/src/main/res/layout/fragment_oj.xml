@@ -4,6 +4,9 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <include android:id="@+id/swipe_sample1" layout="@layout/swipe"
+        android:layout_width="match_parent" android:layout_height="80dp"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerOJ"
         android:layout_width="match_parent"

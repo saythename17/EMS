@@ -67,9 +67,8 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_below="@id/FDtitle"
                 android:layout_centerHorizontal="true"
-                android:layout_width="wrap_content"
-                android:layout_height="500dp"
-                android:text="@string/introED"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:textColor="@color/colorText"
                 android:textSize="20sp"
                 android:fontFamily="serif-monospace"/>

@@ -34,6 +34,8 @@
             android:textColor="@color/colorText"
             android:background="#A000"
             android:gravity="center"
+            android:maxLines="1"
+            android:ellipsize="end"
             app:layout_constraintBottom_toTopOf="@id/feedText"
             android:layout_marginBottom="8dp"
             app:layout_constraintVertical_bias="0.7"

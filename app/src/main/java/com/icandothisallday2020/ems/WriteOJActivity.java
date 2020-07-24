@@ -7,6 +7,7 @@ import androidx.loader.content.CursorLoader;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -44,6 +45,17 @@ public class WriteOJActivity extends AppCompatActivity {
         write=findViewById(R.id.fwoj_write);
         question =findViewById(R.id.ojQ);
         userET =findViewById(R.id.user_writeOJ);
+
+
+        ///////////////////////////////////////////--Alarm Sound Off////////////////
+        Intent playIntent=new Intent(this,AlarmSoundService.class);
+        playIntent.putExtra("state","off");
+
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+            this.startForegroundService(playIntent);
+        }else{
+            this.startService(playIntent);
+        }////////////////////////////////////////////////////////////////////////////
 
         String[] questions=getResources().getStringArray(R.array.OJQ);
         question.setText(questions[G.numOJ]);
