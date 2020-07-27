@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,8 +44,7 @@ public class FeedAdapter extends RecyclerView.Adapter {
         FeedItem feedItem=items.get(position);
         vh.title.setText(feedItem.title);
         vh.text.setText(feedItem.content);
-
-        Glide.with(context).load(feedItem.file).into(vh.feedImage);
+        Glide.with(context).load("http://soon0.dothome.co.kr/EMS/"+feedItem.file).into(vh.feedImage);
     }
 
     @Override

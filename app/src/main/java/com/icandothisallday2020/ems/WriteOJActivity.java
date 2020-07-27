@@ -46,7 +46,7 @@ public class WriteOJActivity extends AppCompatActivity {
         question =findViewById(R.id.ojQ);
         userET =findViewById(R.id.user_writeOJ);
 
-
+        //TODO  one day , one write oj TODO
         ///////////////////////////////////////////--Alarm Sound Off////////////////
         Intent playIntent=new Intent(this,AlarmSoundService.class);
         playIntent.putExtra("state","off");
@@ -58,7 +58,10 @@ public class WriteOJActivity extends AppCompatActivity {
         }////////////////////////////////////////////////////////////////////////////
 
         String[] questions=getResources().getStringArray(R.array.OJQ);
-        question.setText(questions[G.numOJ]);
+//        SharedPreferences preferences=getSharedPreferences("Data",MODE_PRIVATE);
+//        SharedPreferences.Editor editor=preferences.edit();
+//        editor.putInt("OJQ",G.ojItems.size());
+        question.setText(questions[G.ojItems.size()-1]);
 
 
         userET.setOnFocusChangeListener(new View.OnFocusChangeListener() {

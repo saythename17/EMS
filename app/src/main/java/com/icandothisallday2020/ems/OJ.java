@@ -2,6 +2,8 @@ package com.icandothisallday2020.ems;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +15,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.daimajia.swipe.SwipeLayout;
+import com.baoyz.swipemenulistview.SwipeMenu;
+import com.baoyz.swipemenulistview.SwipeMenuCreator;
+import com.baoyz.swipemenulistview.SwipeMenuItem;
+import com.baoyz.swipemenulistview.SwipeMenuListView;
+
 
 import java.util.ArrayList;
 
@@ -27,48 +33,11 @@ public class OJ extends Fragment {
     OJAdapter adapter;
     RecyclerView recyclerView;
 
-    SwipeLayout swipe_sample1;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_oj,container,false);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        swipe_sample1=(SwipeLayout)view.findViewById(R.id.swipe_sample1);
-        swipe_sample1.setShowMode(SwipeLayout.ShowMode.LayDown);
-//오른쪽에서 나오는 drag (tag로 설정한 HideTag가 보여짐
-        swipe_sample1.addDrag(SwipeLayout.DragEdge.Right,swipe_sample1.findViewWithTag("HideTag"));
-//swipe_layout을 클릭한 경우
-        swipe_sample1.getSurfaceView().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "Click on surface", Toast.LENGTH_SHORT).show();
-            }
-        });
-//star버튼을 클릭한 경우
-        swipe_sample1.findViewById(R.id.star).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "Star", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-
-
 
 
 

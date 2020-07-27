@@ -13,6 +13,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.github.mikephil.charting.charts.HorizontalBarChart;
+
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -24,6 +26,8 @@ public class ED extends Fragment {
     ArrayList<EDItem> items=new ArrayList<>();
     EDAdapter adapter;
     RecyclerView recyclerView;
+
+    HorizontalBarChart chart;
 
     @Nullable
     @Override

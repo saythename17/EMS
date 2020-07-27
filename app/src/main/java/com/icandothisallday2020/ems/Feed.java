@@ -50,16 +50,6 @@ public class Feed extends Fragment {
                 Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
-//        items.add(new FeedItem("https://images.unsplash.com/photo-1569360531163-a61fa3da86ee?ixlib=rb-1.2.1&auto=format&fit=crop&w=376&q=80",
-//                "How to Write the Emotion Diary1","These rooms got a lot of space. Crowded but a lonely place Sittin' at a table ful of double dates And everywhere I go I wanna see your face. "));
-//        items.add(new FeedItem("https://images.unsplash.com/photo-1569360531163-a61fa3da86ee?ixlib=rb-1.2.1&auto=format&fit=crop&w=376&q=80",
-//                "How to Write the Emotion Diary2","These rooms got a lot of space. Crowded but a lonely place Sittin' at a table ful of double dates And everywhere I go I wanna see your face. "));
-//        items.add(new FeedItem("https://images.unsplash.com/photo-1569360531163-a61fa3da86ee?ixlib=rb-1.2.1&auto=format&fit=crop&w=376&q=80",
-//                "How to Write the Emotion Diary3","These rooms got a lot of space. Crowded but a lonely place Sittin' at a table ful of double dates And everywhere I go I wanna see your face. "));
-//        items.add(new FeedItem("https://images.unsplash.com/photo-1569360531163-a61fa3da86ee?ixlib=rb-1.2.1&auto=format&fit=crop&w=376&q=80",
-//                "How to Write the Emotion Diary4","These rooms got a lot of space. Crowded but a lonely place Sittin' at a table ful of double dates And everywhere I go I wanna see your face. "));
-
     }
 
     @Nullable
@@ -72,7 +62,8 @@ public class Feed extends Fragment {
         RecyclerView.LayoutManager manager=new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,true);
         recyclerView.setLayoutManager(manager);
 
-        recyclerView.scrollToPosition(items.size()-1);// focus on most recent item
+//        recyclerView.scrollToPosition(0);
+//        recyclerView.scrollToPosition(items.size()-1);// focus on most recent item
 
 
         return view;

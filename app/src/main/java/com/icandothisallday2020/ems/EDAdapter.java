@@ -107,23 +107,14 @@ public class EDAdapter extends RecyclerView.Adapter {
 
 
     class VH extends RecyclerView.ViewHolder{
-        ImageView emoIV,menu;
+        ImageView emoIV;
         TextView date,time,emoTV;
         public VH(@NonNull View itemView) {
             super(itemView);
             emoIV=itemView.findViewById(R.id.ed_emo);
-            menu=itemView.findViewById(R.id.ed_itemM);
             date=itemView.findViewById(R.id.ed_itemD);
             time=itemView.findViewById(R.id.ed_itemT);
             emoTV=itemView.findViewById(R.id.ed_itemE);
-
-
-            menu.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                }
-            });
 
 
             itemView.setOnClickListener(new View.OnClickListener() {

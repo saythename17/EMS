@@ -13,4 +13,11 @@
     <color name="colorPastelPurple">#ACA08AC8</color>
     <color name="colorDarkPurple">#B05E438F</color>
     <color name="divider">#BDBDBD</color>
+
+    <color name="graphED">#9474E3</color>
+    <color name="graphED2">#715AE3</color>
+    <color name="graphED3">#583AB1</color>
+    <color name="graphED4">#62429C</color>
+    <color name="graphED5">#4B2FB1</color>
+
 </resources>

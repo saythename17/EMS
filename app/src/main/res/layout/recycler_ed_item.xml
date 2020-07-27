@@ -55,14 +55,15 @@
             android:ellipsize="end"
             android:textColor="@color/colorText"
             android:layout_toRightOf="@id/ed_emo"/>
-        <ImageView
-            android:id="@+id/ed_itemM"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@drawable/ic_more"
-            android:tint="@color/colorText"
-            android:layout_alignParentRight="true"
-            android:clickable="true"/>
+
+<!--        <ImageView-->
+<!--            android:id="@+id/ed_itemM"-->
+<!--            android:layout_width="25dp"-->
+<!--            android:layout_height="25dp"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:clickable="true"-->
+<!--            android:src="@drawable/ic_more"-->
+<!--            android:tint="@color/colorText" />-->
     </RelativeLayout>
 
 

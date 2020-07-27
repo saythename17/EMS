@@ -34,5 +34,4 @@ public interface RetrofitService {
 
     @GET("EMS/loadFeed.php")
     Call<ArrayList<FeedItem>> loadDataFromFeed();
-
 }
