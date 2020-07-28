@@ -16,6 +16,11 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
 public class EDDetailActivity extends AppCompatActivity {
     int position;
     EDDetailAdapter adapter;
@@ -79,6 +84,22 @@ public class EDDetailActivity extends AppCompatActivity {
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        int no=G.edItems.get(position).no;
+                        Retrofit retrofit=RetrofitHelper.getInstanceFromScalars();
+                        RetrofitService service=retrofit.create(RetrofitService.class);
+
+                        Call<String> call=service.deleteDataFromED(no);
+                        call.enqueue(new Callback<String>() {
+                            @Override
+                            public void onResponse(Call<String> call, Response<String> response) {
+                                Toast.makeText(EDDetailActivity.this, ""+response.body(), Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onFailure(Call<String> call, Throwable t) {
+                                Toast.makeText(EDDetailActivity.this, ""+t.toString(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
                         finish();
                     }
                 });

@@ -2,6 +2,7 @@ package com.icandothisallday2020.ems;
 
 public class OJItem {
     String q,a,date,year,month,day,email;
+    int no;
 
     public OJItem() {
     }
@@ -11,7 +12,7 @@ public class OJItem {
         this.date = date;
     }
 
-    public OJItem(String q, String a, String date, String year, String month, String day, String email) {
+    public OJItem(String q, String a, String date, String year, String month, String day, String email,int no) {
         this.q = q;
         this.a = a;
         this.date = date;
@@ -19,5 +20,6 @@ public class OJItem {
         this.month = month;
         this.day = day;
         this.email = email;
+        this.no = no;
     }
 }

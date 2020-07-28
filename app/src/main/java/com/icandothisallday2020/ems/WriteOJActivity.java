@@ -35,6 +35,7 @@ public class WriteOJActivity extends AppCompatActivity {
     ImageView guide, complete, write;
     TextView question;
     EditText userET;
+    String edit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,19 @@ public class WriteOJActivity extends AppCompatActivity {
         write=findViewById(R.id.fwoj_write);
         question =findViewById(R.id.ojQ);
         userET =findViewById(R.id.user_writeOJ);
+
+        Intent intent=getIntent();
+        edit=intent.getStringExtra("id");
+        int position=intent.getIntExtra("position",-1);
+        if(edit.equals("edit")){
+            if(position>-1) userET.setText(G.ojItems.get(position).a);
+        }
+
+
+
+
+
+
 
         //TODO  one day , one write oj TODO
         ///////////////////////////////////////////--Alarm Sound Off////////////////
@@ -160,7 +174,7 @@ public class WriteOJActivity extends AppCompatActivity {
                             String s=response.body();
                             Toast.makeText(WriteOJActivity.this, ""+s, Toast.LENGTH_SHORT).show();
                             G.numOJ+=1;
-                            Toast.makeText(WriteOJActivity.this, ""+G.numOJ, Toast.LENGTH_SHORT).show();
+
                             finish();
                         }
                     }

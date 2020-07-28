@@ -18,9 +18,9 @@ public class EDAdapter extends RecyclerView.Adapter {
     Context context;
     ArrayList<EDItem> items;
 
-    ArrayList<ArrayList<String>> tag;
-    ArrayList<ArrayList<String>> intensity;
-    ArrayList<ArrayList<String>> feelings;
+    ArrayList<String> tag;
+    ArrayList<String> intensity;
+    ArrayList<String> feelings;
 
 
 
@@ -44,9 +44,9 @@ public class EDAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         VH vh=(VH)holder;
         EDItem item=G.edItems.get(position);
-        ArrayList<String> tag=new ArrayList<>();
-        ArrayList<String> intensity=new ArrayList<>();
-        ArrayList<String> feelings=new ArrayList<>();
+        tag=new ArrayList<>();
+        intensity=new ArrayList<>();
+        feelings=new ArrayList<>();
 
 
 
@@ -93,8 +93,6 @@ public class EDAdapter extends RecyclerView.Adapter {
 
         vh.emoIV.setImageResource(R.drawable.e00_love+Integer.parseInt(tag.get(0)));
         vh.time.setText(item.time);
-
-
 
     }
 

@@ -13,6 +13,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
 public class OJDetailActivity extends AppCompatActivity {
     int position;
     String date;
@@ -51,6 +56,22 @@ public class OJDetailActivity extends AppCompatActivity {
         adapter=new OJDetailAdapter(getLayoutInflater());
         pager.setAdapter(adapter);
         pager.setCurrentItem(position);
+//        pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//
+//            }
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//
+//            }
+//        });
 
 
 
@@ -61,7 +82,7 @@ public class OJDetailActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.toolbar_oj,menu);
+        getMenuInflater().inflate(R.menu.toolbar,menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -71,7 +92,43 @@ public class OJDetailActivity extends AppCompatActivity {
             case R.id.close:
                 finish();
                 break;
+            case R.id.delete:
+                AlertDialog.Builder builder=new AlertDialog.Builder(OJDetailActivity.this,R.style.MyDialog);
+                builder.setIcon(R.drawable.ic_alert);
+                builder.setTitle("Do you want to delete this journal?");
+                builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+                builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        int no=G.ojItems.get(position).no;
+                        Retrofit retrofit=RetrofitHelper.getInstanceFromScalars();
+                        RetrofitService service=retrofit.create(RetrofitService.class);
+
+                        Call<String> call=service.deleteDataFromOJ(no);
+                        call.enqueue(new Callback<String>() {
+                            @Override
+                            public void onResponse(Call<String> call, Response<String> response) {
+                                Toast.makeText(OJDetailActivity.this, ""+response.body(), Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onFailure(Call<String> call, Throwable t) {
+                                Toast.makeText(OJDetailActivity.this, ""+t.toString(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        finish();
+                    }
+                });
+                builder.create().show();
+                break;
             case R.id.edit:
+                Intent intent=new Intent(OJDetailActivity.this,WriteOJActivity.class);
+                intent.putExtra("id","edit");
+                intent.putExtra("position",position);
                 break;
 
         }

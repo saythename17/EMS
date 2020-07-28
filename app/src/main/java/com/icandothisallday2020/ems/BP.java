@@ -3,7 +3,9 @@ package com.icandothisallday2020.ems;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -16,6 +18,7 @@ import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -46,6 +49,8 @@ public class BP extends Fragment {
     WaveLoadingView wave;
     LinearLayout bp;
     String[] plans;
+
+    int positionNow;
 
 
     @Nullable
@@ -117,6 +122,7 @@ public class BP extends Fragment {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                positionNow=position;
                 reason.setText(G.bpItems.get(position).reason);
                 ideal.setText(G.bpItems.get(position).ideal);
                 reality.setText(G.bpItems.get(position).reality);
@@ -147,6 +153,45 @@ public class BP extends Fragment {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        ImageView delete=view.findViewById(R.id.deleteBP);
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                AlertDialog.Builder builder=new AlertDialog.Builder(getContext(),R.style.MyDialog);
+                builder.setIcon(R.drawable.ic_alert);
+                builder.setTitle("Do you want to delete this plan?");
+                builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        int no=G.bpItems.get(positionNow).no;
+                        Call<String> call1=service.deleteDataFromBP(no);
+                        call1.enqueue(new Callback<String>() {
+                            @Override
+                            public void onResponse(Call<String> call, Response<String> response) {
+                                Toast.makeText(getContext(), "Delete Successful", Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onFailure(Call<String> call, Throwable t) {
+                                Toast.makeText(getContext(), ""+t.toString(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        spinner.setSelection(0);
+                    }
+                });
+                AlertDialog alertDialog=builder.create();
+                alertDialog.show();
 
             }
         });
