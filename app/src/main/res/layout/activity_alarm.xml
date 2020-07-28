@@ -244,7 +244,7 @@
                 android:text=" delete "
                 android:textColor="@color/colorText"
                 android:fontFamily="monospace"
-                android:backgroundTint="@color/colorGray"
+                android:backgroundTint="#9098A1"
                 android:drawableLeft="@android:drawable/ic_delete"
                 android:drawableTint="@color/colorText"
                 android:drawableRight="@android:drawable/ic_delete"

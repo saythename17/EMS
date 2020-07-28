@@ -291,15 +291,15 @@
 
 
     <string-array name="QselfTalk">
-        <item>Question1</item>
-        <item>Question2</item>
-        <item>Question3</item>
-        <item>Question4</item>
-        <item>Question5</item>
-        <item>Question6</item>
+        <item>How do you feel when you recall that time?</item>
+        <item>Why?</item>
+        <item>What did you really want then?</item>
+        <item>What do you want to say then?</item>
+        <item>What did you want to hear from others that time?</item>
+        <item>What do you want to say to yourself at the time?</item>
         <item>Question7</item>
         <item>Question8</item>
         <item>Question9</item>
-        <item>Question10</item>
+        <item>How do you feel now?</item>
     </string-array>
 </resources>

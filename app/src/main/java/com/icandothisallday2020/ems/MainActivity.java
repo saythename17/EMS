@@ -459,7 +459,7 @@ public class MainActivity extends AppCompatActivity {
                                 R.color.colorAccent};
                             barDataSet.setColors(colors);
                             BarData barData = new BarData(barDataSet);
-                            barData.setBarWidth(0.65f);
+                            barData.setBarWidth(0.6f);
                             barData.setValueTextSize(20);
                             barData.setHighlightEnabled(true);
 
@@ -469,22 +469,18 @@ public class MainActivity extends AppCompatActivity {
                             chart.setDrawValueAboveBar(false);
 
                             Legend l = chart.getLegend();
-                            l.setTextSize(16f);
-                            l.setFormSize(16f);
                             l.setEnabled(false);
 
                             ArrayList<String> xAxisName = new ArrayList<>();
-                            xAxisName.add("EMotion");
-                            xAxisName.add("EMotion2");
-                            xAxisName.add("Emotion3");
-                            xAxisName.add("Emotion4");
+                            xAxisName.add("\uD83D\uDC94123");
+                            xAxisName.add("\uD83D\uDC9C45");
+                            xAxisName.add("\uD83D\uDC9967");
+                            xAxisName.add("\uD83D\uDC99aaa");
                             XAxis xAxis = chart.getXAxis();
-                            xAxis.setTextSize(16f);
-                            xAxis.setAxisLineColor(Color.BLACK);
+                            xAxis.setTextSize(17);
                             xAxis.isDrawAxisLineEnabled();
+                            xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
                             xAxis.setTextColor(Color.WHITE);
-                            xAxis.setPosition(XAxis.XAxisPosition.TOP);
-                            xAxis.setPosition(XAxis.XAxisPosition.TOP_INSIDE);
                             xAxis.setValueFormatter(new IndexAxisValueFormatter(xAxisName));
                             xAxis.setDrawGridLines(false);
 

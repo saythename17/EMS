@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -43,6 +44,7 @@ public class Feed extends Fragment {
                     items.add(item);
                     adapter.notifyItemInserted(0);
                 }
+
             }
 
             @Override
@@ -62,7 +64,7 @@ public class Feed extends Fragment {
         RecyclerView.LayoutManager manager=new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,true);
         recyclerView.setLayoutManager(manager);
 
-//        recyclerView.scrollToPosition(0);
+        recyclerView.scrollToPosition(0);
 //        recyclerView.scrollToPosition(items.size()-1);// focus on most recent item
 
 

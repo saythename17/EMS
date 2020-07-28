@@ -73,10 +73,29 @@
                 android:textSize="20sp"
                 android:fontFamily="serif-monospace"/>
 
+            <Button
+                android:id="@+id/adView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/FDtext"
+                android:layout_marginHorizontal="16sp"
+                android:layout_marginVertical="16dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="#DBFFFFFF"
+                android:drawableTop="@drawable/e00_love"
+                android:drawableTint="@color/colorPastelPurple"
+                android:fontFamily="@font/chery"
+                android:textColor="@color/colorPastelPurple"
+                android:onClick="adView"
+                android:paddingVertical="32dp"
+                android:text="Was it helpful? If so, please click this ad."
+                android:textAllCaps="false"
+                android:textSize="30sp" />
+
             <TextView
                 android:id="@+id/FDlike"
                 android:gravity="center"
-                android:layout_below="@id/FDtext"
+                android:layout_below="@id/adView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@id/FDscrap"
@@ -90,7 +109,7 @@
             <ImageView
                 android:id="@+id/FDscrap"
                 android:gravity="center"
-                android:layout_below="@id/FDtext"
+                android:layout_below="@id/adView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@id/FDshare"
@@ -102,7 +121,7 @@
             <ImageView
                 android:id="@+id/FDshare"
                 android:gravity="center"
-                android:layout_below="@id/FDtext"
+                android:layout_below="@id/adView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
