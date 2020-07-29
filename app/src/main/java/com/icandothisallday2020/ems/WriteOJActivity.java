@@ -47,12 +47,12 @@ public class WriteOJActivity extends AppCompatActivity {
         question =findViewById(R.id.ojQ);
         userET =findViewById(R.id.user_writeOJ);
 
-        Intent intent=getIntent();
-        edit=intent.getStringExtra("id");
-        int position=intent.getIntExtra("position",-1);
-        if(edit.equals("edit")){
-            if(position>-1) userET.setText(G.ojItems.get(position).a);
-        }
+//        Intent intent=getIntent();
+//        edit=intent.getStringExtra("id");
+//        int position=intent.getIntExtra("position",-1);
+//        if(edit.equals("edit")){
+//            if(position>-1) userET.setText(G.ojItems.get(position).a);
+//        }
 
 
 

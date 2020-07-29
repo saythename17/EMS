@@ -29,7 +29,10 @@
         <activity android:name=".WriteBPActivity" />
         <activity android:name=".WriteOJActivity" />
         <activity android:name=".WriteEDActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".LoginActivity">
+
+
+        </activity>
         <activity android:name=".IntroActivity" />
         <activity
             android:name=".LaunchActivity"

@@ -37,6 +37,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+//        String keyHash=getKeyHash(this);
+//        Log.i("key",keyHash);
+
         //Dialog telling users that the email consent is required
         AlertDialog.Builder builder=new AlertDialog.Builder(this,android.R.style.Theme_Material_Dialog);
         builder.setTitle("You must agree to the email collection.");//When you log in, you must check the consent of the email collection items.
@@ -58,11 +61,10 @@ public class LoginActivity extends AppCompatActivity {
 //        Log.i("key", getKeyHash(this));
 
         //TODO Test Ver. remove under the 2 line TODO
-        Intent intent= new Intent(this,MainActivity.class);
-        startActivity(intent);
+//        Intent intent= new Intent(this,MainActivity.class);
+//        startActivity(intent);
 
-        //TODO Test Ver. remove '//' under the line TODO
-        //Session.getCurrentSession().addCallback(sessionCallback);
+        Session.getCurrentSession().addCallback(sessionCallback);
     }
 
 
@@ -89,10 +91,12 @@ public class LoginActivity extends AppCompatActivity {
         UserManagement.getInstance().me(new MeV2ResponseCallback() {
             @Override
             public void onSessionClosed(ErrorResult errorResult) {
+                Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onSuccess(MeV2Response result) {
+                Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
                 UserAccount account = result.getKakaoAccount();
                 if (account == null) return;
 

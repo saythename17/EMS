@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,6 +33,7 @@ public class OJ extends Fragment {
     ArrayList<OJItem> items=new ArrayList<>();
     OJAdapter adapter;
     RecyclerView recyclerView;
+    boolean isConnect=true;
 
 
     @Nullable
@@ -57,6 +59,7 @@ public class OJ extends Fragment {
         call.enqueue(new Callback<ArrayList<OJItem>>() {
             @Override
             public void onResponse(Call<ArrayList<OJItem>> call, Response<ArrayList<OJItem>> response) {
+                isConnect=true;
 
                 items.clear();
                 adapter.notifyDataSetChanged();
@@ -81,8 +84,23 @@ public class OJ extends Fragment {
             @Override
             public void onFailure(Call<ArrayList<OJItem>> call, Throwable t) {
                 Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                isConnect=false;
             }
         });
+
+
+
+
+        if(G.ojItems.size()<1 || !isConnect){
+            recyclerView.setVisibility(View.INVISIBLE);
+            TextView tv=view.findViewById(R.id.noOJ);
+            tv.setVisibility(View.VISIBLE);
+            return  view;
+        }else{
+            recyclerView.setVisibility(View.VISIBLE);
+            TextView tv=view.findViewById(R.id.noOJ);
+            tv.setVisibility(View.INVISIBLE);
+        }
         return view;
     }
 }

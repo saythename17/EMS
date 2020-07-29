@@ -3,20 +3,31 @@ package com.icandothisallday2020.ems;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.content.res.XmlResourceParser;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Base64;
+import android.util.Log;
 import android.widget.TextView;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Random;
+
+import static com.kakao.util.helper.Utility.getPackageInfo;
+
 
 public class LaunchActivity extends AppCompatActivity {
     TextView tv1,tv2;
@@ -27,6 +38,9 @@ public class LaunchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_launch);
         tv1=findViewById(R.id.launch_tv);
         tv2=findViewById(R.id.launch_tv2);
+
+
+
 
         ArrayList<String> passage = new ArrayList<>();
         ArrayList<String> who = new ArrayList<>();
@@ -93,4 +107,5 @@ public class LaunchActivity extends AppCompatActivity {
             finish();
         }
     };
+
 }

@@ -20,12 +20,14 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 
 import com.dinuscxj.progressbar.CircleProgressBar;
@@ -51,12 +53,14 @@ public class BP extends Fragment {
     String[] plans;
 
     int positionNow;
+    boolean isConnect=true;
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_bp,container,false);
+
         reason=view.findViewById(R.id.reason);
         ideal=view.findViewById(R.id.ideal);
         reality=view.findViewById(R.id.reality);
@@ -110,12 +114,14 @@ public class BP extends Fragment {
                 spinner.setAdapter(adapter);
 
                 i++;
+                isConnect=true;
 
             }
 
             @Override
             public void onFailure(Call<ArrayList<BPItem>> call, Throwable t) {
                 Toast.makeText(getContext(), ""+t, Toast.LENGTH_LONG).show();
+                isConnect=false;
             }
         });
 
@@ -197,6 +203,18 @@ public class BP extends Fragment {
         });
 
 
+        if(G.bpItems.size()<1 || !isConnect){
+            NestedScrollView ns=view.findViewById(R.id.scrollViewBP);
+            ns.setVisibility(View.INVISIBLE);
+            TextView tv=view.findViewById(R.id.noBP);
+            tv.setVisibility(View.VISIBLE);
+            return  view;
+        }else{
+            NestedScrollView ns=view.findViewById(R.id.scrollViewBP);
+            ns.setVisibility(View.VISIBLE);
+            TextView tv=view.findViewById(R.id.noBP);
+            tv.setVisibility(View.INVISIBLE);
+        }
 
 
         return view;

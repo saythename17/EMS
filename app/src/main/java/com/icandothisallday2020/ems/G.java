@@ -15,11 +15,11 @@ public class G {
     public static boolean st=false;
     public static int stQNum=0;
 
-    public static ArrayList<OJItem> ojItems;
+    public static ArrayList<OJItem> ojItems=new ArrayList<>();
 
-    public static ArrayList<EDItem> edItems;
+    public static ArrayList<EDItem> edItems=new ArrayList<>();
 
-    public static ArrayList<BPItem> bpItems;
+    public static ArrayList<BPItem> bpItems=new ArrayList<>();
 
-    public static ArrayList<FeedItem> feedItems;
+    public static ArrayList<FeedItem> feedItems=new ArrayList<>();
 }

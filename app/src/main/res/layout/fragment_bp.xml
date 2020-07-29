@@ -20,9 +20,20 @@
             app:layout_scrollFlags="scroll|enterAlways"
             android:theme="@style/MySpinner"
             android:spinnerMode="dialog"/>
+        <TextView
+            android:id="@+id/noBP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="You haven't created a plan yet."
+            android:fontFamily="@font/spartwell"
+            android:textColor="@color/colorText"
+            android:visibility="gone"
+            android:textSize="30dp"/>
 
     </com.google.android.material.appbar.AppBarLayout>
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollViewBP"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
