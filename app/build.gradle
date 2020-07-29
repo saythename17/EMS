@@ -46,10 +46,12 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.github.juyao:WaterDropIndicatorDemo:v1.0.2'
 
-    //원하는 카카오 제품선택, // 카카오 로그인
+    //kakao login
     implementation group: 'com.kakao.sdk', name: 'usermgmt', version: '1.29.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.github.bumptech.glide:glide:4.11.0'
+
+
 
     //chart library
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
@@ -67,6 +69,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:19.1.1'
     implementation 'com.google.firebase:firebase-analytics:17.4.3'
     implementation 'com.google.firebase:firebase-messaging:20.2.1'
+    //google login
+    implementation 'com.google.firebase:firebase-auth:19.3.1'
+    implementation 'com.google.android.gms:play-services-auth:18.0.0'
 
 
     implementation 'com.race604.waveloading:library:1.1.1'
