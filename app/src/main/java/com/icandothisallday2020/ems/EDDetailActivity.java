@@ -42,12 +42,9 @@ public class EDDetailActivity extends AppCompatActivity {
             return;
         }
 
-        ArrayList<String> tag=intent.getStringArrayListExtra("tag");
-        ArrayList<String> intensity=intent.getStringArrayListExtra("intensity");
-        ArrayList<String> feelings=intent.getStringArrayListExtra("feelings");
 
         pager=findViewById(R.id.edPager);
-        adapter=new EDDetailAdapter(getLayoutInflater(),tag,intensity,feelings);
+        adapter=new EDDetailAdapter(getLayoutInflater());
         pager.setAdapter(adapter);
         pager.setCurrentItem(position);
 

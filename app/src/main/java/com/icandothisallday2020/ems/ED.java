@@ -66,6 +66,7 @@ public class ED extends Fragment {
                 Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+        recyclerView.scrollToPosition(0);
 
 
         return view;

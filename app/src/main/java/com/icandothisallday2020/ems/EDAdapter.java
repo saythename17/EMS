@@ -18,10 +18,6 @@ public class EDAdapter extends RecyclerView.Adapter {
     Context context;
     ArrayList<EDItem> items;
 
-    ArrayList<String> tag;
-    ArrayList<String> intensity;
-    ArrayList<String> feelings;
-
 
 
     public EDAdapter(Context context, ArrayList<EDItem> items) {
@@ -44,13 +40,12 @@ public class EDAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         VH vh=(VH)holder;
         EDItem item=G.edItems.get(position);
-        tag=new ArrayList<>();
-        intensity=new ArrayList<>();
-        feelings=new ArrayList<>();
-
-
 
         vh.date.setText(item.date);
+
+        ArrayList<String> tag=new ArrayList<>();
+        ArrayList<String> intensity=new ArrayList<>();
+        ArrayList<String> feelings=new ArrayList<>();
 
         String[] arr=item.emotion.split("!");
         String[][] selections=new String[arr.length][];
@@ -122,15 +117,9 @@ public class EDAdapter extends RecyclerView.Adapter {
                     EDItem item=G.edItems.get(getLayoutPosition());
                     Intent intent=new Intent(context, EDDetailActivity.class);
                     intent.putExtra("Position",getLayoutPosition());
-                    intent.putStringArrayListExtra("tag",tag);
-                    intent.putStringArrayListExtra("feelings",feelings);
-                    intent.putStringArrayListExtra("intensity",intensity);
 
 
                     context.startActivity(intent);
-//                    tag.clear();
-//                    intensity.clear();
-//                    feelings.clear();
                 }
             });
 

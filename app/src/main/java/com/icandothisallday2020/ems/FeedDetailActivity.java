@@ -9,6 +9,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -149,7 +150,28 @@ public class FeedDetailActivity extends AppCompatActivity {
         });
     }
 
+    boolean isLike=false;
     public void like(View view) {
+        if(!isLike){
+            Toast.makeText(this, "\uD83E\uDD29❤", Toast.LENGTH_SHORT).show();
+            TextView like=(TextView) view;
+            Drawable img = this.getResources().getDrawable( R.drawable.ic_like_red );
+            img.setBounds(60,60,60,60);
+            like.setCompoundDrawablesWithIntrinsicBounds(null, img,null,null);
+            like.setText(""+(Integer.parseInt(like.getText().toString())+1));
+            isLike=true;
+        }else{
+            Toast.makeText(this, "Cancel", Toast.LENGTH_SHORT).show();
+            TextView like=(TextView) view;
+            Drawable img = this.getResources().getDrawable( R.drawable.ic_like );
+            img.setBounds(60,60,60,60);
+            like.setCompoundDrawablesWithIntrinsicBounds(null, img,null,null);
+            like.setText(""+(Integer.parseInt(like.getText().toString())-1));
+            isLike=false;
+        }
+
+
+
     }
 
     public void scrap(View view) {

@@ -3,6 +3,7 @@ package com.icandothisallday2020.ems;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,15 +27,9 @@ import java.util.ArrayList;
 
 public class EDDetailAdapter extends PagerAdapter {
     LayoutInflater inflater;
-    ArrayList<String> tag;
-    ArrayList<String> intensity;
-    ArrayList<String> feelings;
 
-    public EDDetailAdapter(LayoutInflater inflater, ArrayList<String> tag, ArrayList<String> intensity, ArrayList<String> feelings) {
+    public EDDetailAdapter(LayoutInflater inflater) {
         this.inflater = inflater;
-        this.tag = tag;
-        this.intensity = intensity;
-        this.feelings = feelings;
     }
 
     @Override
@@ -56,10 +51,52 @@ public class EDDetailAdapter extends PagerAdapter {
         ImageView previous=page.findViewById(R.id.edPrevious),
                   next=page.findViewById(R.id.edNext);
         RecyclerView recyclerView=page.findViewById(R.id.recyclerEDDetail);
-        EDDEAdapter adapterE=new EDDEAdapter(inflater.getContext(),tag,feelings);
-        recyclerView.setAdapter(adapterE);
+
 
         EDItem item=G.edItems.get(position);
+
+        ArrayList<String> tag=new ArrayList<>();
+        ArrayList<String> intensity=new ArrayList<>();
+        ArrayList<String> feelings=new ArrayList<>();
+
+        String[] arr=item.emotion.split("!");
+        String[][] selections=new String[arr.length][];
+        ArrayList<String[]> emotions=new ArrayList<>();
+
+        for(int i=0;i<=arr.length-1;i++){
+            selections[i]=arr[i].split("_");
+            tag.add(selections[i][0]);
+            String[] strings=(selections[i][1]).split(",");
+            emotions.add(strings);
+            intensity.add(selections[i][2]);
+        }
+
+        for(int ii=0; ii<=arr.length-1;ii++) {
+
+            StringBuffer buffer = new StringBuffer();
+            for (int j = 0; j <= emotions.get(ii).length - 1; j++) {
+                String a = (emotions.get(ii))[j];
+                buffer.append(a);
+                if (j <= emotions.get(ii).length - 2) {
+                    buffer.append(", ");
+                }
+
+            }
+            buffer.append("\n");
+            feelings.add(buffer.toString());
+
+
+
+            EDDEAdapter adapterE=new EDDEAdapter(inflater.getContext(),tag,feelings);
+            recyclerView.setAdapter(adapterE);
+        }
+
+
+
+
+
+
+
         date.setText(item.date);
         situation.setText(item.situation);
         thought.setText(item.thought);
