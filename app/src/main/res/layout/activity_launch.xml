@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:elevation="@dimen/cardview_compat_inset_shadow"
-    android:background="@drawable/semple_bg_launch"
+    android:background="@drawable/sample_bg_launch"
     android:backgroundTint="#5FFF"
     android:backgroundTintMode="src_over"
     tools:context=".LaunchActivity">

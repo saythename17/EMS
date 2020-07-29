@@ -16,4 +16,36 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+
+    <!--    Toolbar Style-->
+<!--    <style name="AppTheme.Toolbar">-->
+<!--        <item name="android:background">@color/colorPrimary</item>-->
+<!--        <item name="titleTextColor">#FFFF</item>-->
+<!--        &lt;!&ndash;     set toolbar's menu items's color &ndash;&gt;-->
+<!--        <item name="colorControlNormal">#FFF</item>-->
+<!--    </style>-->
+
+    <style name="MyDialog" parent="Theme.AppCompat.Dialog">
+        <item name="colorAccent">#A137F8</item>
+        <item name="android:background">#4E4E4E</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="EmoDialog" parent="Theme.AppCompat.Dialog">
+        <item name="colorAccent">#FFF</item>
+        <item name="android:background">#4E4E4E</item>
+        <item name="android:gravity">center</item>
+        <item name="android:windowMinWidthMajor">95%</item>
+        <item name="android:windowMinWidthMinor">95%</item>
+    </style>
+
+
+    <style name="MySpinner" parent="Theme.AppCompat.Dialog">
+        <item name="colorAccent">#A137F8</item>
+        <item name="android:thumbTint">#FFF</item>
+        <item name="android:background">#0E0E10</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">serif-monospace</item>
+        <item name="android:textSize">18dp</item>
+    </style>
 </resources>

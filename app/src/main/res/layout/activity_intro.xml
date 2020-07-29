@@ -15,10 +15,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:selectColor="#FFF"
-        app:defaultColor="#00BCD4"
+        app:defaultColor="#3FFFFFFF"
         app:itemSpace="60dp"
-        app:bigRadius="15dp"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="16dp"/>
+        app:bigRadius="6dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="24dp"/>
 
 </RelativeLayout>

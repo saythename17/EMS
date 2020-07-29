@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AlarmActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:src="@drawable/ic_close_white"
+            android:tint="@color/colorSky"
+            android:clickable="true"
+            android:onClick="close"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginBottom="@dimen/list_padding_vertical_small"
+            android:text="@string/time"
+            android:textColor="@color/colorSky"
+            android:fontFamily="monospace"
+            tools:text="Time"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="@dimen/list_padding_vertical_small"
+            android:background="@drawable/divider"/>
+
+        <TimePicker
+            android:id="@+id/edit_alarm_time_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:numbersInnerTextColor="@color/colorSky"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:timePickerMode="spinner"
+            tools:targetApi="lollipop" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginBottom="@dimen/list_padding_vertical_small"
+            android:text="@string/label"
+            android:fontFamily="monospace"
+            android:textColor="@color/colorSky"
+            tools:text="Label"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="@dimen/list_padding_vertical_small"
+            android:background="@drawable/divider" />
+
+        <EditText
+            android:id="@+id/edit_alarm_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords"
+            android:textColor="@color/colorText"
+            android:background="@drawable/kakao_login_button_background"
+            android:backgroundTint="@color/colorSky"
+            android:padding="8dp"
+            android:fontFamily="serif-monospace"
+            android:hint="@string/add_label_hint"
+            android:layout_marginBottom="@dimen/activity_vertical_margin" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginBottom="@dimen/list_padding_vertical_small"
+            android:text="@string/days"
+            android:fontFamily="monospace"
+            android:textColor="@color/colorSky"
+            tools:text="Days"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="@dimen/list_padding_vertical_small"
+            android:background="@drawable/divider" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:paddingHorizontal="16dp">
+
+            <TextView
+                android:id="@+id/monday"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginBottom="@dimen/list_padding_vertical_small"
+                android:fontFamily="serif-monospace"
+                android:gravity="center"
+                android:text="Monday"
+                android:textSize="16dp"
+                tools:text="Monday" />
+
+            <CheckBox
+                android:id="@+id/cb_mon"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_row="0"
+                android:buttonTint="@color/colorSky"
+                android:layout_gravity="right"
+                android:layout_marginBottom="@dimen/list_padding_vertical_small"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/list_padding_vertical_small"
+                android:fontFamily="serif-monospace"
+                android:textSize="16dp"
+                android:text="@string/tuesday"
+                tools:text="Tuesday" />
+
+            <CheckBox
+                android:id="@+id/cb_tues"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:buttonTint="@color/colorSky"
+                android:layout_marginBottom="@dimen/list_padding_vertical_small" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/list_padding_vertical_small"
+                android:fontFamily="serif-monospace"
+                android:textSize="16dp"
+                android:text="@string/wednesday"
+                tools:text="Wednesday" />
+
+            <CheckBox
+                android:id="@+id/cb_wed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:buttonTint="@color/colorSky"
+                android:layout_marginBottom="@dimen/list_padding_vertical_small" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/list_padding_vertical_small"
+                android:fontFamily="serif-monospace"
+                android:textSize="16dp"
+                android:text="@string/thursday"
+                tools:text="Thursday" />
+
+            <CheckBox
+                android:id="@+id/cb_thurs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:buttonTint="@color/colorSky"
+                android:layout_marginBottom="@dimen/list_padding_vertical_small" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/list_padding_vertical_small"
+                android:fontFamily="serif-monospace"
+                android:text="@string/friday"
+                android:textSize="16dp"
+                tools:text="Friday" />
+
+            <CheckBox
+                android:id="@+id/cb_fri"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:buttonTint="@color/colorSky"
+                android:layout_marginBottom="@dimen/list_padding_vertical_small" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/list_padding_vertical_small"
+                android:text="@string/saturday"
+                android:fontFamily="serif-monospace"
+                android:textSize="16dp"
+                tools:text="Saturday" />
+
+            <CheckBox
+                android:id="@+id/cb_sat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:buttonTint="@color/colorSky"
+                android:layout_marginBottom="@dimen/list_padding_vertical_small" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/list_padding_vertical_small"
+                android:text="@string/sunday"
+                android:fontFamily="serif-monospace"
+                android:textSize="16dp"
+                tools:text="Sunday" />
+
+            <CheckBox
+                android:id="@+id/cb_sun"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:buttonTint="@color/colorSky"
+                android:layout_marginBottom="@dimen/list_padding_vertical_small"/>
+
+            <Button
+                android:id="@+id/alarmBtn"
+                android:elevation="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_gravity="center"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:text=" save "
+                android:textColor="@color/colorText"
+                android:fontFamily="monospace"
+                android:backgroundTint="@color/colorSky"
+                android:drawableLeft="@android:drawable/ic_lock_idle_alarm"
+                android:drawableTint="@color/colorText"
+                android:drawableRight="@android:drawable/ic_lock_idle_alarm"
+                android:onClick="save"/>
+            <Button
+                android:id="@+id/deleteBtn"
+                android:elevation="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_gravity="right"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:text=" delete "
+                android:textColor="@color/colorText"
+                android:fontFamily="monospace"
+                android:backgroundTint="#9098A1"
+                android:drawableLeft="@android:drawable/ic_delete"
+                android:drawableTint="@color/colorText"
+                android:drawableRight="@android:drawable/ic_delete"
+                android:onClick="deleteAlarm"/>
+        </GridLayout>
+
+    </LinearLayout>
+
+</ScrollView>

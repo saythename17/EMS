@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:paddingVertical="6dp"
+    android:paddingHorizontal="16dp">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profileIV"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/kakao_editable_profile"
+        android:layout_alignParentLeft="true"
+        android:clickable="true"/>
+    <TextView
+        android:id="@+id/myTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="250dp"
+        android:text="Hello"
+        android:padding="8dp"
+        android:fontFamily="monospace"
+        android:layout_toRightOf="@id/profileIV"
+        android:background="@drawable/q"
+        android:layout_marginLeft="16dp"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/myTV"
+        android:layout_alignBottom="@id/myTV"
+        android:src="@drawable/ic_q_msg"
+        android:layout_marginRight="-25dp"/>
+</RelativeLayout>

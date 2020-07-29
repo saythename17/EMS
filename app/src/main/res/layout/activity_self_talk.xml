@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorDarkGray"
+    android:orientation="vertical"
+    tools:context=".SelfTalkActivity">
+
+    <ListView
+        android:id="@+id/selfTalk_listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:divider="#0000"
+        android:dividerHeight="0dp"/>
+
+
+    <TextView
+        android:id="@+id/selfTalk_complete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:paddingRight="12dp"
+        android:textColor="@color/color_text"
+        android:textSize="16dp"
+        android:fontFamily="@font/hand"
+        android:textStyle="bold"
+        android:text="→ Next Question"
+        android:clickable="true"
+        android:onClick="complete"/>
+
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_autorenew"
+            android:padding="6dp"
+            android:clickable="true"
+            android:onClick="rewind"/>
+        <EditText
+            android:id="@+id/et_msg"
+            android:inputType="textMultiLine"
+            android:layout_width="wrap_content"
+            android:hint="Text"
+            android:textColorHint="#B57E868F"
+            android:layout_weight="1"
+            android:maxLines="3"
+            android:textColor="@color/colorText"
+            android:fontFamily="monospace"
+            android:background="@drawable/menu_write_outline"
+            android:layout_height="wrap_content"
+            android:paddingVertical="8dp"
+            android:paddingHorizontal="16dp"/>
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_send"
+            android:padding="6dp"
+            android:clickable="true"
+            android:onClick="send"/>
+
+    </LinearLayout>
+
+</LinearLayout>

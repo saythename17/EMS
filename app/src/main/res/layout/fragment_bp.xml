@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:wave="http://schemas.android.com/tools">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0000"
+        android:gravity="center"
+        app:elevation="0dp">
+        <Spinner
+            android:id="@+id/spinnerBP"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginLeft="32dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlways"
+            android:theme="@style/MySpinner"
+            android:spinnerMode="dialog"/>
+        <TextView
+            android:id="@+id/noBP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="You haven't created a plan yet."
+            android:fontFamily="@font/spartwell"
+            android:textColor="@color/colorText"
+            android:visibility="gone"
+            android:textSize="30dp"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollViewBP"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:layout_marginBottom="40dp">
+
+<!--            <me.itangqi.waveloadingview.WaveLoadingView-->
+<!--                android:id="@+id/waveLoadingView"-->
+<!--                android:layout_width="80dp"-->
+<!--                android:layout_height="80dp"-->
+<!--                app:wlv_progressValue="100"-->
+<!--                app:wlv_shapeType="circle"-->
+<!--                app:wlv_borderColor="#9BFFFFFF"-->
+<!--                app:wlv_borderWidth="3dp"-->
+<!--                app:wlv_round_rectangle="true"-->
+<!--                app:wlv_triangle_direction="north"-->
+<!--                app:wlv_titleCenter="100%"-->
+<!--                app:wlv_titleCenterColor="@color/colorText"-->
+<!--                app:wlv_titleCenterSize="16sp"-->
+<!--                app:wlv_waveAmplitude="70"-->
+<!--                app:wlv_waveColor="@color/colorAccent"/>-->
+
+
+            <TextView
+                android:id="@+id/title_reason"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/colorAccent"
+                android:fontFamily="monospace"
+                android:text="Reason To Pursue"/>
+            <TextView
+                android:id="@+id/reason"
+                android:layout_below="@id/title_reason"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:fontFamily="serif-monospace"
+                android:textColor="@color/colorText"
+                android:textSize="16dp"
+                android:gravity="center"/>
+
+
+            <TextView
+                android:id="@+id/tv_ideal"
+                android:layout_below="@id/reason"
+                android:layout_marginTop="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/colorAccent"
+                android:fontFamily="monospace"
+                android:text="Ideal"/>
+            <com.dinuscxj.progressbar.CircleProgressBar
+                android:id="@+id/cpb_ideal"
+                android:layout_below="@id/tv_ideal"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:progress_text_size="18sp"
+                app:progress_text_color="#DE8E2FDC"
+                app:style="solid_line"
+                app:progress_stroke_width="10dp "
+                app:progress_stroke_cap="round"
+                app:progress_start_color="@color/colorAccent"
+                app:progress_end_color="#213CCC"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.core.widget.NestedScrollView
+                android:layout_toRightOf="@id/cpb_ideal"
+                android:layout_below="@id/tv_ideal"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:scrollbarThumbVertical="@drawable/ic_arrow"
+                android:scrollbarFadeDuration="0"
+                android:scrollbarSize="40dp"
+                android:scrollbars="vertical">
+                <TextView
+                    android:id="@+id/ideal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="8dp"
+                    android:paddingLeft="16dp"
+                    android:layout_toRightOf="@id/cpb_ideal"
+                    android:fontFamily="serif-monospace"
+                    android:textColor="@color/colorText"
+                    android:textSize="16dp"
+                    android:gravity="start"/>
+            </androidx.core.widget.NestedScrollView>
+
+
+            <TextView
+                android:id="@+id/tv_reality"
+                android:layout_below="@id/cpb_ideal"
+                android:layout_marginTop="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/colorAccent"
+                android:fontFamily="monospace"
+                android:text="Reality"/>
+<!--            <com.dinuscxj.progressbar.CircleProgressBar-->
+<!--                android:id="@+id/cpb_reality"-->
+<!--                android:layout_below="@id/tv_reality"-->
+<!--                android:layout_width="80dp"-->
+<!--                android:layout_height="80dp"-->
+<!--                app:progress_text_size="18sp"-->
+<!--                app:progress_text_color="#DE8E2FDC"-->
+<!--                app:style="solid_line"-->
+<!--                app:progress_stroke_width="10dp "-->
+<!--                app:progress_stroke_cap="round"-->
+<!--                app:progress_start_color="@color/colorAccent"-->
+<!--                app:progress_end_color="#213CCC" />-->
+            <me.itangqi.waveloadingview.WaveLoadingView
+                android:id="@+id/wave_reality"
+                android:layout_below="@id/tv_reality"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:wlv_progressValue="50"
+                app:wlv_borderColor="#3F51B5"
+                app:wlv_borderWidth="3dp"
+                app:wlv_shapeType="circle"
+                app:wlv_round_rectangle="true"
+                app:wlv_triangle_direction="north"
+                app:wlv_titleCenter="50%"
+                app:wlv_titleCenterColor="#2E44BF"
+                app:wlv_titleCenterSize="18sp"
+                app:wlv_waveAmplitude="70"
+                app:wlv_waveColor="@color/colorAccent"/>
+            <androidx.core.widget.NestedScrollView
+                android:layout_toRightOf="@id/wave_reality"
+                android:layout_below="@id/tv_reality"
+                android:layout_width="match_parent"
+                android:scrollbarThumbVertical="@drawable/ic_arrow"
+                android:scrollbarStyle="outsideInset"
+                android:scrollbarFadeDuration="0"
+                android:scrollbars="vertical"
+                android:layout_height="80dp">
+                <TextView
+                    android:id="@+id/reality"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="8dp"
+                    android:paddingLeft="16dp"
+                    android:fontFamily="serif-monospace"
+                    android:textColor="@color/colorText"
+                    android:textSize="16dp"
+                    android:gravity="start"/>
+            </androidx.core.widget.NestedScrollView>
+
+
+
+            <LinearLayout
+                android:id="@+id/goal_dl"
+                android:layout_below="@id/wave_reality"
+                android:layout_marginTop="40dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/table_bp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorText"
+                    android:paddingVertical="1dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.2"
+                        android:background="@color/colorPrimary"
+                        android:fontFamily="@font/hand"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="GOAL"
+                        android:textColor="@color/colorText"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/goal"
+                        android:layout_width="0dp"
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:paddingRight="16dp"
+                        android:fontFamily="serif-monospace"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="16dp"
+                        android:background="@color/colorPrimary"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorText"
+                    android:clickable="true"
+                    android:orientation="horizontal"
+                    android:onClick="selectDeadLine">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1.5"
+                        android:layout_height="match_parent"
+                        android:text="Dead line"
+                        android:textColor="@color/colorText"
+                        android:gravity="center"
+                        android:textSize="16dp"
+                        android:fontFamily="@font/hand"
+                        android:textStyle="bold"
+                        android:background="@color/colorPrimary"
+                        android:padding="8dp"/>
+                    <TextView
+                        android:id="@+id/deadline"
+                        android:layout_width="0dp"
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:textSize="16dp"
+                        android:paddingRight="16dp"
+                        android:textColor="@color/colorAccent"
+                        android:gravity="center"
+                        android:background="@color/colorPrimary"
+                        android:fontFamily="serif-monospace"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/table"
+                android:layout_below="@id/goal_dl"
+                android:layout_marginBottom="40dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_below="@id/table"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="16dp"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/editBP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_edit"
+                    android:clickable="true"
+                    android:layout_marginRight="8dp"/>
+                <ImageView
+                    android:id="@+id/deleteBP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:src="@drawable/ic_delete"/>
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

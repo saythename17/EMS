@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".WriteEDActivity">
+    <ImageView
+        android:id="@+id/fwed_back"
+        android:src="@drawable/ic_back_white"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:clickable="true"
+        android:onClick="back"/>
+    <ImageView
+        android:id="@+id/fwed_guide"
+        android:src="@drawable/ic_key_white"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginRight="8dp"
+        android:layout_toLeftOf="@id/fwed_complete"
+        android:autofillHints="Show Guide"
+        android:clickable="true"
+        android:onClick="guide"/>
+    <ImageView
+        android:id="@+id/fwed_complete"
+        android:layout_marginRight="12dp"
+        android:src="@drawable/ic_check_white"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentRight="true"
+        android:clickable="true"
+        android:onClick="complete"/>
+    <ScrollView
+        android:layout_below="@id/fwed_back"
+        android:layout_marginTop="-8dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/edQ1"
+                android:layout_marginHorizontal="32dp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Situation(What Happened)"
+                android:fontFamily="serif-monospace"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#FFF"/>
+            <TextView
+                android:id="@+id/o"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edQ1"
+                android:layout_centerHorizontal="true"
+                android:text="●"
+                android:textSize="4sp"
+                android:textColor="#FFF"/>
+            <EditText
+                android:id="@+id/wedSituation"
+                android:layout_below="@id/o"
+                android:layout_marginTop="8dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:background="@drawable/et_ed_bg"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:fontFamily="serif-monospace"
+                android:hint="Please describe the fact exactly."
+                android:gravity="top"
+                android:padding="8dp"/>
+
+
+
+            <TextView
+            android:id="@+id/edQ2"
+            android:layout_below="@id/wedSituation"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Thought\n(The reason for feeling)"
+            android:fontFamily="serif-monospace"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#FFF"/>
+            <TextView
+                android:id="@+id/o2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edQ2"
+                android:layout_centerHorizontal="true"
+                android:text="●"
+                android:textSize="4sp"
+                android:textColor="#FFF"/>
+            <EditText
+                android:id="@+id/wedThought"
+                android:layout_below="@id/o2"
+                android:layout_marginTop="8dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:background="@drawable/et_ed_bg"
+                android:textSize="16dp"
+                android:fontFamily="serif-monospace"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:hint="Write down the thoughts you had for the case."
+                android:gravity="top"
+                android:padding="8dp"/>
+
+
+
+
+            <TextView
+                android:id="@+id/edQ3"
+                android:layout_below="@id/wedThought"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Emotion\n(evoked for that thought)"
+                android:fontFamily="serif-monospace"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#FFF"/>
+            <TextView
+                android:id="@+id/o3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edQ3"
+                android:layout_centerHorizontal="true"
+                android:text="●"
+                android:textSize="4sp"
+                android:textColor="#FFF"/>
+
+           <androidx.constraintlayout.widget.ConstraintLayout
+               android:id="@+id/select"
+               android:layout_below="@id/o3"
+               android:layout_width="match_parent"
+               android:paddingVertical="32dp"
+               android:paddingHorizontal="64dp"
+               android:layout_height="480dp">
+               <ImageView
+                   android:id="@+id/love"
+                   android:layout_width="64dp"
+                   android:layout_height="64dp"
+                   android:src="@drawable/e00_love"
+                   app:layout_constraintLeft_toLeftOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   android:clickable="true"
+                   android:onClick="selectEmotion"
+                   android:tag="0"/>
+               <ImageView
+                   android:id="@+id/exiting"
+                   android:layout_width="64dp"
+                   android:layout_height="64dp"
+                   android:src="@drawable/e01_exciting"
+                   app:layout_constraintRight_toRightOf="parent"
+                   app:layout_constraintLeft_toLeftOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   android:clickable="true"
+                   android:onClick="selectEmotion"
+                   android:tag="1"/>
+               <ImageView
+                   android:id="@+id/joy"
+                   android:layout_width="64dp"
+                   android:layout_height="64dp"
+                   android:src="@drawable/e02_joy"
+                   app:layout_constraintRight_toRightOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   android:clickable="true"
+                   android:onClick="selectEmotion"
+                   android:tag="2"/>
+
+
+
+
+               <ImageView
+                   android:id="@+id/bored"
+                   android:layout_width="64dp"
+                   android:layout_height="64dp"
+                   android:src="@drawable/e03_bored"
+                   app:layout_constraintLeft_toLeftOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   android:clickable="true"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintVertical_bias="0.25"
+                   android:onClick="selectEmotion"
+                   android:tag="3"/>
+               <ImageView
+                   android:id="@+id/smile"
+                   android:layout_width="64dp"
+                   android:layout_height="64dp"
+                   android:src="@drawable/e04_smile"
+                   app:layout_constraintRight_toRightOf="parent"
+                   app:layout_constraintLeft_toLeftOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintVertical_bias="0.25"
+                   android:clickable="true"
+                   android:onClick="selectEmotion"
+                   android:tag="4"/>
+               <ImageView
+                   android:id="@+id/confused"
+                   android:layout_width="64dp"
+                   android:layout_height="64dp"
+                   android:src="@drawable/e05_confused"
+                   app:layout_constraintRight_toRightOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintVertical_bias="0.25"
+                   android:clickable="true"
+                   android:onClick="selectEmotion"
+                   android:tag="5"/>
+
+
+
+               <ImageView
+                   android:id="@+id/angry"
+                   android:layout_width="64dp"
+                   android:layout_height="64dp"
+                   android:src="@drawable/e06_angry"
+                   app:layout_constraintLeft_toLeftOf="parent"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   android:clickable="true"
+                   android:onClick="selectEmotion"
+                   android:tag="6"/>
+               <ImageView
+                   android:id="@+id/sad"
+                   android:layout_width="64dp"
+                   android:layout_height="64dp"
+                   android:src="@drawable/e07_sad"
+                   app:layout_constraintRight_toRightOf="parent"
+                   app:layout_constraintLeft_toLeftOf="parent"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   android:clickable="true"
+                   android:onClick="selectEmotion"
+                   android:tag="7"/>
+               <ImageView
+                   android:id="@+id/embarrassed"
+                   android:layout_width="64dp"
+                   android:layout_height="64dp"
+                   android:src="@drawable/e08_embarrassed"
+                   app:layout_constraintRight_toRightOf="parent"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   android:clickable="true"
+                   android:onClick="selectEmotion"
+                   android:tag="8"/>
+
+
+
+               <ImageView
+                   android:id="@+id/disappointed"
+                   android:layout_width="64dp"
+                   android:layout_height="64dp"
+                   android:src="@drawable/e09_disappointed"
+                   app:layout_constraintLeft_toLeftOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   android:clickable="true"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintVertical_bias="0.75"
+                   android:onClick="selectEmotion"
+                   android:tag="9"/>
+               <ImageView
+                   android:id="@+id/sardonic"
+                   android:layout_width="64dp"
+                   android:layout_height="64dp"
+                   android:src="@drawable/e10_sardonic"
+                   app:layout_constraintRight_toRightOf="parent"
+                   app:layout_constraintLeft_toLeftOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintVertical_bias="0.75"
+                   android:clickable="true"
+                   android:onClick="selectEmotion"
+                   android:tag="10"/>
+               <ImageView
+                   android:id="@+id/cloudy"
+                   android:layout_width="64dp"
+                   android:layout_height="64dp"
+                   android:src="@drawable/e11_cloudy"
+                   app:layout_constraintRight_toRightOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintVertical_bias="0.75"
+                   android:clickable="true"
+                   android:onClick="selectEmotion"
+                   android:tag="11"/>
+
+
+
+
+
+               <ImageView
+                   android:id="@+id/disgusting"
+                   android:layout_width="64dp"
+                   android:layout_height="64dp"
+                   android:src="@drawable/e12_vomited"
+                   android:clickable="true"
+                   android:onClick="selectEmotion"
+                   app:layout_constraintLeft_toLeftOf="parent"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   android:tag="12"/>
+               <ImageView
+                   android:id="@+id/surprised"
+                   android:layout_width="64dp"
+                   android:layout_height="64dp"
+                   android:src="@drawable/e13_shock"
+                   android:clickable="true"
+                   android:onClick="selectEmotion"
+                   app:layout_constraintRight_toRightOf="parent"
+                   app:layout_constraintLeft_toLeftOf="parent"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   android:tag="13"/>
+               <ImageView
+                   android:id="@+id/wtf"
+                   android:layout_width="64dp"
+                   android:layout_height="64dp"
+                   android:src="@drawable/e14_wtf"
+                   android:clickable="true"
+                   android:onClick="selectEmotion"
+                   app:layout_constraintRight_toRightOf="parent"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   android:tag="14"/>
+           </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        <TextView
+            android:id="@+id/edQ4"
+            android:layout_below="@id/select"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Action"
+            android:fontFamily="serif-monospace"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#FFF"/>
+        <TextView
+            android:id="@+id/o4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edQ4"
+            android:layout_centerHorizontal="true"
+            android:text="●"
+            android:textSize="4sp"
+            android:textColor="#FFF"/>
+        <EditText
+            android:id="@+id/wedAction"
+            android:layout_below="@id/o4"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:background="@drawable/et_ed_bg"
+            android:textSize="16dp"
+            android:fontFamily="serif-monospace"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:hint="What action do you take in that situation?"
+            android:gravity="top"
+            android:padding="8dp"/>
+
+
+
+
+        <TextView
+            android:id="@+id/edQ5"
+            android:layout_below="@id/wedAction"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Result"
+            android:fontFamily="serif-monospace"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#FFF"/>
+        <TextView
+            android:id="@+id/o5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edQ5"
+            android:layout_centerHorizontal="true"
+            android:text="●"
+            android:textSize="4sp"
+            android:textColor="#FFF"/>
+        <EditText
+            android:id="@+id/wedResult"
+            android:layout_below="@id/o5"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:background="@drawable/et_ed_bg"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:fontFamily="serif-monospace"
+            android:hint="What results did you get in this thoughts and feelings?"
+            android:gravity="top"
+            android:padding="8dp"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

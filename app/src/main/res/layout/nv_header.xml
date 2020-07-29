@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/nv_profile"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:src="@drawable/ic_launcher_foreground"
+        android:background="@color/colorAccent"
+        android:scaleType="centerCrop"
+        android:onClick="changeProfile"/>
+    <LinearLayout
+        android:id="@+id/nameGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/nv_profile"
+        android:layout_centerHorizontal="true"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/nv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:text="User"
+            android:textSize="20sp"
+            android:paddingLeft="16dp"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:drawableRight="@drawable/ic_edit"
+            android:drawableTint="#6333"
+            android:onClick="changeName"/>
+        <EditText
+            android:id="@+id/nv_userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="input name"
+            android:textSize="20sp"
+            android:paddingLeft="8dp"
+            android:gravity="center"
+            android:fontFamily="monospace"
+            android:textColor="@color/colorDarkPurple"
+            android:visibility="gone"/>
+        <ImageView
+            android:id="@+id/nv_userNameSet"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_check_circle_black_24dp"
+            android:visibility="gone"
+            android:clickable="true"/>
+    </LinearLayout>
+
+</RelativeLayout>

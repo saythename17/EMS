@@ -1,6 +1,45 @@
 <resources>
     <string name="app_name">EMS</string>
-    <string name="introED">Introduce of Emotion Diary \n\n It is ....</string>
-    <string name="introOJ">Introduce of Observation Journal \n\n It is....</string>
-    <string name="introBP">Introduce of Bliss Plan \n\n  Bliss means what you feel meaningful. Follow your bliss. \n Make your life meaningful with EMSs Bliss Plan.</string>
+    <string name="introED">Introduce of Emotion Diary \n\n
+        The more you pay attention to yourself, the more effective it is to find ways to control your emotions.\n
+        In order to control your emotions, you must know your feelings first.\n
+        The first step is to know what you are feeling and why you are feeling this way. \n
+        It\'s frightening and embarrassing when you don\'t know what you\'re feeling,\n
+        but knowing what you\'re feeling gives you control and confidence to handle it.</string>
+    <string name="introOJ">Introduce of Observation Journal \n\n Here are some practical guidelines for setting your life goals.\n
+        Writing an observation journal is a journey into your life through questions that look back on your own life and inside.\n
+        It helps to find self-confidence, vision, \nand clarity by having a conversation time with yourself and reflecting on yourself.\n
+        This journal will remain\n the most helpful book\n for self-development than any other book.</string>
+    <string name="introBP">Introduce of Bliss Plan \n\n  Bliss means what you feel meaningful.\n Follow your bliss. \n Make your life meaningful with EMS\'s Bliss Plan.</string>
+    <string-array name="launchText">
+        <item>"If you can concentrate always on the present, you\'ll be a happy man." - Paulo Cuelho</item>
+        <item>"Men are wise in proportion, not to their experience, but to their capacity for experience." - James Boswell</item>
+        <item>"True life is lived when tiny changes occur." - Leo Tolstoy</item>
+    </string-array>
+
+
+    <string name="time">Time</string>
+    <string name="label">Label</string>
+    <string name="days">Days</string>
+    <string name="edit_alarm">Edit Alarm</string>
+    <string name="add_alarm">Add Alarm</string>
+    <string name="add_label_hint">Add a label!</string>
+    <string name="update_complete">Changes Saved</string>
+    <string name="update_failed">Update Failed</string>
+    <string name="delete_complete">Alarm Deleted</string>
+    <string name="delete_failed">Delete Failed</string>
+    <string name="delete_dialog_title">Confirm Delete Alarm</string>
+    <string name="delete_dialog_content">Are you sure you would like to delete this alarm?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+
 </resources>

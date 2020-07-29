@@ -4,16 +4,36 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
+        android:name=".MyApp"
         android:allowBackup="true"
         android:icon="@drawable/emsicon2"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@drawable/emsicon2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".IntroActivity"></activity>
+        <activity android:name=".MyCommentActivity"></activity>
+        <activity android:name=".PrivacyActivity" />
+        <activity android:name=".AlarmActivity" />
+        <activity android:name=".SelfTalkActivity" />
+        <activity android:name=".EDDetailActivity" />
+        <activity android:name=".FeedDetailActivity" />
+        <activity android:name=".OJDetailActivity" />
+        <activity android:name=".WriteBPActivity" />
+        <activity android:name=".WriteOJActivity" />
+        <activity android:name=".WriteEDActivity" />
+        <activity android:name=".LoginActivity">
+
+
+        </activity>
+        <activity android:name=".IntroActivity" />
         <activity
             android:name=".LaunchActivity"
             android:theme="@style/LaunchTheme">
@@ -30,6 +50,34 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="4011368d4d4ad9d7f1630a63de54a7c9" />
+
+        <receiver
+            android:name=".AlarmReciever"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".AlarmSoundService" />
+
+
+        <service
+            android:name=".FCMReceiveService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+<!--        AdMop App ID: ca-app-pub-2102574529234286~1004069335-->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-2102574529234286~1004069335"/>
     </application>
 
 </manifest>
