@@ -273,5 +273,6 @@ public class FeedDetailActivity extends AppCompatActivity {
         AdRequest request=new AdRequest.Builder().build();
         ad.loadAd("ca-app-pub-3940256099942544/5224354917",request);
         //TODO change Id  : ca-app-pub-2102574529234286/4100064012
+        //test ID : ca-app-pub-3940256099942544/5224354917
     }
 }

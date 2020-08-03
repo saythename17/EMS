@@ -373,6 +373,8 @@ public class MainActivity extends AppCompatActivity {
 
 
                         if(edGraph){
+                            TextView tv=findViewById(R.id.noED);
+                            tv.setVisibility(View.GONE);
                             monthGraphSet.setVisibility(View.VISIBLE);
                             monthGraphSet.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -385,7 +387,7 @@ public class MainActivity extends AppCompatActivity {
                                     View dialog=inflater.inflate(R.layout.picker_month_year,null);
                                     NumberPicker monthPicker=dialog.findViewById(R.id.picker_month);
                                     NumberPicker yearPicker=dialog.findViewById(R.id.picker_year);
-                                    monthPicker.setTextColor(Color.WHITE);
+//                                    monthPicker.setTextColor(Color.WHITE);
                                     monthPicker.setMinValue(1); monthPicker.setMaxValue(12);
                                     monthPicker.setValue(cal.get(Calendar.MONTH)+1);
                                     yearPicker.setTextColor(Color.WHITE);
@@ -487,15 +489,15 @@ public class MainActivity extends AppCompatActivity {
                             chart.animateY(2000);
                             chart.setData(barData);
 
-
-
-
-
-
-
-
                             recyclerView.setVisibility(View.GONE);
                         }else {
+                            if(G.edItems.size()<1) {
+                                TextView tv=findViewById(R.id.noED);
+                                tv.setVisibility(View.VISIBLE);
+                            }else{
+                                TextView tv=findViewById(R.id.noED);
+                                tv.setVisibility(View.GONE);
+                            }
                             monthGraphSet.setVisibility(View.GONE);
                             chart.setVisibility(View.GONE);
                             recyclerView.setVisibility(View.VISIBLE);

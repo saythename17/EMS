@@ -30,6 +30,7 @@ import androidx.annotation.Nullable;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.dinuscxj.progressbar.CircleProgressBar;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -91,16 +92,17 @@ public class BP extends Fragment {
             @Override
             public void onResponse(Call<ArrayList<BPItem>> call, Response<ArrayList<BPItem>> response) {
                 items.clear();
-                G.bpItems=response.body();
+                ArrayList<BPItem> allBP=response.body();
                 SharedPreferences preferences=getContext().getSharedPreferences("Data", Context.MODE_PRIVATE);
                 String email=preferences.getString("Email","");
 
                 StringBuffer buffer=new StringBuffer();
                 String[] arr;
                 int i=0;
-                for(BPItem item:G.bpItems){
+                for(BPItem item:allBP){
                     if(email.equals(item.email)){
                         items.add(0,item);
+                        G.bpItems.add(0,item);
 
                         buffer.append(item.bliss+"@#@");
                     }

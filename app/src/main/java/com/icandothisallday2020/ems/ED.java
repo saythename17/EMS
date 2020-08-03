@@ -34,6 +34,13 @@ public class ED extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_ed,container,false);
+        if(G.edItems.size()<1) {
+            TextView tv=view.findViewById(R.id.noED);
+            tv.setVisibility(View.VISIBLE);
+        }else{
+            TextView tv=view.findViewById(R.id.noED);
+            tv.setVisibility(View.GONE);
+        }
         adapter=new EDAdapter(getContext(),items);
         recyclerView=view.findViewById(R.id.recyclerED);
         recyclerView.setAdapter(adapter);
@@ -48,13 +55,14 @@ public class ED extends Fragment {
                 items.clear();
                 adapter.notifyDataSetChanged();
 
-                G.edItems=response.body();
+                ArrayList<EDItem> allED=response.body();
 
                 SharedPreferences preferences=getContext().getSharedPreferences("Data", Context.MODE_PRIVATE);
                 String email=preferences.getString("Email","");
 
-                for(EDItem item:G.edItems){
+                for(EDItem item:allED){
                     if(email.equals(item.email)){
+                        G.edItems.add(0,item);
                         items.add(0,item);
                         adapter.notifyItemInserted(0);
                     }

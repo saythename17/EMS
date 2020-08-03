@@ -64,7 +64,7 @@ public class OJ extends Fragment {
                 items.clear();
                 adapter.notifyDataSetChanged();
 
-                G.ojItems=response.body();
+                ArrayList<OJItem> allOJ=response.body();
 
 
                 SharedPreferences preferences=getContext().getSharedPreferences("Data", Context.MODE_PRIVATE);
@@ -73,8 +73,9 @@ public class OJ extends Fragment {
 
 
 
-                for(OJItem item:G.ojItems){
+                for(OJItem item:allOJ){
                     if(email.equals(item.email)){
+                        G.ojItems.add(0,item);
                         items.add(0,item);
                         adapter.notifyItemInserted(0);
                     }

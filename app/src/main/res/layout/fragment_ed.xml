@@ -3,6 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:id="@+id/noED"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="You haven't write a journal yet."
+        android:fontFamily="@font/spartwell"
+        android:textColor="@color/colorText"
+        android:visibility="gone"
+        android:textSize="30dp"/>
     <Button
         android:id="@+id/monthChange"
         android:layout_width="wrap_content"
