@@ -57,10 +57,6 @@ public class WriteOJActivity extends AppCompatActivity {
 
 
 
-
-
-
-        //TODO  one day , one write oj TODO
         ///////////////////////////////////////////--Alarm Sound Off////////////////
         Intent playIntent=new Intent(this,AlarmSoundService.class);
         playIntent.putExtra("state","off");

@@ -130,7 +130,7 @@ public class BP extends Fragment {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                positionNow=position;
+                positionNow=position-1;
                 reason.setText(G.bpItems.get(position).reason);
                 ideal.setText(G.bpItems.get(position).ideal);
                 reality.setText(G.bpItems.get(position).reality);

@@ -390,7 +390,7 @@ public class MainActivity extends AppCompatActivity {
 //                                    monthPicker.setTextColor(Color.WHITE);
                                     monthPicker.setMinValue(1); monthPicker.setMaxValue(12);
                                     monthPicker.setValue(cal.get(Calendar.MONTH)+1);
-                                    yearPicker.setTextColor(Color.WHITE);
+//                                    yearPicker.setTextColor(Color.WHITE);
                                     yearPicker.setMinValue(2010); yearPicker.setMaxValue(cal.get(Calendar.YEAR));
                                     yearPicker.setValue(cal.get(Calendar.YEAR));
 

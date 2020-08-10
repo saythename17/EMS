@@ -91,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
         AlertDialog.Builder builder=new AlertDialog.Builder(this,android.R.style.Theme_Material_Dialog);
         builder.setTitle("You must agree to the email collection.");//When you log in, you must check the consent of the email collection items.
         builder.setMessage("\nOtherwise, any information you write will not be saved.\n" +
-                "By tapping the login button, you agree to EMS's Privacy Policy.");//"EMS identifies users by email \nand stores the data in the DB.\n"
+                "By tapping the login button, you can agree to EMS's Privacy Policy.");//"EMS identifies users by email \nand stores the data in the DB.\n"
         //└
         builder.setIcon(android.R.drawable.ic_dialog_alert);
         builder.setPositiveButton("Check", new DialogInterface.OnClickListener() {
