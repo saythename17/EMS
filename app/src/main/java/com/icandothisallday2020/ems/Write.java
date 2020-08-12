@@ -46,41 +46,18 @@ public class Write extends Fragment {
             switch (v.getId()){
                 case R.id.writeED:
                     Intent  intent=new Intent(getContext(), WriteEDActivity.class);
-                    startActivityForResult(intent,1);
+                    startActivity(intent);
                     break;
                 case R.id.writeOJ:
-                    //TODO  one day , one write oj TODO
-
-                    for(int i=0; i<G.ojItems.size();i++) {
-                        Calendar now = Calendar.getInstance();
-                        SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
-                        String date = format.format(now.getTime());
-                        OJItem item = G.ojItems.get(i);
-                        if (date.equals(item.year + item.month + item.day)) {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(getContext(), R.style.MyDialog);
-                            builder.setIcon(R.drawable.ic_alert);
-                            builder.setTitle("Do you want to exit?");
-                            builder.setMessage("You have already made today's journal.");
-                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    return;
-                                }
-                            });
-                            AlertDialog alertDialog = builder.create();
-                            alertDialog.show();
-                        } else {
-                            intent=new Intent(getContext(), WriteOJActivity.class);
-                            startActivityForResult(intent,2);
-                            break;
-                        }
+                    Intent intent2=new Intent(getContext(), WriteOJActivity.class);
+                    startActivity(intent2);
+                    break;
 
 
-                    }
 
                 case R.id.writeBP:
-                    intent=new Intent(getContext(), WriteBPActivity.class);
-                    startActivityForResult(intent,3);
+                    Intent intent3=new Intent(getContext(), WriteBPActivity.class);
+                    startActivity(intent3);
                     break;
             }
         }

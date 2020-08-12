@@ -75,9 +75,9 @@ public class OJ extends Fragment {
 
                 for(OJItem item:allOJ){
                     if(email.equals(item.email)){
-                        G.ojItems.add(0,item);
-                        items.add(0,item);
-                        adapter.notifyItemInserted(0);
+                        G.ojItems.add(item);
+                        items.add(item);
+                        adapter.notifyItemInserted(G.ojItems.size()-1);
                     }
                 }
             }

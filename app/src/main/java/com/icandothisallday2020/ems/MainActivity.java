@@ -512,11 +512,15 @@ public class MainActivity extends AppCompatActivity {
                         int month=c.get(Calendar.MONTH);
                         int day=c.get(Calendar.DAY_OF_MONTH);
 
+
+
                         DatePickerDialog datePickerDialog=new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                                 Intent intent=new Intent(MainActivity.this,OJDetailActivity.class);
-                                intent.putExtra("Date",""+year+(month+1)+dayOfMonth);
+                                intent.putExtra("Year",year);
+                                intent.putExtra("Month",month+1);
+                                intent.putExtra("Day",dayOfMonth);
                                 startActivity(intent);
                             }
                         },year,month,day);

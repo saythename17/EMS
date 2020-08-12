@@ -17,21 +17,25 @@
             android:layout_marginLeft="32dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_scrollFlags="scroll|enterAlways"
             android:theme="@style/MySpinner"
+            app:layout_scrollFlags="scroll"
             android:spinnerMode="dialog"/>
+<!--        app:layout_scrollFlags="scroll|enterAlways"-->
         <TextView
             android:id="@+id/noBP"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="You haven't created a plan yet."
+            android:text="~No Plan~"
             android:fontFamily="@font/spartwell"
             android:textColor="@color/colorText"
             android:visibility="gone"
             android:textSize="30dp"/>
-
     </com.google.android.material.appbar.AppBarLayout>
+
+
+
+
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollViewBP"
         android:layout_width="match_parent"
@@ -160,13 +164,13 @@
                 android:layout_below="@id/tv_reality"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                app:wlv_progressValue="50"
+                app:wlv_progressValue="0"
                 app:wlv_borderColor="#3F51B5"
                 app:wlv_borderWidth="3dp"
                 app:wlv_shapeType="circle"
                 app:wlv_round_rectangle="true"
                 app:wlv_triangle_direction="north"
-                app:wlv_titleCenter="50%"
+                app:wlv_titleCenter="?"
                 app:wlv_titleCenterColor="#2E44BF"
                 app:wlv_titleCenterSize="18sp"
                 app:wlv_waveAmplitude="70"

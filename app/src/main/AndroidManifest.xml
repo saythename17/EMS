@@ -26,9 +26,9 @@
         <activity android:name=".EDDetailActivity" />
         <activity android:name=".FeedDetailActivity" />
         <activity android:name=".OJDetailActivity" />
-        <activity android:name=".WriteBPActivity" />
-        <activity android:name=".WriteOJActivity" />
-        <activity android:name=".WriteEDActivity" />
+        <activity android:name=".WriteBPActivity"/>
+        <activity android:name=".WriteOJActivity"/>
+        <activity android:name=".WriteEDActivity"/>
         <activity android:name=".LoginActivity">
 
 

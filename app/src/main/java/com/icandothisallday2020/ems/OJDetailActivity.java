@@ -9,6 +9,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -41,41 +42,47 @@ public class OJDetailActivity extends AppCompatActivity {
 //            return;
 //        }
 
-        date=intent.getStringExtra("Date");
-        Toast.makeText(this, "OJDetailActivity:"+date, Toast.LENGTH_SHORT).show();
+        int year=intent.getIntExtra("Year",0);
+        int month=intent.getIntExtra("Month",0);
+        String m=""+month;
+        if(month<10) m="0"+month;
+        int day=intent.getIntExtra("Day",0);
+        date=""+year+m+day;
+
+        Log.i("date",date);
         for(int i=0;i<G.ojItems.size();i++){
-            String itemDate=(G.ojItems.get(i).year)+(G.ojItems.get(i).month)+(G.ojItems.get(i).day);
-            if(date.equals(itemDate)) position=i;
+            String itemDate=""+(G.ojItems.get(i).year)+(G.ojItems.get(i).month)+(G.ojItems.get(i).day);
+            Log.i("date",itemDate);
+            if(date.equals(itemDate)) {
+                position=i;
+                break;
+            }
+            else position=-1;
         }
 
 
+        if(position==-1){
+            AlertDialog.Builder builder = new AlertDialog.Builder(OJDetailActivity.this, R.style.MyDialog);
+            builder.setIcon(R.drawable.ic_alert);
+            builder.setTitle("There is no record of writing on that date.");
+//                            builder.setMessage("You have already wrote today's journal.");
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                    return;
 
+                }
+            });
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+        }
 
 
         pager=findViewById(R.id.ojPager);
         adapter=new OJDetailAdapter(getLayoutInflater());
         pager.setAdapter(adapter);
         pager.setCurrentItem(position);
-//        pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-//            @Override
-//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//
-//            }
-//
-//            @Override
-//            public void onPageSelected(int position) {
-//
-//            }
-//
-//            @Override
-//            public void onPageScrollStateChanged(int state) {
-//
-//            }
-//        });
-
-
-
-
     }
 
 

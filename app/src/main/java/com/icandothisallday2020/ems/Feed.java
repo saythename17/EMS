@@ -41,7 +41,7 @@ public class Feed extends Fragment {
 
                 G.feedItems=response.body();
                 for(FeedItem item:G.feedItems){
-                    items.add(item);
+                    items.add(0,item);
                     adapter.notifyItemInserted(0);
                 }
 
@@ -61,10 +61,11 @@ public class Feed extends Fragment {
         adapter=new FeedAdapter(getContext(),items);
         recyclerView=view.findViewById(R.id.recyclerFeed);
         recyclerView.setAdapter(adapter);
-        RecyclerView.LayoutManager manager=new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,true);
-        recyclerView.setLayoutManager(manager);
+//        RecyclerView.LayoutManager manager=new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,true);
+//        recyclerView.setLayoutManager(manager);
 
-        recyclerView.scrollToPosition(0);
+        ((LinearLayoutManager)recyclerView.getLayoutManager()).scrollToPositionWithOffset(0,0);
+//        recyclerView.scrollToPosition(0);
 //        recyclerView.scrollToPosition(items.size()-1);// focus on most recent item
 
 

@@ -34,7 +34,7 @@ public class ED extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_ed,container,false);
-        if(G.edItems.size()<1) {
+        if(G.edItems.size()==0) {
             TextView tv=view.findViewById(R.id.noED);
             tv.setVisibility(View.VISIBLE);
         }else{

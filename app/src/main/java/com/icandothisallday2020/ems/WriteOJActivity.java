@@ -47,6 +47,8 @@ public class WriteOJActivity extends AppCompatActivity {
         question =findViewById(R.id.ojQ);
         userET =findViewById(R.id.user_writeOJ);
 
+
+
 //        Intent intent=getIntent();
 //        edit=intent.getStringExtra("id");
 //        int position=intent.getIntExtra("position",-1);
@@ -67,11 +69,40 @@ public class WriteOJActivity extends AppCompatActivity {
             this.startService(playIntent);
         }////////////////////////////////////////////////////////////////////////////
 
+
+
+
+        //TODO  one day , one write oj TODO
+        for(int i=0; i<G.ojItems.size();i++) {
+            Calendar now = Calendar.getInstance();
+            SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+            String date = format.format(now.getTime());
+            OJItem item = G.ojItems.get(i);
+            if (date.equals(item.year + item.month + item.day)) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(WriteOJActivity.this, R.style.MyDialog);
+                builder.setIcon(R.drawable.ic_alert);
+                builder.setTitle("You have already wrote today's journal.");
+//                            builder.setMessage("You have already wrote today's journal.");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                        return;
+
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+                break;
+            }
+        }
+
         String[] questions=getResources().getStringArray(R.array.OJQ);
 //        SharedPreferences preferences=getSharedPreferences("Data",MODE_PRIVATE);
 //        SharedPreferences.Editor editor=preferences.edit();
 //        editor.putInt("OJQ",G.ojItems.size());
-        question.setText(questions[G.ojItems.size()-1]);
+        if(G.ojItems.size()<1) question.setText(questions[0]);
+        else question.setText(questions[G.ojItems.size()-1]);
 
 
         userET.setOnFocusChangeListener(new View.OnFocusChangeListener() {

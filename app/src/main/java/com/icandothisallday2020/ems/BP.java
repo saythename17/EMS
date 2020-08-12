@@ -70,8 +70,20 @@ public class BP extends Fragment {
 //        circleProgressBar2=view.findViewById(R.id.cpb_reality);
         bp=view.findViewById(R.id.table);
         wave=view.findViewById(R.id.wave_reality);
-
         spinner=view.findViewById(R.id.spinnerBP);
+        NestedScrollView scrollView=view.findViewById(R.id.scrollViewBP);
+        if(G.bpItems.size()<1 || !isConnect){
+            scrollView.setVisibility(View.GONE);
+            TextView tv=view.findViewById(R.id.noBP);
+            tv.setVisibility(View.VISIBLE);
+            return  view;
+        }else{
+            scrollView.setVisibility(View.VISIBLE);
+            TextView tv=view.findViewById(R.id.noBP);
+            tv.setVisibility(View.GONE);
+        }
+
+
 
 
 
@@ -205,18 +217,7 @@ public class BP extends Fragment {
         });
 
 
-        if(G.bpItems.size()<1 || !isConnect){
-            NestedScrollView ns=view.findViewById(R.id.scrollViewBP);
-            ns.setVisibility(View.INVISIBLE);
-            TextView tv=view.findViewById(R.id.noBP);
-            tv.setVisibility(View.VISIBLE);
-            return  view;
-        }else{
-            NestedScrollView ns=view.findViewById(R.id.scrollViewBP);
-            ns.setVisibility(View.VISIBLE);
-            TextView tv=view.findViewById(R.id.noBP);
-            tv.setVisibility(View.INVISIBLE);
-        }
+
 
 
         return view;
