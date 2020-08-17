@@ -130,7 +130,7 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         public void onSessionOpenFailed(KakaoException exception) {
-            Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, "Login Failed(Session Open Failed)", Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -140,7 +140,9 @@ public class LoginActivity extends AppCompatActivity {
         UserManagement.getInstance().me(new MeV2ResponseCallback() {
             @Override
             public void onSessionClosed(ErrorResult errorResult) {
-                Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Login Failed(Session Closed)", Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(LoginActivity.this,MainActivity.class);
+                startActivity(intent);
             }
 
             @Override

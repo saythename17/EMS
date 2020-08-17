@@ -7,7 +7,7 @@
         android:id="@+id/profileIV"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:src="@drawable/kakao_editable_profile"
+        android:src="@drawable/e15_want"
         android:layout_alignParentLeft="true"
         android:clickable="true"/>
     <TextView

@@ -92,7 +92,7 @@ public class OJ extends Fragment {
 
 
 
-        if(G.ojItems.size()<1 || !isConnect){
+        if(G.ojItems.size()<1){
             recyclerView.setVisibility(View.INVISIBLE);
             TextView tv=view.findViewById(R.id.noOJ);
             tv.setVisibility(View.VISIBLE);

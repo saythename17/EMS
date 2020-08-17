@@ -72,7 +72,7 @@ public class BP extends Fragment {
         wave=view.findViewById(R.id.wave_reality);
         spinner=view.findViewById(R.id.spinnerBP);
         NestedScrollView scrollView=view.findViewById(R.id.scrollViewBP);
-        if(G.bpItems.size()<1 || !isConnect){
+        if(G.bpItems.size()==0){
             scrollView.setVisibility(View.GONE);
             TextView tv=view.findViewById(R.id.noBP);
             tv.setVisibility(View.VISIBLE);
