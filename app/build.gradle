@@ -52,10 +52,9 @@ dependencies {
     implementation 'com.github.juyao:WaterDropIndicatorDemo:v1.0.2'
 
     //kakao login
-    implementation group: 'com.kakao.sdk', name: 'usermgmt', version: '1.29.0'
+    implementation group: 'com.kakao.sdk', name: 'usermgmt', version: '1.30.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.github.bumptech.glide:glide:4.11.0'
-
 
 
     //chart library
@@ -89,6 +88,6 @@ dependencies {
     implementation 'me.itangqi.waveloadingview:library:0.3.5'
 
     implementation 'com.google.android.gms:play-services-ads:19.3.0'//AdMob
-    compile 'com.android.support:multidex:1.0.3'
+    implementation 'com.android.support:multidex:1.0.3'
 
 }

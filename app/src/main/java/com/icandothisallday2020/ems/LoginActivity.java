@@ -33,6 +33,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.kakao.auth.ISessionCallback;
+import com.kakao.auth.KakaoSDK;
 import com.kakao.auth.Session;
 import com.kakao.network.ErrorResult;
 import com.kakao.usermgmt.UserManagement;
@@ -59,6 +60,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        //getHashKey();
+        //HashKey : tKP97nIPdT4ZB4wpFsO8rTme9kI=
 
         signInButton = findViewById(R.id.signInButton);
         signInButton.setOnClickListener(new View.OnClickListener() {
@@ -131,6 +134,7 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         public void onSessionOpenFailed(KakaoException exception) {
             Toast.makeText(LoginActivity.this, "Login Failed(Session Open Failed)", Toast.LENGTH_SHORT).show();
+            Log.i("session",exception.getMessage());
         }
     };
 
@@ -251,6 +255,22 @@ public class LoginActivity extends AppCompatActivity {
             } catch (ApiException e) {
             }
         }
+
+        // EMS Login
+        if(requestCode==117){
+            Log.i("result",""+resultCode);
+            SharedPreferences preferences=getSharedPreferences("Data",MODE_PRIVATE);
+
+            //TODO check sing in
+            //TODO save the userData to sharedPreferences
+            SharedPreferences.Editor editor=preferences.edit();
+            editor.putBoolean("Login",true);
+            editor.putString("Name",data.getDataString());
+            editor.putString("Email",data.getDataString());
+            editor.putString("ProfileUrl", "https://cdn.icon-icons.com/icons2/2442/PNG/512/favorite_profile_user_icon_148627.png");//default profile image
+            editor.commit();
+
+        }
     }
 
     private void firebaseAuthWithGoogle(String idToken) {
@@ -286,6 +306,14 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    public void emsLogin(View view) {
+        Intent intent=new Intent(this,LoginEMSActivity.class);
+        startActivityForResult(intent,117);
+    }
+
+
+
+
 
 //    public static String getKeyHash(final Context context) {
 //        PackageInfo packageInfo = getPackageInfo(context, PackageManager.GET_SIGNATURES);
@@ -303,5 +331,10 @@ public class LoginActivity extends AppCompatActivity {
 //        }
 //        return null;
 //    }
+
 }
+
+
+
+
 

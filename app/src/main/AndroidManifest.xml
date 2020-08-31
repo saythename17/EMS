@@ -19,20 +19,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MyCommentActivity"></activity>
+        <activity android:name=".LoginEMSActivity"></activity>
+        <activity android:name=".MyCommentActivity" />
         <activity android:name=".PrivacyActivity" />
         <activity android:name=".AlarmActivity" />
         <activity android:name=".SelfTalkActivity" />
         <activity android:name=".EDDetailActivity" />
         <activity android:name=".FeedDetailActivity" />
         <activity android:name=".OJDetailActivity" />
-        <activity android:name=".WriteBPActivity"/>
-        <activity android:name=".WriteOJActivity"/>
-        <activity android:name=".WriteEDActivity"/>
-        <activity android:name=".LoginActivity">
-
-
-        </activity>
+        <activity android:name=".WriteBPActivity" />
+        <activity android:name=".WriteOJActivity" />
+        <activity android:name=".WriteEDActivity" />
+        <activity android:name=".LoginActivity"></activity>
         <activity android:name=".IntroActivity" />
         <activity
             android:name=".LaunchActivity"
@@ -43,7 +41,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
@@ -58,20 +56,16 @@
         </receiver>
 
         <service android:name=".AlarmSoundService" />
-
-
         <service
             android:name=".FCMReceiveService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
-        </service>
-
-<!--        AdMop App ID: ca-app-pub-2102574529234286~1004069335-->
+        </service> <!-- AdMop App ID: ca-app-pub-2102574529234286~1004069335 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-2102574529234286~1004069335"/>
+            android:value="ca-app-pub-2102574529234286~1004069335" />
     </application>
 
 </manifest>
