@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         //getHashKey();
-        //HashKey : tKP97nIPdT4ZB4wpFsO8rTme9kI=
+        //debug HashKey : tKP97nIPdT4ZB4wpFsO8rTme9kI=
 
         signInButton = findViewById(R.id.signInButton);
         signInButton.setOnClickListener(new View.OnClickListener() {
@@ -255,22 +255,6 @@ public class LoginActivity extends AppCompatActivity {
             } catch (ApiException e) {
             }
         }
-
-        // EMS Login
-        if(requestCode==117){
-            Log.i("result",""+resultCode);
-            SharedPreferences preferences=getSharedPreferences("Data",MODE_PRIVATE);
-
-            //TODO check sing in
-            //TODO save the userData to sharedPreferences
-            SharedPreferences.Editor editor=preferences.edit();
-            editor.putBoolean("Login",true);
-            editor.putString("Name",data.getDataString());
-            editor.putString("Email",data.getDataString());
-            editor.putString("ProfileUrl", "https://cdn.icon-icons.com/icons2/2442/PNG/512/favorite_profile_user_icon_148627.png");//default profile image
-            editor.commit();
-
-        }
     }
 
     private void firebaseAuthWithGoogle(String idToken) {
@@ -308,7 +292,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void emsLogin(View view) {
         Intent intent=new Intent(this,LoginEMSActivity.class);
-        startActivityForResult(intent,117);
+        startActivity(intent);
     }
 
 

@@ -6,23 +6,29 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     tools:context=".LoginEMSActivity">
-    <ImageView
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_width="1000dp"
-        android:layout_height="1000dp"
-        android:foregroundGravity="center"
-        android:background="@drawable/blue_purple_bg"
-        android:src="@drawable/emsicon2"/>
+        android:text="E-Motion Signal"
+        android:drawableTop="@drawable/ic_ems_phone"
+        android:gravity="center"
+        android:textColor="#D96EFC"
+        android:textSize="40dp"
+        android:fontFamily="serif-monospace"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.1"/>
+
     <com.google.android.material.textfield.TextInputLayout
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintVertical_bias="0.4"
         android:id="@+id/layout_name"
         android:layout_margin="32dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Name"
-        android:textColorHint="@color/colorGray"
+        android:textColorHint="@color/graphED5"
         app:boxBackgroundColor="@color/colorAccent">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -34,13 +40,13 @@
     <com.google.android.material.textfield.TextInputLayout
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.45"
+        app:layout_constraintVertical_bias="0.55"
         android:id="@+id/layout_email"
         android:layout_margin="32dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
-        android:textColorHint="@color/colorGray"
+        android:textColorHint="@color/graphED5"
         app:boxBackgroundColor="@color/colorAccent">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -52,13 +58,13 @@
     <com.google.android.material.textfield.TextInputLayout
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.6"
+        app:layout_constraintVertical_bias="0.7"
         android:id="@+id/layout_et_pw"
         android:layout_margin="32dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
-        android:textColorHint="@color/colorGray"
+        android:textColorHint="@color/graphED5"
         app:boxBackgroundColor="@color/colorAccent">
 <!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
         <com.google.android.material.textfield.TextInputEditText
@@ -70,16 +76,15 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:backgroundTint="@color/colorAccent"
-        android:layout_marginHorizontal="16dp"
-        android:paddingVertical="8dp"
+        android:backgroundTint="#B541E7"
+        android:layout_marginHorizontal="24dp"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="Login"
         android:textSize="16dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.95"
+        app:layout_constraintVertical_bias="0.9"
         android:onClick="emsLogin"
         app:layout_constraintCircleRadius="16dp"/>
 
